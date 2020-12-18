@@ -1,0 +1,18 @@
+This script has 3 main sections:
+1) Takes video input from a Basler camera, which needs to be previously configured using the Pylon software.
+   It then buffers and averages the video, and saves each frame as individual tiffs,
+   in the folder specified in Saving Dir. Additionally, a mean of the FOV is computed and saved. 
+   Furthermore, time-stamps of the raw and buffered video are saved for controls.
+
+2) Takes 2 analog inputs via a USB NI-DAQ, and saves them: 
+   a) PhotoDiode 
+   b) Frame clock from the Basler camera (called Exp.Active)
+   In addition, it uses the PhotoDiode signal to make a live count of stimuli, useful during the experiment
+
+3) Generates the visual stimulus. The generation of the stim is done in the node: "GratingStim". 
+   For more info on how it is generated, refer to the documentation on the bonVision website: 
+   https://bonvision.github.io/pages/001_info/
+   Importantly, the randomization of the stimulus position is not done within bonsai.
+   Instead, a random sequence of the x and y positions fo the stimulus is generated externally 
+   (I use Matlab), stored in a csv, and then read in at the beginning of the stimulation.
+   X and Y positions are also saved again by Bonsai in this section.
