@@ -112,7 +112,7 @@
         <Combinator xsi:type="gl:CreateVector3">
           <gl:X>0</gl:X>
           <gl:Y>0</gl:Y>
-          <gl:Z>-5.645</gl:Z>
+          <gl:Z>-5.44</gl:Z>
         </Combinator>
       </Expression>
       <Expression xsi:type="PropertyMapping">
@@ -130,7 +130,7 @@
         <Eye>
           <X>0</X>
           <Y>0</Y>
-          <Z>-5.645</Z>
+          <Z>-5.44</Z>
         </Eye>
         <Target>
           <X>-0</X>
