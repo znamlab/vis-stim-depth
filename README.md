@@ -5,4 +5,5 @@ Codes for visual stimulation for depth mapping
                    Problems: 1) front spheres block back ones (set transparency??)
                              2) get rid of the middle sphere
                              3) XY to elevation/azimuth
-                             4) simplify & tidy up the workflow
+                             4) same angular size for all depth!!
+                             5) simplify & tidy up the workflow
