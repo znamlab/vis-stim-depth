@@ -63,7 +63,7 @@ if generate_ambient_values
     FRAMERATE = 100; %Hz
     N_objects = tsl.x.n * tsl.y.n * tsl.z.n ; %num of objects displayed
     INITIAL_DELAY = randi([1 5],1,N_objects); %s
-    XLvalue = 2000; %a very large value for total matrix storage 
+    XLvalue = 1000; %a very large value for total matrix storage 
 
     ambient.START = 0.664; %for background in DARKGREY
     ambient.END = 1;
@@ -97,7 +97,7 @@ if generate_ambient_values
     end
 
     % Save to csv
-    ambient.M = ambient.M';  % each trial (displaying all spheres) is a row, each column is a time series of changing ambience of one sphere
+    %ambient.M = ambient.M';  % each trial (displaying all spheres) is a row, each column is a time series of changing ambience of one sphere
     ambient.T = array2table(ambient.M);
     writetable(ambient.T,[root,ambient.filename,'.csv'],'WriteVariableNames',0);
 
