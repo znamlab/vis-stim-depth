@@ -20,7 +20,7 @@ if generate_ambient_values
     % Set values 
     FRAMERATE = 144; %Hz
     
-    ambient.START = 0.664; %for background in DARKGREY
+    ambient.START = 0.5; %for background in DARKGREY
     ambient.END = 1;
     ambient.SUSTAIN = 1;
 
