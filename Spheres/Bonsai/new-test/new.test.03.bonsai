@@ -6,7 +6,6 @@
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
-                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -87,27 +86,22 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderFrame" />
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="SubscribeSubject">
-          <Name>MouseZ</Name>
-        </Builder>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>MouseZ</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="scr:ExpressionTransform">
-          <scr:Expression>new(
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Name>Rename1</scr:Name>
+        <scr:Expression>new(
 0 as X,
 0 as Y,
 it as EyeZ,
 it+1 as TargetZ)</scr:Expression>
-        </Builder>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="Eye" Selector="X,Y,EyeZ" />
-            <Property Name="Target" Selector="X,Y,TargetZ" />
-          </PropertyMappings>
-        </Builder>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="Eye" Selector="X,Y,EyeZ" />
+          <Property Name="Target" Selector="X,Y,TargetZ" />
+        </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.PerspectiveView.bonsai">
         <Light>
@@ -119,12 +113,12 @@ it+1 as TargetZ)</scr:Expression>
         <Eye>
           <X>0</X>
           <Y>0</Y>
-          <Z>-3</Z>
+          <Z>1.515</Z>
         </Eye>
         <Target>
           <X>0</X>
           <Y>0</Y>
-          <Z>7</Z>
+          <Z>2.515</Z>
         </Target>
         <Up>
           <X>0</X>
@@ -137,77 +131,49 @@ it+1 as TargetZ)</scr:Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Draw</Name>
       </Expression>
-      <Expression xsi:type="io:CsvReader">
-        <io:FileName>E:\vis-stim\vis-stim-depth\Spheres\Files_inputs\TranslationY_multi_deg.csv</io:FileName>
-        <io:ScanPattern>%f</io:ScanPattern>
-        <io:SkipRows>0</io:SkipRows>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="num:DegreeToRadian" />
-      </Expression>
-      <Expression xsi:type="io:CsvReader">
-        <io:FileName>E:\vis-stim\vis-stim-depth\Spheres\Files_inputs\TranslationZ_multi_radius.csv</io:FileName>
-        <io:ScanPattern>%f</io:ScanPattern>
-        <io:SkipRows>0</io:SkipRows>
-      </Expression>
-      <Expression xsi:type="io:CsvReader">
-        <io:FileName>E:\vis-stim\vis-stim-depth\Spheres\Files_inputs\TranslationX_multi_deg.csv</io:FileName>
-        <io:ScanPattern>%f</io:ScanPattern>
-        <io:SkipRows>0</io:SkipRows>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="num:DegreeToRadian" />
-      </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>MouseZ</Name>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-          <RangeMin>10000000</RangeMin>
-          <RangeMax>50000000</RangeMax>
-          <Count>5</Count>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="num:VariationWithRepetition">
-            <num:Count>1</num:Count>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:Timer">
-            <gl:DueTime>PT1S</gl:DueTime>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Zip" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Item1</Selector>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Repeat" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="Period" />
-          </PropertyMappings>
-        </Builder>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:Timer">
           <gl:DueTime>PT0S</gl:DueTime>
-          <gl:Period>PT1S</gl:Period>
+          <gl:Period>PT0.5S</gl:Period>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+        <RangeMin>-45</RangeMin>
+        <RangeMax>45</RangeMax>
+        <Count>10</Count>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="num:DegreeToRadian" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="num:Variation">
+          <num:Count>1</num:Count>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+        <RangeMin>45</RangeMin>
+        <RangeMax>135</RangeMax>
+        <Count>10</Count>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="num:DegreeToRadian" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="num:Variation">
+          <num:Count>1</num:Count>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+        <RangeMin>5</RangeMin>
+        <RangeMax>3</RangeMax>
+        <Count>3</Count>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="num:Variation">
+          <num:Count>1</num:Count>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -249,28 +215,42 @@ it+1 as TargetZ)</scr:Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>Zradius</Name>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>MouseZSamp</Name>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
+        <Combinator xsi:type="rx:WithLatestFrom" />
       </Expression>
       <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Name>Rename2</scr:Name>
         <scr:Expression>new(
-It.Item1 as Azimuth,
-It.Item2 as Elevation,
-It.Item3 as Radius,
-It.Item4 as MouseZSamp
+Item1.Item1 as Azimuth,
+Item1.Item2 as Elevation,
+Item1.Item3 as Radius,
+Item2 as MouseZSamp
 )</scr:Expression>
       </Expression>
       <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Name>SphericalTransform</scr:Name>
         <scr:Expression>new(
-it.Radius*Math.Cos(it.Azimuth)*Math.Sin(Math.PI/2 - it.Elevation) as X,
-it.Radius*Math.Cos(Math.PI/2 - it.Elevation) as Y,
-(it.MouseZSamp + it.Radius*Math.Sin(it.Azimuth)*Math.Sin(Math.PI/2 - it.Elevation)) as Z
+it.Radius*Math.Cos(it.Azimuth)*Math.Sin(Math.PI/2 - it.Elevation) as Xo,
+it.Radius*Math.Cos(Math.PI/2 - it.Elevation) as Yo,
+Math.abs(it.Radius*Math.Sin(it.Azimuth)*Math.Sin(Math.PI/2 - it.Elevation)) as Zo,
+it.MouseZSamp as MouseZSamp
 )
 
 </scr:Expression>
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Name>AddCurrentMouseZ</scr:Name>
+        <scr:Expression>new(
+it.Xo as X,
+it.Yo as Y,
+(it.Zo + it.MouseZSamp) as Z
+)</scr:Expression>
       </Expression>
       <Expression xsi:type="CreateObservable">
         <Workflow>
@@ -293,9 +273,9 @@ it.Radius*Math.Cos(Math.PI/2 - it.Elevation) as Y,
               <Selector>Item1</Selector>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-              <TranslationX>2.12132025</TranslationX>
-              <TranslationY>1.83690953E-16</TranslationY>
-              <TranslationZ>2.11632037</TranslationZ>
+              <TranslationX>2.04903817</TranslationX>
+              <TranslationY>0.776457131</TranslationY>
+              <TranslationZ>2.354038</TranslationZ>
               <ScaleX>0.1</ScaleX>
               <ScaleY>0.1</ScaleY>
               <ScaleZ>0.1</ScaleZ>
@@ -363,38 +343,36 @@ it.Radius*Math.Cos(Math.PI/2 - it.Elevation) as Y,
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="12" To="13" Label="Source2" />
       <Edge From="13" To="14" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="16" To="29" Label="Source2" />
-      <Edge From="17" To="29" Label="Source3" />
+      <Edge From="15" To="33" Label="Source1" />
+      <Edge From="16" To="25" Label="Source4" />
+      <Edge From="16" To="33" Label="Source2" />
+      <Edge From="17" To="18" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
-      <Edge From="19" To="29" Label="Source1" />
-      <Edge From="20" To="37" Label="Source1" />
+      <Edge From="19" To="25" Label="Source2" />
+      <Edge From="20" To="21" Label="Source1" />
       <Edge From="21" To="22" Label="Source1" />
-      <Edge From="22" To="24" Label="Source1" />
-      <Edge From="23" To="24" Label="Source2" />
-      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="22" To="25" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="24" To="25" Label="Source3" />
       <Edge From="25" To="26" Label="Source1" />
       <Edge From="26" To="27" Label="Source1" />
+      <Edge From="26" To="29" Label="Source1" />
+      <Edge From="26" To="31" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
-      <Edge From="28" To="29" Label="Source4" />
-      <Edge From="28" To="37" Label="Source2" />
       <Edge From="29" To="30" Label="Source1" />
-      <Edge From="30" To="31" Label="Source1" />
-      <Edge From="30" To="33" Label="Source1" />
-      <Edge From="30" To="35" Label="Source1" />
       <Edge From="31" To="32" Label="Source1" />
       <Edge From="33" To="34" Label="Source1" />
-      <Edge From="35" To="36" Label="Source1" />
-      <Edge From="37" To="38" Label="Source1" />
-      <Edge From="39" To="43" Label="Source1" />
-      <Edge From="40" To="43" Label="Source2" />
-      <Edge From="41" To="43" Label="Source3" />
-      <Edge From="42" To="43" Label="Source4" />
+      <Edge From="35" To="38" Label="Source1" />
+      <Edge From="36" To="38" Label="Source2" />
+      <Edge From="37" To="38" Label="Source3" />
+      <Edge From="38" To="40" Label="Source1" />
+      <Edge From="39" To="40" Label="Source2" />
+      <Edge From="40" To="41" Label="Source1" />
+      <Edge From="41" To="42" Label="Source1" />
+      <Edge From="42" To="43" Label="Source1" />
       <Edge From="43" To="44" Label="Source1" />
       <Edge From="44" To="45" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
-      <Edge From="46" To="47" Label="Source1" />
-      <Edge From="47" To="48" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

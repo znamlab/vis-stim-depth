@@ -113,12 +113,12 @@ it+1 as TargetZ)</scr:Expression>
         <Eye>
           <X>0</X>
           <Y>0</Y>
-          <Z>-4.955</Z>
+          <Z>-1.95</Z>
         </Eye>
         <Target>
           <X>0</X>
           <Y>0</Y>
-          <Z>1.045</Z>
+          <Z>4.05</Z>
         </Target>
         <Up>
           <X>0</X>
@@ -163,7 +163,7 @@ it+1 as TargetZ)</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Buffer">
-          <rx:Count>5</rx:Count>
+          <rx:Count>1</rx:Count>
           <rx:Skip xsi:nil="true" />
         </Combinator>
       </Expression>
@@ -204,9 +204,9 @@ it.Radius*Math.Sin(it.Azimuth)*Math.Sin(Math.PI/2 - it.Elevation) as Z
               <Selector>Item1</Selector>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-              <TranslationX>1.35299027</TranslationX>
-              <TranslationY>3.535534</TranslationY>
-              <TranslationZ>3.26640749</TranslationZ>
+              <TranslationX>0.811794162</TranslationX>
+              <TranslationY>2.12132025</TranslationY>
+              <TranslationZ>1.95984447</TranslationZ>
               <ScaleX>0.1</ScaleX>
               <ScaleY>0.1</ScaleY>
               <ScaleZ>0.1</ScaleZ>
