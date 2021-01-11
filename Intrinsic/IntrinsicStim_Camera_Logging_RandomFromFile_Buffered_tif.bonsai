@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.5.0"
+<WorkflowBuilder Version="2.6.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:p1="clr-namespace:Bonsai.Pylon;assembly=Bonsai.Pylon"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
@@ -8,8 +8,8 @@
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
-                 xmlns:p2="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
-                 xmlns:mx="clr-namespace:Bonsai.DAQmx;assembly=Bonsai.DAQmx"
+                 xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
+                 xmlns:p2="clr-namespace:Bonsai.DAQmx;assembly=Bonsai.DAQmx"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -353,8 +353,8 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p2:CreateRandom">
-                <p2:Seed>22</p2:Seed>
+              <Combinator xsi:type="num:CreateRandom">
+                <num:Seed>22</num:Seed>
               </Combinator>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
@@ -816,31 +816,31 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="mx:AnalogInput">
-          <mx:SignalSource />
-          <mx:SampleRate>5000</mx:SampleRate>
-          <mx:ActiveEdge>Rising</mx:ActiveEdge>
-          <mx:SampleMode>ContinuousSamples</mx:SampleMode>
-          <mx:BufferSize>1</mx:BufferSize>
-          <mx:SamplesPerRead>-1</mx:SamplesPerRead>
-          <mx:Channels>
-            <mx:AnalogInputChannelConfiguration>
-              <mx:ChannelName>PhotoDiode</mx:ChannelName>
-              <mx:MinimumValue>-5</mx:MinimumValue>
-              <mx:MaximumValue>5</mx:MaximumValue>
-              <mx:PhysicalChannel>Dev1/ai0</mx:PhysicalChannel>
-              <mx:TerminalConfiguration>Rse</mx:TerminalConfiguration>
-              <mx:VoltageUnits>Volts</mx:VoltageUnits>
-            </mx:AnalogInputChannelConfiguration>
-            <mx:AnalogInputChannelConfiguration>
-              <mx:ChannelName>ExpActive</mx:ChannelName>
-              <mx:MinimumValue>-5</mx:MinimumValue>
-              <mx:MaximumValue>5</mx:MaximumValue>
-              <mx:PhysicalChannel>Dev1/ai3</mx:PhysicalChannel>
-              <mx:TerminalConfiguration>Rse</mx:TerminalConfiguration>
-              <mx:VoltageUnits>Volts</mx:VoltageUnits>
-            </mx:AnalogInputChannelConfiguration>
-          </mx:Channels>
+        <Combinator xsi:type="p2:AnalogInput">
+          <p2:SignalSource />
+          <p2:SampleRate>5000</p2:SampleRate>
+          <p2:ActiveEdge>Rising</p2:ActiveEdge>
+          <p2:SampleMode>ContinuousSamples</p2:SampleMode>
+          <p2:BufferSize>1</p2:BufferSize>
+          <p2:SamplesPerRead>-1</p2:SamplesPerRead>
+          <p2:Channels>
+            <p2:AnalogInputChannelConfiguration>
+              <p2:ChannelName>PhotoDiode</p2:ChannelName>
+              <p2:MinimumValue>-5</p2:MinimumValue>
+              <p2:MaximumValue>5</p2:MaximumValue>
+              <p2:PhysicalChannel>Dev1/ai0</p2:PhysicalChannel>
+              <p2:TerminalConfiguration>Rse</p2:TerminalConfiguration>
+              <p2:VoltageUnits>Volts</p2:VoltageUnits>
+            </p2:AnalogInputChannelConfiguration>
+            <p2:AnalogInputChannelConfiguration>
+              <p2:ChannelName>ExpActive</p2:ChannelName>
+              <p2:MinimumValue>-5</p2:MinimumValue>
+              <p2:MaximumValue>5</p2:MaximumValue>
+              <p2:PhysicalChannel>Dev1/ai3</p2:PhysicalChannel>
+              <p2:TerminalConfiguration>Rse</p2:TerminalConfiguration>
+              <p2:VoltageUnits>Volts</p2:VoltageUnits>
+            </p2:AnalogInputChannelConfiguration>
+          </p2:Channels>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -1114,7 +1114,7 @@ double.Parse(it[1]) as yPos)</scr:Expression>
                     <Name>Random</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p2:Permutation" />
+                    <Combinator xsi:type="num:Permutation" />
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -1166,12 +1166,14 @@ double.Parse(it[1]) as yPos)</scr:Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
                                 <LocationX>0.5</LocationX>
                                 <LocationY>0.5</LocationY>
+                                <Layer>0</Layer>
                                 <Angle>5156.62</Angle>
                                 <SpatialFrequency>2</SpatialFrequency>
                                 <TemporalFrequency>1</TemporalFrequency>
                                 <Phase>0</Phase>
                                 <SquareWave>true</SquareWave>
                                 <Contrast>1</Contrast>
+                                <DutyCycle>0.5</DutyCycle>
                                 <Radius>0.7</Radius>
                                 <Aperture>0</Aperture>
                                 <Opacity>1</Opacity>
@@ -1195,6 +1197,8 @@ double.Parse(it[1]) as yPos)</scr:Expression>
                                 <ExtentY>0.2</ExtentY>
                                 <LocationX>-1.54</LocationX>
                                 <LocationY>-0.9</LocationY>
+                                <Layer>0</Layer>
+                                <Angle>0</Angle>
                                 <ColorR>1</ColorR>
                                 <ColorG>1</ColorG>
                                 <ColorB>1</ColorB>
@@ -1435,21 +1439,6 @@ double.Parse(it[1]) as yPos)</scr:Expression>
             <Edge From="3" To="4" Label="Source1" />
           </Edges>
         </Workflow>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="cv:CameraCapture">
-          <cv:Index>0</cv:Index>
-          <cv:CaptureProperties>
-            <cv:CapturePropertyAssignment>
-              <cv:Property>PosMsec</cv:Property>
-              <cv:Value>0</cv:Value>
-            </cv:CapturePropertyAssignment>
-            <cv:CapturePropertyAssignment>
-              <cv:Property>PosMsec</cv:Property>
-              <cv:Value>0</cv:Value>
-            </cv:CapturePropertyAssignment>
-          </cv:CaptureProperties>
-        </Combinator>
       </Expression>
     </Nodes>
     <Edges>
