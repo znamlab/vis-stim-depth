@@ -1,0 +1,5 @@
+Height,Width,RotationX,RotationY,RotationZ,TranslationX,TranslationY,TranslationZ,ViewportWidth,ViewportX
+50,30,0,1.57,0,-25.98,0,0,0.25,0
+50,30,0,0.523,0,-12.99,0,-22.5,0.25,0.25
+50,30,0,-0.523,0,12.99,0,-22.5,0.25,0.5
+50,30,0,-1.57,0,25.98,0,0,0.25,0.75
