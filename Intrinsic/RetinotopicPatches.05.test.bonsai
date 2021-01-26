@@ -46,21 +46,11 @@
       <Expression xsi:type="MemberSelector">
         <Selector>Item1</Selector>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Logging.LogEvent.bonsai">
-        <Format>xpos {0}</Format>
-        <Selector>it</Selector>
-        <Name>Events</Name>
-      </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Xdeg</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
         <Selector>Item2</Selector>
-      </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Logging.LogEvent.bonsai">
-        <Format>ypos {0}</Format>
-        <Selector>it</Selector>
-        <Name>Events</Name>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Ydeg</Name>
@@ -92,7 +82,7 @@
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
               <RangeMin>0</RangeMin>
               <RangeMax>360</RangeMax>
-              <Count>8</Count>
+              <Count>9</Count>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="num:Permutation" />
@@ -144,9 +134,9 @@
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
               <LocationX>0</LocationX>
-              <LocationY>0</LocationY>
+              <LocationY>22.5</LocationY>
               <Layer>0</Layer>
-              <Angle>10313.24</Angle>
+              <Angle>15469.86</Angle>
               <SpatialFrequency>0.2</SpatialFrequency>
               <TemporalFrequency>1</TemporalFrequency>
               <Phase>0</Phase>
@@ -207,16 +197,14 @@
       <Edge From="5" To="6" Label="Source3" />
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
-      <Edge From="7" To="11" Label="Source1" />
+      <Edge From="7" To="10" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
-      <Edge From="9" To="10" Label="Source1" />
-      <Edge From="11" To="12" Label="Source1" />
-      <Edge From="12" To="13" Label="Source1" />
-      <Edge From="14" To="16" Label="Source1" />
-      <Edge From="15" To="16" Label="Source2" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="12" To="14" Label="Source1" />
+      <Edge From="13" To="14" Label="Source2" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
-      <Edge From="17" To="18" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

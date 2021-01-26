@@ -24,8 +24,8 @@
         <Y>6</Y>
       </Location>
       <Size>
-        <Width>1076</Width>
-        <Height>909</Height>
+        <Width>1072</Width>
+        <Height>901</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -458,12 +458,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>172</X>
-        <Y>186</Y>
+        <X>238</X>
+        <Y>119</Y>
       </Location>
       <Size>
         <Width>922</Width>
-        <Height>786</Height>
+        <Height>775</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
