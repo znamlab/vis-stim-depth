@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "X27LByY1ZNG5RvE0zEqlHrqtwO9Jj7zxhHjRhVJ2Q2IiRmcfnIH/S1YZs31AfE1R1u0IFe/LWCjAnbmhnugubA==",
+  "success": true,
+  "projectFilePath": "E:\\vis-stim\\vis-stim-depth\\C#\\Rx-notes\\RxDemo1\\RxDemo1\\RxDemo1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Yiran He\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

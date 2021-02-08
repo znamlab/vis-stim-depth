@@ -1,0 +1,16 @@
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\RxDemo1.exe
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\RxDemo1.deps.json
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\RxDemo1.runtimeconfig.json
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\RxDemo1.runtimeconfig.dev.json
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\RxDemo1.dll
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\RxDemo1.pdb
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\System.Reactive.dll
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\bin\Debug\netcoreapp3.1\System.Reactive.xml
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.csprojAssemblyReference.cache
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.AssemblyInfoInputs.cache
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.AssemblyInfo.cs
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.csproj.CoreCompileInputs.cache
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.csproj.CopyComplete
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.dll
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.pdb
+E:\vis-stim\vis-stim-depth\C#\Rx-notes\RxDemo1\RxDemo1\obj\Debug\netcoreapp3.1\RxDemo1.genruntimeconfig.cache
