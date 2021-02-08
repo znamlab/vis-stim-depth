@@ -7,15 +7,16 @@
     "e:\\code\\vis-stim\\Yiran\\vis-stim-depth\\Spheres\\Bonsai\\using\\Extensions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\code\\vis-stim\\Yiran\\vis-stim-depth\\Spheres\\Bonsai\\using\\Extensions.csproj",
+        "projectUniqueName": "E:\\vis-stim\\vis-stim-depth\\Spheres\\Bonsai\\using\\Extensions.csproj",
         "projectName": "Extensions",
-        "projectPath": "e:\\code\\vis-stim\\Yiran\\vis-stim-depth\\Spheres\\Bonsai\\using\\Extensions.csproj",
-        "packagesPath": "C:\\Users\\scanimage\\.nuget\\packages\\",
-        "outputPath": "e:\\code\\vis-stim\\Yiran\\vis-stim-depth\\Spheres\\Bonsai\\using\\obj\\",
+        "projectPath": "E:\\vis-stim\\vis-stim-depth\\Spheres\\Bonsai\\using\\Extensions.csproj",
+        "packagesPath": "C:\\Users\\Yiran He\\.nuget\\packages\\",
+        "outputPath": "E:\\vis-stim\\vis-stim-depth\\Spheres\\Bonsai\\using\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "e:\\code\\vis-stim\\Yiran\\vis-stim-depth\\Spheres\\Bonsai\\using\\NuGet.Config",
-          "C:\\Users\\scanimage\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "E:\\vis-stim\\vis-stim-depth\\Spheres\\Bonsai\\using\\NuGet.Config",
+          "C:\\Users\\Yiran He\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net472"

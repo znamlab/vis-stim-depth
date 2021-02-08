@@ -5,9 +5,9 @@
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
-                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -96,12 +96,12 @@
         <Eye>
           <X>0</X>
           <Y>0</Y>
-          <Z>-7</Z>
+          <Z>-3</Z>
         </Eye>
         <Target>
           <X>0</X>
           <Y>0</Y>
-          <Z>-1</Z>
+          <Z>5</Z>
         </Target>
         <Up>
           <X>0</X>

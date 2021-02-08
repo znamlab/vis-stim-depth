@@ -10,8 +10,8 @@ root = [root,write2folder];
 
 %% Which one to run?
 generate_translationXYZ = 1;
-generate_ambient_values = 1;
-ifSave = 1;
+generate_ambient_values = 0;
+ifSave = 0;
 
 %% GENERATE A SERIES OF LOCATIONS (translation XYZ) FOR MULTIPLE SPHERES TO DISPLAY
 if generate_translationXYZ
