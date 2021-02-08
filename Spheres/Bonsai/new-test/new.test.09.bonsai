@@ -9,8 +9,8 @@
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
-                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -122,12 +122,12 @@ it+1 as TargetZ)</scr:Expression>
         <Eye>
           <X>0</X>
           <Y>0</Y>
-          <Z>0.475</Z>
+          <Z>-0.005</Z>
         </Eye>
         <Target>
           <X>0</X>
           <Y>0</Y>
-          <Z>1.475</Z>
+          <Z>0.995</Z>
         </Target>
         <Up>
           <X>0</X>
@@ -139,6 +139,43 @@ it+1 as TargetZ)</scr:Expression>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>Draw</Name>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="gl:RenderCubemap">
+            <gl:RenderState />
+            <gl:ClearColor>Gray</gl:ClearColor>
+            <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
+            <gl:FaceSize xsi:nil="true" />
+            <gl:InternalFormat>Rgb</gl:InternalFormat>
+            <gl:MinFilter>Linear</gl:MinFilter>
+            <gl:MagFilter>Linear</gl:MagFilter>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.ViewWindow.bonsai">
+          <Width>20</Width>
+          <Height>15</Height>
+          <Rotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </Rotation>
+          <Translation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>-10</Z>
+          </Translation>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+          <X>0</X>
+          <Y>0</Y>
+          <Width>1</Width>
+          <Height>1</Height>
+        </Builder>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
         <RangeMin>-45</RangeMin>
@@ -167,9 +204,9 @@ it+1 as TargetZ)</scr:Expression>
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-        <RangeMin>5</RangeMin>
+        <RangeMin>10</RangeMin>
         <RangeMax>1</RangeMax>
-        <Count>3</Count>
+        <Count>2</Count>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="num:VariationWithRepetition">
@@ -179,7 +216,7 @@ it+1 as TargetZ)</scr:Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
         <RangeMin>0.05</RangeMin>
         <RangeMax>0.05</RangeMax>
-        <Count>3</Count>
+        <Count>2</Count>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="num:VariationWithRepetition">
@@ -321,17 +358,17 @@ Item2.Item2.Item2 as AmbientTimer
               <Selector>Draw</Selector>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-              <TranslationX>-1.71418142</TranslationX>
-              <TranslationY>0.261467218</TranslationY>
-              <TranslationZ>2.92310476</TranslationZ>
-              <ScaleX>0.15</ScaleX>
-              <ScaleY>0.15</ScaleY>
-              <ScaleZ>0.15</ScaleZ>
+              <TranslationX>2.07934713</TranslationX>
+              <TranslationY>-1.69047308</TranslationY>
+              <TranslationZ>2.96461558</TranslationZ>
+              <ScaleX>0.2</ScaleX>
+              <ScaleY>0.2</ScaleY>
+              <ScaleZ>0.2</ScaleZ>
               <MeshName>sphere</MeshName>
               <Ambient>
-                <X>0.852112651</X>
-                <Y>0.852112651</Y>
-                <Z>0.852112651</Z>
+                <X>0.436619729</X>
+                <Y>0.436619729</Y>
+                <Z>0.436619729</Z>
               </Ambient>
               <Diffuse>
                 <X>0</X>
@@ -431,43 +468,46 @@ Item1.Item2.Item2 as AmbientTimer
       <Edge From="13" To="15" Label="Source2" />
       <Edge From="14" To="15" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
-      <Edge From="19" To="28" Label="Source2" />
       <Edge From="20" To="21" Label="Source1" />
       <Edge From="21" To="22" Label="Source1" />
-      <Edge From="22" To="28" Label="Source1" />
+      <Edge From="22" To="31" Label="Source2" />
       <Edge From="23" To="24" Label="Source1" />
-      <Edge From="24" To="28" Label="Source3" />
-      <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="28" Label="Source4" />
-      <Edge From="27" To="28" Label="Source5" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="25" To="31" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="31" Label="Source3" />
       <Edge From="28" To="29" Label="Source1" />
-      <Edge From="29" To="30" Label="Source1" />
-      <Edge From="29" To="32" Label="Source1" />
-      <Edge From="29" To="34" Label="Source1" />
-      <Edge From="29" To="36" Label="Source1" />
-      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="29" To="31" Label="Source4" />
+      <Edge From="30" To="31" Label="Source5" />
+      <Edge From="31" To="32" Label="Source1" />
       <Edge From="32" To="33" Label="Source1" />
-      <Edge From="34" To="35" Label="Source1" />
-      <Edge From="36" To="37" Label="Source1" />
-      <Edge From="38" To="42" Label="Source1" />
-      <Edge From="39" To="42" Label="Source2" />
-      <Edge From="40" To="42" Label="Source3" />
-      <Edge From="41" To="42" Label="Source4" />
-      <Edge From="42" To="44" Label="Source1" />
-      <Edge From="43" To="44" Label="Source2" />
-      <Edge From="44" To="45" Label="Source1" />
-      <Edge From="45" To="46" Label="Source1" />
-      <Edge From="46" To="47" Label="Source1" />
+      <Edge From="32" To="35" Label="Source1" />
+      <Edge From="32" To="37" Label="Source1" />
+      <Edge From="32" To="39" Label="Source1" />
+      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="35" To="36" Label="Source1" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="39" To="40" Label="Source1" />
+      <Edge From="41" To="45" Label="Source1" />
+      <Edge From="42" To="45" Label="Source2" />
+      <Edge From="43" To="45" Label="Source3" />
+      <Edge From="44" To="45" Label="Source4" />
+      <Edge From="45" To="47" Label="Source1" />
+      <Edge From="46" To="47" Label="Source2" />
       <Edge From="47" To="48" Label="Source1" />
       <Edge From="48" To="49" Label="Source1" />
+      <Edge From="49" To="50" Label="Source1" />
       <Edge From="50" To="51" Label="Source1" />
       <Edge From="51" To="52" Label="Source1" />
-      <Edge From="52" To="54" Label="Source2" />
       <Edge From="53" To="54" Label="Source1" />
       <Edge From="54" To="55" Label="Source1" />
-      <Edge From="55" To="56" Label="Source1" />
+      <Edge From="55" To="57" Label="Source2" />
+      <Edge From="56" To="57" Label="Source1" />
+      <Edge From="57" To="58" Label="Source1" />
+      <Edge From="58" To="59" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
