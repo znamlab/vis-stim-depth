@@ -76,7 +76,7 @@
         <Selector>Value</Selector>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
-        <Name>SetDumpReg2False?</Name>
+        <Name>SetDumpRegi2False?</Name>
         <Workflow>
           <Nodes>
             <Expression xsi:type="WorkflowInput">
