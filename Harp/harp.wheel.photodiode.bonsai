@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.5.1"
+<WorkflowBuilder Version="2.6.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:Bonsai.Harp.CF;assembly=Bonsai.Harp.CF"
@@ -21,18 +21,51 @@
       <Expression xsi:type="MulticastSubject">
         <Name>Command</Name>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
-        <Name>Command</Name>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>CommandSubject</Name>
+        <Description>Creates a shared subject of Harp command messages for controlling a device.</Description>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="harp:CreateMessage">
+                <harp:MessageType>Read</harp:MessageType>
+                <harp:Address>32</harp:Address>
+                <harp:PayloadType>U8</harp:PayloadType>
+                <harp:Payload>0</harp:Payload>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:IgnoreElements" />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Name" />
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>Command</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Command</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="3" Label="Source1" />
+            <Edge From="2" To="3" Label="Source2" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="harp:Device">
-          <harp:PortName>COM6</harp:PortName>
           <harp:DeviceState>Active</harp:DeviceState>
           <harp:DumpRegisters>true</harp:DumpRegisters>
           <harp:LedState>On</harp:LedState>
           <harp:VisualIndicators>On</harp:VisualIndicators>
           <harp:Heartbeat>Disable</harp:Heartbeat>
           <harp:IgnoreErrors>false</harp:IgnoreErrors>
+          <harp:PortName>COM6</harp:PortName>
         </Combinator>
       </Expression>
       <Expression xsi:type="p1:BehaviorEvent">
@@ -42,12 +75,26 @@
       <Expression xsi:type="MemberSelector">
         <Selector>Value</Selector>
       </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>SetDumpReg2False?</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
       <Expression xsi:type="p1:BehaviorEvent">
         <p1:Type>QuadratureCounter</p1:Type>
         <p1:Mask>Port2</p1:Mask>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
-        <Name>MouseDistance</Name>
+        <Name>GetMouseDistance</Name>
         <Workflow>
           <Nodes>
             <Expression xsi:type="WorkflowInput">
@@ -64,13 +111,28 @@
                 <rx:Skip>1</rx:Skip>
               </Combinator>
             </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="scr:ExpressionTransform">
+                <scr:Expression>new(
+(it[0]&gt;32000 &amp;&amp; it[1]&lt;-32000)? (65536+it[1]-it[0]) : (it[0]&lt;-32000 &amp;&amp; it[1]&gt;32000)? (-65536+it[1]-it[0]) : (it[1] - it[0]) as subtract
+) </scr:Expression>
+              </Builder>
+            </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>new(
-(it[0]&gt;32000 &amp;&amp; it[1]&lt;-32000)? (65536+it[1]-it[0]) : (it[0]&lt;-32000 &amp;&amp; it[1]&gt;32000)? (65536-it[1]+it[0]) : (it[1] - it[0]) as subtract
-) </scr:Expression>
+it[1]-it[0] as subtract
+)</scr:Expression>
             </Expression>
             <Expression xsi:type="MemberSelector">
               <Selector>subtract</Selector>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+(it&gt;60000)? (it-65536) : (it&lt;-60000)? (it+65536) : (it) as diff
+) </scr:Expression>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>diff</Selector>
             </Expression>
             <Expression xsi:type="rx:Accumulate" />
             <Expression xsi:type="WorkflowOutput" />
@@ -82,6 +144,9 @@
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -91,9 +156,10 @@
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
-      <Edge From="4" To="7" Label="Source1" />
+      <Edge From="4" To="8" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
-      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
