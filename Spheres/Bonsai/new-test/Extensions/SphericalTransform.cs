@@ -29,9 +29,9 @@ public class SphericalTransform
             Elevation = value.Item1.Item2;
             Radius = value.Item1.Item3;
             
-            X = Radius * Math.Cos(Azimuth) * Math.Sin(Math.PI/2 - Elevation);
-            Y = Radius * Math.Cos(Math.PI/2 - Elevation);
-            Z0 = Math.Abs(Radius*Math.Sin(Azimuth)*Math.Sin(Math.PI/2 - Elevation));
+            X = Radius * Math.Cos(Azimuth) * Math.Cos(Elevation);
+            Y = Radius * Math.Sin(Elevation);
+            Z0 = Math.Abs(Radius*Math.Sin(Azimuth)*Math.Cos(Elevation));
 
 
             //Scale size of sphere according to radius

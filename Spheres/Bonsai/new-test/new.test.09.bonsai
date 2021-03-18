@@ -74,26 +74,36 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="res:LoadResources" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="wie:MouseMove" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="wie:MouseMove" />
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Y</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Y</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="dsp:Rescale">
-                <dsp:Min>0</dsp:Min>
-                <dsp:Max>2000</dsp:Max>
-                <dsp:RangeMin>0</dsp:RangeMin>
-                <dsp:RangeMax>10</dsp:RangeMax>
-                <dsp:RescaleType>Linear</dsp:RescaleType>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="dsp:Rescale">
+                  <dsp:Min>0</dsp:Min>
+                  <dsp:Max>2000</dsp:Max>
+                  <dsp:RangeMin>0</dsp:RangeMin>
+                  <dsp:RangeMax>10</dsp:RangeMax>
+                  <dsp:RescaleType>Linear</dsp:RescaleType>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:LatestOnUpdateFrame" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:LatestOnUpdateFrame" />
+              </Builder>
             </Expression>
-            <Expression xsi:type="PublishSubject">
-              <Name>MouseZ</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PublishSubject">
+                <Name>MouseZ</Name>
+              </Builder>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="ScreenCalibFile" Category="Calibrations" />
@@ -131,7 +141,7 @@ it[3] as Screen4_params
 it[0] as Height,
 it[1] as Width,
 it[2] as RotationX,
-it[3] as RotationY,
+-it[3] as RotationY,
 it[4] as RotationZ,
 it[5] as TranslationX,
 it[6] as TranslationY,
@@ -154,7 +164,7 @@ it[9] as ViewportX
 it[0] as Height,
 it[1] as Width,
 it[2] as RotationX,
-it[3] as RotationY,
+-it[3] as RotationY,
 it[4] as RotationZ,
 it[5] as TranslationX,
 it[6] as TranslationY,
@@ -177,7 +187,7 @@ it[9] as ViewportX
 it[0] as Height,
 it[1] as Width,
 it[2] as RotationX,
-it[3] as RotationY,
+-it[3] as RotationY,
 it[4] as RotationZ,
 it[5] as TranslationX,
 it[6] as TranslationY,
@@ -200,7 +210,7 @@ it[9] as ViewportX
 it[0] as Height,
 it[1] as Width,
 it[2] as RotationX,
-it[3] as RotationY,
+-it[3] as RotationY,
 it[4] as RotationZ,
 it[5] as TranslationX,
 it[6] as TranslationY,
@@ -293,7 +303,7 @@ it as EyeZ)</scr:Expression>
               <Eye>
                 <X>0</X>
                 <Y>0</Y>
-                <Z>0.545</Z>
+                <Z>5.40540552</Z>
               </Eye>
               <NearClip>0.1</NearClip>
               <FarClip>1000</FarClip>
@@ -337,7 +347,7 @@ it as EyeZ)</scr:Expression>
               <Height>52.0833321</Height>
               <Rotation>
                 <X>0.00062900001648813486</X>
-                <Y>1.5299999713897705</Y>
+                <Y>-1.5299999713897705</Y>
                 <Z>0.0082700001075863838</Z>
               </Rotation>
               <Translation>
@@ -531,7 +541,7 @@ it as EyeZ)</scr:Expression>
               <Height>52.0833321</Height>
               <Rotation>
                 <X>0.0017999999690800905</X>
-                <Y>0.47299998998641968</Y>
+                <Y>-0.47299998998641968</Y>
                 <Z>0.018699999898672104</Z>
               </Rotation>
               <Translation>
@@ -692,7 +702,7 @@ it as EyeZ)</scr:Expression>
               <Height>52.0833321</Height>
               <Rotation>
                 <X>0.014499999582767487</X>
-                <Y>-0.42399999499320984</Y>
+                <Y>0.42399999499320984</Y>
                 <Z>0.008320000022649765</Z>
               </Rotation>
               <Translation>
@@ -853,7 +863,7 @@ it as EyeZ)</scr:Expression>
               <Height>52.0833321</Height>
               <Rotation>
                 <X>0.0082000000402331352</X>
-                <Y>-1.5900000333786011</Y>
+                <Y>1.5900000333786011</Y>
                 <Z>-0.0019099999917671084</Z>
               </Rotation>
               <Translation>
@@ -1002,6 +1012,26 @@ it as EyeZ)</scr:Expression>
                 <Combinator xsi:type="rx:Zip" />
               </Builder>
             </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+              <RangeMin>0</RangeMin>
+              <RangeMax>200</RangeMax>
+              <Count>1000</Count>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:Timer">
+                <gl:DueTime>PT0S</gl:DueTime>
+                <gl:Period>PT0.5S</gl:Period>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item1</Selector>
+            </Expression>
+            <Expression xsi:type="PublishSubject">
+              <Name>MouseZ</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -1076,6 +1106,10 @@ it as EyeZ)</scr:Expression>
             <Edge From="69" To="70" Label="Source1" />
             <Edge From="70" To="71" Label="Source1" />
             <Edge From="71" To="72" Label="Source4" />
+            <Edge From="73" To="75" Label="Source1" />
+            <Edge From="74" To="75" Label="Source2" />
+            <Edge From="75" To="76" Label="Source1" />
+            <Edge From="76" To="77" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1198,31 +1232,40 @@ it as EyeZ)</scr:Expression>
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>144</Value>
-                    </Combinator>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="IntProperty">
+                        <Value>60</Value>
+                      </Combinator>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p1:CreateAmbientArray" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="p1:CreateAmbientArray" />
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Merge" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Merge" />
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT0S</gl:DueTime>
-                      <gl:Period>PT0.0069444S</gl:Period>
-                    </Combinator>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="gl:Timer">
+                        <gl:DueTime>PT0S</gl:DueTime>
+                        <gl:Period>PT0.0167S</gl:Period>
+                      </Combinator>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Zip" />
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:CombineLatest" />
-                  </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>Params</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MemberSelector">
+                      <Selector>Item1</Selector>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
@@ -1231,6 +1274,19 @@ it as EyeZ)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>Draw</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>1</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MulticastSubject">
+                      <Name>Params</Name>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:CombineLatest" />
@@ -1247,8 +1303,7 @@ Item2.Item1.Value.Item2.Item2 as Y,
 Item2.Item1.Value.Item2.Item3 as Z,
 Item2.Item1.Value.Item3.Item1 as Z0,
 Item2.Item1.Value.Item3.Item2 as Size,
-Item2.Item2.Item1 as Ambient,
-Item2.Item2.Item2 as AmbientTimer
+Item2.Item2 as Ambient
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="InputMapping">
@@ -1264,17 +1319,17 @@ Item2.Item2.Item2 as AmbientTimer
                     <Selector>Draw</Selector>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                    <TranslationX>6.83012724</TranslationX>
-                    <TranslationY>-2.58819056</TranslationY>
-                    <TranslationZ>7.270127</TranslationZ>
+                    <TranslationX>-5.79227972</TranslationX>
+                    <TranslationY>-5.7357645</TranslationY>
+                    <TranslationZ>10.9974852</TranslationZ>
                     <ScaleX>0.5</ScaleX>
                     <ScaleY>0.5</ScaleY>
                     <ScaleZ>0.5</ScaleZ>
                     <MeshName>sphere</MeshName>
                     <Ambient>
-                      <X>0.049295783</X>
-                      <Y>0.049295783</Y>
-                      <Z>0.049295783</Z>
+                      <X>0.0172413886</X>
+                      <Y>0.0172413886</Y>
+                      <Z>0.0172413886</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1297,21 +1352,23 @@ Item2.Item2.Item2 as AmbientTimer
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="6" Label="Source1" />
+                  <Edge From="0" To="10" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
                   <Edge From="3" To="5" Label="Source1" />
                   <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source2" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="10" Label="Source2" />
-                  <Edge From="8" To="14" Label="Source2" />
-                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="10" Label="Source2" />
+                  <Edge From="7" To="16" Label="Source2" />
+                  <Edge From="8" To="12" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source3" />
                   <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source2" />
                   <Edge From="12" To="13" Label="Source1" />
                   <Edge From="13" To="14" Label="Source1" />
                   <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1363,28 +1420,29 @@ Item2.Item2.Item2 as AmbientTimer
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="GroupWorkflow">
-        <Name>DataLogger</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(rx:ElementIndex(sys:Tuple(sys:Tuple(sys:Double,sys:Double,sys:Double),sys:Tuple(sys:Double,sys:Double,sys:Double),sys:Tuple(sys:Double,sys:Double))),sys:Tuple(sys:Single,sys:Int64))">
-              <Name>Params</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:UpdateFrame" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>TimeStep</Selector>
-            </Expression>
-            <Expression xsi:type="rx:Accumulate" />
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:ElementIndex" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="scr:ExpressionTransform">
-              <scr:Expression>new(
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="GroupWorkflow">
+          <Name>DataLogger</Name>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(rx:ElementIndex(sys:Tuple(sys:Tuple(sys:Double,sys:Double,sys:Double),sys:Tuple(sys:Double,sys:Double,sys:Double),sys:Tuple(sys:Double,sys:Double))),sys:Tuple(sys:Single,sys:Int64))">
+                <Name>Params</Name>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="gl:UpdateFrame" />
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>TimeStep</Selector>
+              </Expression>
+              <Expression xsi:type="rx:Accumulate" />
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:ElementIndex" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="scr:ExpressionTransform">
+                <scr:Expression>new(
 Item2.Index as Frame,
 Item2.Value.ElapsedTime as FrameTime,
 Item2.Value.ElapsedRealTime as RealFrameTime,
@@ -1400,27 +1458,28 @@ Item1.Item1.Value.Item3.Item2 as Size,
 Item1.Item2.Item1 as Ambient,
 Item1.Item2.Item2 as AmbientTimer
 )</scr:Expression>
-            </Expression>
-            <Expression xsi:type="io:CsvWriter">
-              <io:FileName>saved_csv\AllParams.csv</io:FileName>
-              <io:Append>false</io:Append>
-              <io:Overwrite>false</io:Overwrite>
-              <io:Suffix>Timestamp</io:Suffix>
-              <io:IncludeHeader>true</io:IncludeHeader>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="5" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="5" Label="Source2" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-          </Edges>
-        </Workflow>
+              </Expression>
+              <Expression xsi:type="io:CsvWriter">
+                <io:FileName>saved_csv\AllParams.csv</io:FileName>
+                <io:Append>false</io:Append>
+                <io:Overwrite>false</io:Overwrite>
+                <io:Suffix>Timestamp</io:Suffix>
+                <io:IncludeHeader>true</io:IncludeHeader>
+              </Expression>
+              <Expression xsi:type="WorkflowOutput" />
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="5" Label="Source1" />
+              <Edge From="1" To="2" Label="Source1" />
+              <Edge From="2" To="3" Label="Source1" />
+              <Edge From="3" To="4" Label="Source1" />
+              <Edge From="4" To="5" Label="Source2" />
+              <Edge From="5" To="6" Label="Source1" />
+              <Edge From="6" To="7" Label="Source1" />
+              <Edge From="7" To="8" Label="Source1" />
+            </Edges>
+          </Workflow>
+        </Builder>
       </Expression>
     </Nodes>
     <Edges />
