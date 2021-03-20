@@ -1440,20 +1440,14 @@ it.SphereID as SphereID
                   <Expression xsi:type="SubscribeSubject">
                     <Name>Draw</Name>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="SubscribeSubject">
-                      <Name>ThisSphereParams</Name>
-                    </Builder>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>ThisSphereParams</Name>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="MemberSelector">
-                      <Selector>SphereID</Selector>
-                    </Builder>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>SphereID</Selector>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="SubscribeSubject">
-                      <Name>LifeTime</Name>
-                    </Builder>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>LifeTime</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LifeTime</Name>
@@ -1473,28 +1467,18 @@ it.SphereID as SphereID
                       <gl:DueTime>PT10S</gl:DueTime>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="Combinator">
-                      <Combinator xsi:type="gl:RenderFrame" />
-                    </Builder>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="gl:RenderFrame" />
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="MemberSelector">
-                      <Selector>TimeStep.ElapsedRealTime</Selector>
-                    </Builder>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>TimeStep.ElapsedRealTime</Selector>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="rx:Accumulate" />
+                  <Expression xsi:type="rx:Accumulate" />
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="Combinator">
-                      <Combinator xsi:type="rx:CombineLatest" />
-                    </Builder>
-                  </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="Combinator">
-                      <Combinator xsi:type="p1:CreateFading" />
-                    </Builder>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p1:CreateFading" />
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:CombineLatest" />
@@ -1507,21 +1491,22 @@ it.SphereID as SphereID
                       <Property Name="ScaleX" Selector="Item2.Size" />
                       <Property Name="ScaleY" Selector="Item2.Size" />
                       <Property Name="ScaleZ" Selector="Item2.Size" />
+                      <Property Name="Ambient" Selector="Item3" />
                     </PropertyMappings>
                     <Selector>Item1</Selector>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                    <TranslationX>-18.9686356</TranslationX>
-                    <TranslationY>-0.8264995</TranslationY>
-                    <TranslationZ>43.71448</TranslationZ>
+                    <TranslationX>19.4363976</TranslationX>
+                    <TranslationY>2.47385263</TranslationY>
+                    <TranslationZ>99.01329</TranslationZ>
                     <ScaleX>1</ScaleX>
                     <ScaleY>1</ScaleY>
                     <ScaleZ>1</ScaleZ>
                     <MeshName>sphere</MeshName>
                     <Ambient>
-                      <X>0.3670019</X>
-                      <Y>0.3670019</Y>
-                      <Z>0.3670019</Z>
+                      <X>0.560000837</X>
+                      <Y>0.560000837</Y>
+                      <Z>0.560000837</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1716,7 +1701,7 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
               <TranslationX>3.8487556</TranslationX>
               <TranslationY>-2.86788225</TranslationY>
-              <TranslationZ>52.0158348</TranslationZ>
+              <TranslationZ>94.34917</TranslationZ>
               <ScaleX>0.5</ScaleX>
               <ScaleY>0.5</ScaleY>
               <ScaleZ>0.5</ScaleZ>
@@ -2159,7 +2144,7 @@ it as EyeZ)</scr:Expression>
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>53.4166679</Z>
+                      <Z>95.75</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
