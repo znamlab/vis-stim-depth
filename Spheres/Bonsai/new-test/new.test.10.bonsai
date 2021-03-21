@@ -1493,7 +1493,7 @@ it as EyeZ)</scr:Expression>
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>71.8333359</Z>
+                      <Z>100</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
@@ -2276,13 +2276,33 @@ it as EyeZ)</scr:Expression>
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:Timer">
+                <gl:DueTime>PT20S</gl:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:TakeUntil" />
+            </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.RangeAnimation.bonsai">
               <Duration>100</Duration>
               <RangeBegin>0</RangeBegin>
               <RangeEnd>500</RangeEnd>
             </Expression>
+            <Expression xsi:type="ReplaySubject">
+              <Name>SaveMouseZ</Name>
+              <BufferSize xsi:nil="true" />
+            </Expression>
             <Expression xsi:type="PublishSubject">
               <Name>MouseZ</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveMouseZ</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:Delay">
+                <gl:DueTime>PT25S</gl:DueTime>
+              </Combinator>
             </Expression>
           </Nodes>
           <Edges>
@@ -2298,7 +2318,11 @@ it as EyeZ)</scr:Expression>
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="15" To="17" Label="Source1" />
+            <Edge From="16" To="17" Label="Source2" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -2417,15 +2441,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
               <TranslationX>3.8487556</TranslationX>
               <TranslationY>-2.86788225</TranslationY>
-              <TranslationZ>70.4325</TranslationZ>
+              <TranslationZ>129.6825</TranslationZ>
               <ScaleX>0.5</ScaleX>
               <ScaleY>0.5</ScaleY>
               <ScaleZ>0.5</ScaleZ>
               <MeshName>Plane</MeshName>
               <Ambient>
-                <X>1</X>
-                <Y>1</Y>
-                <Z>1</Z>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
               </Ambient>
               <Diffuse>
                 <X>0</X>
@@ -2493,9 +2517,12 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
               <Property Name="DepthCount" />
               <Property Name="Xmin" />
               <Property Name="Xmax" />
-              <Property Name="Xcount" />
               <Property Name="LifeTime" />
               <Property Name="SphereInterval" Category="Timings" />
+              <Property Name="XminLim" />
+              <Property Name="XminCount" />
+              <Property Name="XmaxLim" />
+              <Property Name="XmaxCount" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>SetParams</Name>
@@ -2510,29 +2537,57 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                     <Property Name="DepthCount" Category="Position" />
                   </Expression>
                   <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Xmin" Category="Position" />
-                    <Property Name="Xmax" Category="Position" />
-                    <Property Name="Xcount" Category="Position" />
+                    <Property Name="Period" DisplayName="SphereInterval" Category="Timings" />
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="gl:Timer">
+                      <gl:DueTime>PT0S</gl:DueTime>
+                      <gl:Period>PT0.5S</gl:Period>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="Xmin" />
+                    <Property Name="XminLim" />
+                    <Property Name="XminCount" />
+                    <Property Name="XmaxLim" />
+                    <Property Name="Xmax" />
+                    <Property Name="XmaxCount" />
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
                     <Name>Xrange</Name>
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="RangeMin" DisplayName="Xmin" Category="Position" />
-                          <Property Name="RangeMax" DisplayName="Xmax" Category="Position" />
-                          <Property Name="Count" DisplayName="Xcount" Category="Position" />
+                          <Property Name="RangeMin" DisplayName="Xmin" />
+                          <Property Name="RangeMax" DisplayName="XminLim" />
+                          <Property Name="Count" DisplayName="XminCount" />
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
                           <RangeMin>0</RangeMin>
-                          <RangeMax>60</RangeMax>
-                          <Count>3</Count>
+                          <RangeMax>70</RangeMax>
+                          <Count>5</Count>
+                        </Expression>
+                        <Expression xsi:type="ExternalizedMapping">
+                          <Property Name="RangeMin" DisplayName="XmaxLim" />
+                          <Property Name="RangeMax" DisplayName="Xmax" />
+                          <Property Name="Count" DisplayName="XmaxCount" />
+                        </Expression>
+                        <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                          <RangeMin>90</RangeMin>
+                          <RangeMax>100</RangeMax>
+                          <Count>5</Count>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Concat" />
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="1" To="4" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -2574,9 +2629,13 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                                 <Property Name="Count" DisplayName="DepthCount" />
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                <RangeMin>20</RangeMin>
-                                <RangeMax>100</RangeMax>
+                                <RangeMin>1</RangeMin>
+                                <RangeMax>2</RangeMax>
                                 <Count>2</Count>
+                              </Expression>
+                              <Expression xsi:type="scr:ExpressionTransform">
+                                <scr:Name>LogSpace(10)</scr:Name>
+                                <scr:Expression>Math.Pow(10,it)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
@@ -2590,7 +2649,7 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:CreateVector3">
-                                  <gl:X>60</gl:X>
+                                  <gl:X>100</gl:X>
                                   <gl:Y>40</gl:Y>
                                   <gl:Z>100</gl:Z>
                                 </Combinator>
@@ -2598,12 +2657,13 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
                             <Edges>
-                              <Edge From="0" To="3" Label="Source1" />
+                              <Edge From="0" To="4" Label="Source1" />
                               <Edge From="1" To="2" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source2" />
-                              <Edge From="3" To="4" Label="Source1" />
+                              <Edge From="2" To="3" Label="Source1" />
+                              <Edge From="3" To="4" Label="Source2" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="5" To="6" Label="Source1" />
+                              <Edge From="6" To="7" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -2628,15 +2688,6 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="num:Permutation" />
-                  </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Period" DisplayName="SphereInterval" Category="Timings" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT0S</gl:DueTime>
-                      <gl:Period>PT0.5S</gl:Period>
-                    </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -2685,14 +2736,14 @@ it.Z as Depth
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="3" Label="Source2" />
+                  <Edge From="0" To="5" Label="Source2" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="2" To="8" Label="Source2" />
                   <Edge From="3" To="4" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
                   <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source2" />
+                  <Edge From="7" To="8" Label="Source1" />
                   <Edge From="8" To="9" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
                   <Edge From="10" To="11" Label="Source1" />
@@ -2847,17 +2898,17 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                     <Selector>Draw</Selector>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                    <TranslationX>20</TranslationX>
+                    <TranslationX>-0.4361942</TranslationX>
                     <TranslationY>0</TranslationY>
-                    <TranslationZ>57.6666679</TranslationZ>
-                    <ScaleX>1</ScaleX>
-                    <ScaleY>1</ScaleY>
-                    <ScaleZ>1</ScaleZ>
+                    <TranslationZ>67.5738144</TranslationZ>
+                    <ScaleX>0.5</ScaleX>
+                    <ScaleY>0.5</ScaleY>
+                    <ScaleZ>0.5</ScaleZ>
                     <MeshName>sphere</MeshName>
                     <Ambient>
-                      <X>0.386664629</X>
-                      <Y>0.386664629</Y>
-                      <Z>0.386664629</Z>
+                      <X>0.6202253</X>
+                      <Y>0.6202253</Y>
+                      <Z>0.6202253</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
