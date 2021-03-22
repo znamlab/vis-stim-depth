@@ -11,7 +11,7 @@ using Bonsai.Reactive;
 [WorkflowElementCategory(ElementCategory.Transform)]
 public class SphericalCoordinates
 {
-    public IObservable<Tuple<int,Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>>> Process(IObservable<Tuple<Tuple<ElementIndex<Tuple<double, double, float>>, float>, float>> source)
+    public IObservable<Tuple<int,Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>>> Process(IObservable<Tuple<Tuple<ElementIndex<Tuple<double, double, float>>, float>, int>> source)
     {
         return source.Select(value => 
         {
@@ -20,7 +20,7 @@ public class SphericalCoordinates
             float Elevation = Convert.ToSingle(value.Item1.Item1.Value.Item2);
             float Depth = value.Item1.Item1.Value.Item3;
             float OriginalSize = value.Item1.Item2;
-            float MouseZ = value.Item2;
+            float MouseZ = (float)value.Item2;
 
 
             // Rescale size of sphere
