@@ -82,7 +82,7 @@
             </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Name>diffence</scr:Name>
-              <scr:Expression>it[1]-it[0]</scr:Expression>
+              <scr:Expression>it[0]-it[1]</scr:Expression>
             </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Name>CutArtefact</scr:Name>

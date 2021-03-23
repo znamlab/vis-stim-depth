@@ -647,7 +647,7 @@ it as EyeZ)</scr:Expression>
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>453</Z>
+                      <Z>0</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
@@ -1620,15 +1620,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
               <TranslationX>3.61904788</TranslationX>
               <TranslationY>-3.00907516</TranslationY>
-              <TranslationZ>451.3124</TranslationZ>
+              <TranslationZ>-1.68758976</TranslationZ>
               <ScaleX>0.5</ScaleX>
               <ScaleY>0.5</ScaleY>
               <ScaleZ>0.5</ScaleZ>
               <MeshName>Plane</MeshName>
               <Ambient>
-                <X>1</X>
-                <Y>1</Y>
-                <Z>1</Z>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
               </Ambient>
               <Diffuse>
                 <X>0</X>
@@ -1740,196 +1740,198 @@ Item1 as PhotodiodeSignal
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="GroupWorkflow">
-        <Name>Floor</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Period" DisplayName="RegenerateInterval" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:Timer">
-                <gl:DueTime>PT0S</gl:DueTime>
-                <gl:Period>PT2S</gl:Period>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:ElementIndex" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Index</Selector>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="TextureName" />
-              <Property Name="Ambient" />
-              <Property Name="TranslationX" />
-              <Property Name="TranslationY" />
-              <Property Name="ScaleZ" />
-              <Property Name="RotationX" />
-              <Property Name="RotationY" />
-              <Property Name="RotationZ" />
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>FloorLength</Name>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Value" />
-              </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="FloatProperty">
-                <Value>1000</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="Multiply" />
-            <Expression xsi:type="CreateObservable">
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Draw</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>FloorWidth</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="ScaleX" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="TextureName" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:BindTexture">
-                      <gl:TextureSlot>Texture0</gl:TextureSlot>
-                      <gl:ShaderName>TexturedModel</gl:ShaderName>
-                      <gl:TextureName>fwn1</gl:TextureName>
-                      <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:CombineLatest" />
-                  </Expression>
-                  <Expression xsi:type="InputMapping">
-                    <PropertyMappings>
-                      <Property Name="TranslationZ" Selector="Item2" />
-                    </PropertyMappings>
-                    <Selector>Item1</Selector>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>FloorLength</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="ScaleY" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Ambient" />
-                    <Property Name="TranslationX" />
-                    <Property Name="TranslationY" />
-                    <Property Name="ScaleZ" />
-                    <Property Name="RotationZ" />
-                    <Property Name="RotationY" />
-                    <Property Name="RotationX" />
-                  </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                    <TranslationX>0</TranslationX>
-                    <TranslationY>-1</TranslationY>
-                    <TranslationZ>25000</TranslationZ>
-                    <ScaleX>2</ScaleX>
-                    <ScaleY>1000</ScaleY>
-                    <ScaleZ>0</ScaleZ>
-                    <MeshName>Plane</MeshName>
-                    <Ambient>
-                      <X>0.5</X>
-                      <Y>0.5</Y>
-                      <Z>0.5</Z>
-                    </Ambient>
-                    <Diffuse>
-                      <X>1</X>
-                      <Y>1</Y>
-                      <Z>1</Z>
-                    </Diffuse>
-                    <Specular>
-                      <X>1</X>
-                      <Y>1</Y>
-                      <Z>1</Z>
-                    </Specular>
-                    <SpecularExponent>10</SpecularExponent>
-                    <RotationZ>0</RotationZ>
-                    <RotationY>0</RotationY>
-                    <RotationX>-90</RotationX>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="6" Label="Source2" />
-                  <Edge From="1" To="5" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="11" Label="Source2" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Merge" />
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="FloorLength" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="FloatProperty">
-                <Value>1000</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="BehaviorSubject">
-              <Name>FloorLength</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="FloorWidth" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="FloatProperty">
-                <Value>2</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="BehaviorSubject">
-              <Name>FloorWidth</Name>
-            </Expression>
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="8" Label="Source1" />
-            <Edge From="4" To="10" Label="Source2" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source2" />
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
-            <Edge From="12" To="13" Label="Source1" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="GroupWorkflow">
+          <Name>Floor</Name>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Period" DisplayName="RegenerateInterval" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="gl:Timer">
+                  <gl:DueTime>PT0S</gl:DueTime>
+                  <gl:Period>PT0.1S</gl:Period>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:ElementIndex" />
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>Index</Selector>
+              </Expression>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="TextureName" />
+                <Property Name="Ambient" />
+                <Property Name="TranslationX" />
+                <Property Name="TranslationY" />
+                <Property Name="ScaleZ" />
+                <Property Name="RotationX" />
+                <Property Name="RotationY" />
+                <Property Name="RotationZ" />
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>FloorLength</Name>
+              </Expression>
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Value" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="FloatProperty">
+                  <Value>1000</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="Multiply" />
+              <Expression xsi:type="CreateObservable">
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="WorkflowInput">
+                      <Name>Source1</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>Draw</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>FloorWidth</Name>
+                    </Expression>
+                    <Expression xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="ScaleX" />
+                      </PropertyMappings>
+                    </Expression>
+                    <Expression xsi:type="ExternalizedMapping">
+                      <Property Name="TextureName" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="gl:BindTexture">
+                        <gl:TextureSlot>Texture0</gl:TextureSlot>
+                        <gl:ShaderName>TexturedModel</gl:ShaderName>
+                        <gl:TextureName>fwn1</gl:TextureName>
+                        <gl:TextureTarget>Texture2D</gl:TextureTarget>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:CombineLatest" />
+                    </Expression>
+                    <Expression xsi:type="InputMapping">
+                      <PropertyMappings>
+                        <Property Name="TranslationZ" Selector="Item2" />
+                      </PropertyMappings>
+                      <Selector>Item1</Selector>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>FloorLength</Name>
+                    </Expression>
+                    <Expression xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="ScaleY" />
+                      </PropertyMappings>
+                    </Expression>
+                    <Expression xsi:type="ExternalizedMapping">
+                      <Property Name="Ambient" />
+                      <Property Name="TranslationX" />
+                      <Property Name="TranslationY" />
+                      <Property Name="ScaleZ" />
+                      <Property Name="RotationZ" />
+                      <Property Name="RotationY" />
+                      <Property Name="RotationX" />
+                    </Expression>
+                    <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+                      <TranslationX>0</TranslationX>
+                      <TranslationY>-1</TranslationY>
+                      <TranslationZ>5000</TranslationZ>
+                      <ScaleX>2</ScaleX>
+                      <ScaleY>1000</ScaleY>
+                      <ScaleZ>0</ScaleZ>
+                      <MeshName>Plane</MeshName>
+                      <Ambient>
+                        <X>0.5</X>
+                        <Y>0.5</Y>
+                        <Z>0.5</Z>
+                      </Ambient>
+                      <Diffuse>
+                        <X>1</X>
+                        <Y>1</Y>
+                        <Z>1</Z>
+                      </Diffuse>
+                      <Specular>
+                        <X>1</X>
+                        <Y>1</Y>
+                        <Z>1</Z>
+                      </Specular>
+                      <SpecularExponent>10</SpecularExponent>
+                      <RotationZ>0</RotationZ>
+                      <RotationY>0</RotationY>
+                      <RotationX>-90</RotationX>
+                    </Expression>
+                    <Expression xsi:type="WorkflowOutput" />
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="6" Label="Source2" />
+                    <Edge From="1" To="5" Label="Source1" />
+                    <Edge From="2" To="3" Label="Source1" />
+                    <Edge From="3" To="11" Label="Source2" />
+                    <Edge From="4" To="5" Label="Source2" />
+                    <Edge From="5" To="6" Label="Source1" />
+                    <Edge From="6" To="7" Label="Source1" />
+                    <Edge From="7" To="11" Label="Source1" />
+                    <Edge From="8" To="9" Label="Source1" />
+                    <Edge From="9" To="11" Label="Source3" />
+                    <Edge From="10" To="11" Label="Source4" />
+                    <Edge From="11" To="12" Label="Source1" />
+                  </Edges>
+                </Workflow>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:Merge" />
+              </Expression>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Value" DisplayName="FloorLength" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="FloatProperty">
+                  <Value>1000</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="BehaviorSubject">
+                <Name>FloorLength</Name>
+              </Expression>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Value" DisplayName="FloorWidth" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="FloatProperty">
+                  <Value>2</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="BehaviorSubject">
+                <Name>FloorWidth</Name>
+              </Expression>
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="1" Label="Source1" />
+              <Edge From="1" To="2" Label="Source1" />
+              <Edge From="2" To="3" Label="Source1" />
+              <Edge From="3" To="8" Label="Source1" />
+              <Edge From="4" To="10" Label="Source2" />
+              <Edge From="5" To="6" Label="Source1" />
+              <Edge From="6" To="7" Label="Source1" />
+              <Edge From="7" To="8" Label="Source2" />
+              <Edge From="8" To="9" Label="Source1" />
+              <Edge From="9" To="10" Label="Source1" />
+              <Edge From="10" To="11" Label="Source1" />
+              <Edge From="12" To="13" Label="Source1" />
+              <Edge From="13" To="14" Label="Source1" />
+              <Edge From="15" To="16" Label="Source1" />
+              <Edge From="16" To="17" Label="Source1" />
+            </Edges>
+          </Workflow>
+        </Builder>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>SpheresClose</Name>
@@ -1983,7 +1985,7 @@ Item1 as PhotodiodeSignal
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="FloatProperty">
-                      <Value>4</Value>
+                      <Value>0.5</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="BehaviorSubject">
@@ -2003,7 +2005,7 @@ Item1 as PhotodiodeSignal
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
                       <gl:DueTime>PT0S</gl:DueTime>
-                      <gl:Period>PT0.5S</gl:Period>
+                      <gl:Period>PT0.01S</gl:Period>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="ExternalizedMapping">
@@ -2024,9 +2026,9 @@ Item1 as PhotodiodeSignal
                           <Property Name="Count" DisplayName="XminCount" />
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                          <RangeMin>60</RangeMin>
+                          <RangeMin>0</RangeMin>
                           <RangeMax>70</RangeMax>
-                          <Count>2</Count>
+                          <Count>10</Count>
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
                           <Property Name="RangeMin" DisplayName="XmaxLim" />
@@ -2035,8 +2037,8 @@ Item1 as PhotodiodeSignal
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
                           <RangeMin>110</RangeMin>
-                          <RangeMax>120</RangeMax>
-                          <Count>2</Count>
+                          <RangeMax>180</RangeMax>
+                          <Count>10</Count>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Concat" />
@@ -2065,9 +2067,9 @@ Item1 as PhotodiodeSignal
                           <Property Name="Count" DisplayName="Ycount" />
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                          <RangeMin>0</RangeMin>
+                          <RangeMin>-40</RangeMin>
                           <RangeMax>40</RangeMax>
-                          <Count>3</Count>
+                          <Count>20</Count>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:CombineLatest" />
@@ -2090,13 +2092,15 @@ Item1 as PhotodiodeSignal
                                 <Property Name="Count" DisplayName="DepthCount" />
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                <RangeMin>1</RangeMin>
-                                <RangeMax>2</RangeMax>
-                                <Count>2</Count>
+                                <RangeMin>300</RangeMin>
+                                <RangeMax>1000</RangeMax>
+                                <Count>3</Count>
                               </Expression>
-                              <Expression xsi:type="scr:ExpressionTransform">
-                                <scr:Name>LogSpace(10)</scr:Name>
-                                <scr:Expression>Math.Pow(10,it)</scr:Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="scr:ExpressionTransform">
+                                  <scr:Name>LogSpace(10)</scr:Name>
+                                  <scr:Expression>Math.Pow(10,it)</scr:Expression>
+                                </Builder>
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
@@ -2110,9 +2114,9 @@ Item1 as PhotodiodeSignal
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:CreateVector3">
-                                  <gl:X>120</gl:X>
+                                  <gl:X>180</gl:X>
                                   <gl:Y>40</gl:Y>
-                                  <gl:Z>100</gl:Z>
+                                  <gl:Z>1000</gl:Z>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -2188,7 +2192,7 @@ it.Z as Depth
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT3M16S</gl:DueTime>
+                      <gl:DueTime>PT3M19.5000064S</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -2309,7 +2313,7 @@ it.Z as Depth
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT4S</gl:DueTime>
+                      <gl:DueTime>PT0.5S</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -2369,17 +2373,17 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                     <Selector>Draw</Selector>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                    <TranslationX>46.98463</TranslationX>
-                    <TranslationY>34.2020149</TranslationY>
-                    <TranslationZ>534.379761</TranslationZ>
-                    <ScaleX>4.3</ScaleX>
-                    <ScaleY>4.3</ScaleY>
-                    <ScaleZ>4.3</ScaleZ>
+                    <TranslationX>-244.63176</TranslationX>
+                    <TranslationY>137.913116</TranslationY>
+                    <TranslationZ>105.523811</TranslationZ>
+                    <ScaleX>12.9000006</ScaleX>
+                    <ScaleY>12.9000006</ScaleY>
+                    <ScaleZ>12.9000006</ScaleZ>
                     <MeshName>sphere</MeshName>
                     <Ambient>
-                      <X>0.9800452</X>
-                      <Y>0.9800452</Y>
-                      <Z>0.9800452</Z>
+                      <X>0.388920784</X>
+                      <Y>0.388920784</Y>
+                      <Z>0.388920784</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -2433,7 +2437,7 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:DelaySubscription">
-                <rx:DueTime>PT5S</rx:DueTime>
+                <rx:DueTime>PT3S</rx:DueTime>
               </Combinator>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
@@ -2732,7 +2736,7 @@ Item1.Item2 as Ambient)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT10S</gl:DueTime>
+                      <gl:DueTime>PT0.5S</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -2792,17 +2796,17 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                     <Selector>Draw</Selector>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                    <TranslationX>-26.2002621</TranslationX>
-                    <TranslationY>64.27876</TranslationY>
-                    <TranslationZ>253.984634</TranslationZ>
-                    <ScaleX>5</ScaleX>
-                    <ScaleY>5</ScaleY>
-                    <ScaleZ>5</ScaleZ>
+                    <TranslationX>-273.2899</TranslationX>
+                    <TranslationY>117.979904</TranslationY>
+                    <TranslationZ>184304.328</TranslationZ>
+                    <ScaleX>12.9000006</ScaleX>
+                    <ScaleY>12.9000006</ScaleY>
+                    <ScaleZ>12.9000006</ScaleZ>
                     <MeshName>sphere</MeshName>
                     <Ambient>
-                      <X>1</X>
-                      <Y>1</Y>
-                      <Z>1</Z>
+                      <X>0.5</X>
+                      <Y>0.5</Y>
+                      <Z>0.5</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -3298,6 +3302,56 @@ Depth * OriSize as Size
             </Edges>
           </Workflow>
         </Builder>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>FrameLogger</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:RenderFrame" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>TimeStep.ElapsedRealTime</Selector>
+            </Expression>
+            <Expression xsi:type="rx:Accumulate" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:ElementIndex" />
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+                <Name>Timestamp</Name>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+it.Index as Frame,
+it.Value as BonsaiElapsedTime)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="io:CsvWriter">
+              <io:FileName>saved_csv\EpisodicStimulation_framelog.csv</io:FileName>
+              <io:Delimiter>,</io:Delimiter>
+              <io:Append>true</io:Append>
+              <io:Overwrite>false</io:Overwrite>
+              <io:Suffix>Timestamp</io:Suffix>
+              <io:IncludeHeader>true</io:IncludeHeader>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="WorkflowOutput" />
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>photodiode</Name>
       </Expression>
     </Nodes>
     <Edges />
