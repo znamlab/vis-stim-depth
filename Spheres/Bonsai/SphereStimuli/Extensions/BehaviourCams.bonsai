@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.6.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:p1="clr-namespace:Bonsai.Pylon;assembly=Bonsai.Pylon"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>BehaviourCams</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>LeftEyeCam</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p1:PylonCapture">
+                      <p1:SerialNumber>40095643</p1:SerialNumber>
+                      <p1:ParameterFile>D:\code\Camera-settings\acA1440-220um_40095643_triggered_25msframes.pfs</p1:ParameterFile>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Image</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Flip">
+                      <cv:Mode>Vertical</cv:Mode>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SaveTimestamp</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SaveGeneralPrefix</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SaveDate</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>LeftEyeCam</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Metadata</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="Format">
+                    <Format>{0}\S{1}\R{2}\{4}_{3}_S{1}_R{2}.avi</Format>
+                    <Selector>Item1,Item2,Item3,Item4,Item5.Animal</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="FileName" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:VideoWriter">
+                      <cv:FileName>D:\data\TEST\S2021329\R143533\TEST_LeftEyeCam_2021329_143533.avi</cv:FileName>
+                      <cv:Suffix>None</cv:Suffix>
+                      <cv:Buffered>true</cv:Buffered>
+                      <cv:Overwrite>true</cv:Overwrite>
+                      <cv:FourCC>FMP4</cv:FourCC>
+                      <cv:FrameRate>30</cv:FrameRate>
+                      <cv:FrameSize>
+                        <cv:Width>0</cv:Width>
+                        <cv:Height>0</cv:Height>
+                      </cv:FrameSize>
+                      <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="PublishSubject">
+                    <Name>LeftEyeFrame</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="11" Label="Source1" />
+                  <Edge From="3" To="8" Label="Source3" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="5" To="8" Label="Source2" />
+                  <Edge From="6" To="8" Label="Source4" />
+                  <Edge From="7" To="8" Label="Source5" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>RightEyeCam</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p1:PylonCapture">
+                      <p1:SerialNumber>40095665</p1:SerialNumber>
+                      <p1:ParameterFile>D:\code\Camera-settings\acA1440-220um_40095643_triggered_25msframes.pfs</p1:ParameterFile>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Image</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Flip">
+                      <cv:Mode>Vertical</cv:Mode>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SaveTimestamp</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SaveGeneralPrefix</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SaveDate</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>RightEyeCam</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Metadata</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="Format">
+                    <Format>{0}\S{1}\R{2}\{4}_{3}_S{1}_R{2}.avi</Format>
+                    <Selector>Item1,Item2,Item3,Item4,Item5.Animal</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="FileName" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:VideoWriter">
+                      <cv:FileName>D:\data\TEST\S2021329\R143533\TEST_RightEyeCam_2021329_143533.avi</cv:FileName>
+                      <cv:Suffix>None</cv:Suffix>
+                      <cv:Buffered>true</cv:Buffered>
+                      <cv:Overwrite>true</cv:Overwrite>
+                      <cv:FourCC>FMP4</cv:FourCC>
+                      <cv:FrameRate>30</cv:FrameRate>
+                      <cv:FrameSize>
+                        <cv:Width>0</cv:Width>
+                        <cv:Height>0</cv:Height>
+                      </cv:FrameSize>
+                      <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="PublishSubject">
+                    <Name>RightEyeFrame</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="11" Label="Source1" />
+                  <Edge From="3" To="8" Label="Source3" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="5" To="8" Label="Source2" />
+                  <Edge From="6" To="8" Label="Source4" />
+                  <Edge From="7" To="8" Label="Source5" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="GroupWorkflow">
+                <Name>FaceCam</Name>
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="p1:PylonCapture">
+                        <p1:SerialNumber>40095669</p1:SerialNumber>
+                        <p1:ParameterFile>D:\code\Camera-settings\acA1440-220um_40095643_triggered_25msframes.pfs</p1:ParameterFile>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="MemberSelector">
+                      <Selector>Image</Selector>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>SaveTimestamp</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>SaveGeneralPrefix</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>SaveDate</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="StringProperty">
+                        <Value>FaceCam</Value>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>Metadata</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Zip" />
+                    </Expression>
+                    <Expression xsi:type="Format">
+                      <Format>{0}\S{1}\R{2}\{4}_{3}_S{1}_R{2}.avi</Format>
+                      <Selector>Item1,Item2,Item3,Item4,Item5.Animal</Selector>
+                    </Expression>
+                    <Expression xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="FileName" />
+                      </PropertyMappings>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="cv:VideoWriter">
+                        <cv:Suffix>None</cv:Suffix>
+                        <cv:Buffered>true</cv:Buffered>
+                        <cv:Overwrite>false</cv:Overwrite>
+                        <cv:FourCC>FMP4</cv:FourCC>
+                        <cv:FrameRate>30</cv:FrameRate>
+                        <cv:FrameSize>
+                          <cv:Width>0</cv:Width>
+                          <cv:Height>0</cv:Height>
+                        </cv:FrameSize>
+                        <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="PublishSubject">
+                      <Name>FaceFrame</Name>
+                    </Expression>
+                    <Expression xsi:type="WorkflowOutput" />
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="1" Label="Source1" />
+                    <Edge From="1" To="10" Label="Source1" />
+                    <Edge From="2" To="7" Label="Source3" />
+                    <Edge From="3" To="7" Label="Source1" />
+                    <Edge From="4" To="7" Label="Source2" />
+                    <Edge From="5" To="7" Label="Source4" />
+                    <Edge From="6" To="7" Label="Source5" />
+                    <Edge From="7" To="8" Label="Source1" />
+                    <Edge From="8" To="9" Label="Source1" />
+                    <Edge From="9" To="10" Label="Source2" />
+                    <Edge From="10" To="11" Label="Source1" />
+                    <Edge From="11" To="12" Label="Source1" />
+                  </Edges>
+                </Workflow>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="GroupWorkflow">
+                <Name>BehavCam</Name>
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="p1:PylonCapture">
+                        <p1:SerialNumber>40095643</p1:SerialNumber>
+                        <p1:ParameterFile>D:\code\Camera-settings\acA1440-220um_40095643_triggered_25msframes.pfs</p1:ParameterFile>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="MemberSelector">
+                      <Selector>Image</Selector>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>SaveTimestamp</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>SaveGeneralPrefix</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>SaveDate</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="StringProperty">
+                        <Value>BehavCam</Value>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>Metadata</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Zip" />
+                    </Expression>
+                    <Expression xsi:type="Format">
+                      <Format>{0}\S{1}\R{2}\{4}_{3}_S{1}_R{2}.avi</Format>
+                      <Selector>Item1,Item2,Item3,Item4,Item5.Animal</Selector>
+                    </Expression>
+                    <Expression xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="FileName" />
+                      </PropertyMappings>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="cv:VideoWriter">
+                        <cv:Suffix>None</cv:Suffix>
+                        <cv:Buffered>true</cv:Buffered>
+                        <cv:Overwrite>false</cv:Overwrite>
+                        <cv:FourCC>FMP4</cv:FourCC>
+                        <cv:FrameRate>30</cv:FrameRate>
+                        <cv:FrameSize>
+                          <cv:Width>0</cv:Width>
+                          <cv:Height>0</cv:Height>
+                        </cv:FrameSize>
+                        <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="PublishSubject">
+                      <Name>GlobalViewFrame</Name>
+                    </Expression>
+                    <Expression xsi:type="WorkflowOutput" />
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="1" Label="Source1" />
+                    <Edge From="1" To="10" Label="Source1" />
+                    <Edge From="2" To="7" Label="Source3" />
+                    <Edge From="3" To="7" Label="Source1" />
+                    <Edge From="4" To="7" Label="Source2" />
+                    <Edge From="5" To="7" Label="Source4" />
+                    <Edge From="6" To="7" Label="Source5" />
+                    <Edge From="7" To="8" Label="Source1" />
+                    <Edge From="8" To="9" Label="Source1" />
+                    <Edge From="9" To="10" Label="Source2" />
+                    <Edge From="10" To="11" Label="Source1" />
+                    <Edge From="11" To="12" Label="Source1" />
+                  </Edges>
+                </Workflow>
+              </Builder>
+            </Expression>
+          </Nodes>
+          <Edges />
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="WorkflowOutput" />
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
