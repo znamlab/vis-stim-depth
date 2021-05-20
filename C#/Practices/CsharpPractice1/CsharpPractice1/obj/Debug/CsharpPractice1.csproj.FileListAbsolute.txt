@@ -1,7 +1,0 @@
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\bin\Debug\CsharpPractice1.exe.config
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\bin\Debug\CsharpPractice1.exe
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\bin\Debug\CsharpPractice1.pdb
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\obj\Debug\CsharpPractice1.csprojAssemblyReference.cache
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\obj\Debug\CsharpPractice1.csproj.CoreCompileInputs.cache
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\obj\Debug\CsharpPractice1.exe
-E:\vis-stim\vis-stim-depth\C#\Practices\CsharpPractice1\CsharpPractice1\obj\Debug\CsharpPractice1.pdb
