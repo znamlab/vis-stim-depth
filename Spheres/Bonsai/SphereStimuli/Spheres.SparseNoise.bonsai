@@ -32,10 +32,10 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:MetadataSource">
           <p1:ExpInfo>
-            <p1:Animal>TEST</p1:Animal>
+            <p1:Animal>Test_Framedrops</p1:Animal>
             <p1:RootDirectory>D:\data</p1:RootDirectory>
           </p1:ExpInfo>
-          <p1:Animal>TEST</p1:Animal>
+          <p1:Animal>Test_Framedrops</p1:Animal>
           <p1:RootDirectory>D:\data</p1:RootDirectory>
         </Combinator>
       </Expression>
@@ -117,7 +117,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="IntProperty">
-                      <Value>15</Value>
+                      <Value>50</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="BehaviorSubject">
@@ -321,16 +321,16 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\InitBonvision3D.bonsai">
         <WindowState>Fullscreen</WindowState>
         <DisplayDevice>Primary</DisplayDevice>
-        <ClearColor>Gray</ClearColor>
         <ScreenCalibFile>D:\code\Calibrations\ScreenCalibration\calibration_data\Ronan_Cottage_2p\210406\monitor_calibration.csv</ScreenCalibFile>
         <GammaCalibFile>D:\code\Calibrations\GammaCalibration\calibration_data\RonanCottage_2p\210305\gamma_calibration.csv</GammaCalibFile>
+        <ClearColor>Black</ClearColor>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\PhotodiodePlane.bonsai">
         <ScaleX>0.5</ScaleX>
         <ScaleY>0.5</ScaleY>
         <ScaleZ>0.5</ScaleZ>
-        <PhotoquadX>-25</PhotoquadX>
-        <PhotoquadY>-37</PhotoquadY>
+        <PhotoquadX>-155</PhotoquadX>
+        <PhotoquadY>-40</PhotoquadY>
         <PhotoquadZ>5</PhotoquadZ>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\FrameLogger.bonsai">
@@ -402,7 +402,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\TEST\S20210520\R175520_SphereSparseNoise\TEST_S20210520_R175520_SphereSparseNoise_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\Test_Framedrops\S20210806\R145250_SphereSparseNoise\Test_Framedrops_S20210806_R145250_SphereSparseNoise_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -495,7 +495,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="FloatProperty">
-                      <Value>0.043</Value>
+                      <Value>0.0435</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="BehaviorSubject">
@@ -597,6 +597,9 @@ Item3 as Count
                           <scr:Name>Power</scr:Name>
                           <scr:Expression>Math.Pow(Item2,Item1)</scr:Expression>
                         </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="num:Permutation" />
+                        </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
@@ -622,6 +625,7 @@ Item3 as Count
                         <Edge From="16" To="17" Label="Source1" />
                         <Edge From="17" To="18" Label="Source1" />
                         <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="19" To="20" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -667,9 +671,9 @@ Item3 as Count
                                 <Property Name="Count" DisplayName="XminCount" />
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                <RangeMin>-30</RangeMin>
+                                <RangeMin>-20</RangeMin>
                                 <RangeMax>70</RangeMax>
-                                <Count>21</Count>
+                                <Count>10</Count>
                               </Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="RangeMin" DisplayName="XmaxLim" />
@@ -678,8 +682,8 @@ Item3 as Count
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
                                 <RangeMin>110</RangeMin>
-                                <RangeMax>240</RangeMax>
-                                <Count>21</Count>
+                                <RangeMax>200</RangeMax>
+                                <Count>10</Count>
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Concat" />
@@ -820,7 +824,7 @@ Item3 as Count
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:RepeatCount">
-                      <rx:Count>15</rx:Count>
+                      <rx:Count>50</rx:Count>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
@@ -912,8 +916,10 @@ Item3 as Count
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:CombineLatest" />
                         </Expression>
-                        <Expression xsi:type="MulticastSubject">
-                          <Name>SphereAllParams</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="MulticastSubject">
+                            <Name>SphereAllParams</Name>
+                          </Builder>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:CombineLatest" />
@@ -947,17 +953,17 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                           <Selector>Draw</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>-12.4577627</TranslationX>
-                          <TranslationY>-11.471529</TranslationY>
-                          <TranslationZ>-10.6399326</TranslationZ>
-                          <ScaleX>0.86</ScaleX>
-                          <ScaleY>0.86</ScaleY>
-                          <ScaleZ>0.86</ScaleZ>
+                          <TranslationX>59.0089035</TranslationX>
+                          <TranslationY>16.369154</TranslationY>
+                          <TranslationZ>-15.811388</TranslationZ>
+                          <ScaleX>2.75118136</ScaleX>
+                          <ScaleY>2.75118136</ScaleY>
+                          <ScaleZ>2.75118136</ScaleZ>
                           <MeshName>sphere</MeshName>
                           <Ambient>
-                            <X>0.6413504</X>
-                            <Y>0.6413504</Y>
-                            <Z>0.6413504</Z>
+                            <X>0.5</X>
+                            <Y>0.5</Y>
+                            <Z>0.5</Z>
                           </Ambient>
                           <Diffuse>
                             <X>0</X>
@@ -1110,7 +1116,7 @@ Value.Item1.Item4.Item2 as Size)</scr:Expression>
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\TEST\S20210520\R175255_SphereSparseNoise\TEST_S20210520_R175255_SphereSparseNoise_NewParams.csv</io:FileName>
+                          <io:FileName>D:\data\Test_Framedrops\S20210806\R145250_SphereSparseNoise\Test_Framedrops_S20210806_R145250_SphereSparseNoise_NewParams.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -1163,47 +1169,70 @@ Item4 as Depth
                             <BufferSize xsi:nil="true" />
                           </Builder>
                         </Expression>
-                        <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Tuple(sys:Int32,sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single)),sys:Single)">
-                          <Name>SphereAllParams</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Tuple(sys:Int32,sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single)),sys:Single)">
+                            <Name>SphereAllParams</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Frames</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>Frames</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>CloseLoopDuration</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>CloseLoopDuration</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Multiply">
-                          <Operand xsi:type="FloatProperty">
-                            <Value>1E+07</Value>
-                          </Operand>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Multiply">
+                            <Operand xsi:type="FloatProperty">
+                              <Value>1E+07</Value>
+                            </Operand>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="DueTime" />
-                          </PropertyMappings>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="PropertyMapping">
+                            <PropertyMappings>
+                              <Property Name="DueTime" />
+                            </PropertyMappings>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:Timer">
-                            <gl:DueTime>P208333DT7H32M23.1319552S</gl:DueTime>
-                          </Combinator>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="gl:Timer">
+                              <gl:DueTime>P694444DT10H24M18.4049664S</gl:DueTime>
+                            </Combinator>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>StartTrigger</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>StartTrigger</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="rx:WithLatestFrom" />
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item1</Selector>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="MemberSelector">
+                            <Selector>Item1</Selector>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:CombineLatest" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="rx:CombineLatest" />
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                          <Name>Timestamp</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+                            <Name>Timestamp</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="scr:ExpressionTransform">
-                          <scr:Expression>new(
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="scr:ExpressionTransform">
+                            <scr:Expression>new(
 Timestamp as HarpTime,
 Value.Item2.Index as Frame,
 Value.Item2.Value.ElapsedTime as FrameElapsedTime,
@@ -1220,51 +1249,76 @@ Value.Item1.Item1.Item3.Item5 as MouseZ,
 Value.Item1.Item1.Item4.Item1 as OriginalSize,
 Value.Item1.Item1.Item4.Item2 as Size,
 Value.Item1.Item2 as Ambient)</scr:Expression>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveGeneralPrefix</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>SaveGeneralPrefix</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveDate</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>SaveDate</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="SaveFilename AllParams" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="ExternalizedMapping">
+                            <Property Name="Value" DisplayName="SaveFilename AllParams" />
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="StringProperty">
-                            <Value>AllParams</Value>
-                          </Combinator>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="StringProperty">
+                              <Value>AllParams</Value>
+                            </Combinator>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Metadata</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>Metadata</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>WhichExp</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>WhichExp</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveTimestamp</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>SaveTimestamp</Name>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Zip" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="rx:Zip" />
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Format">
-                          <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
-                          <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Format">
+                            <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
+                            <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="FileName" />
-                          </PropertyMappings>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="PropertyMapping">
+                            <PropertyMappings>
+                              <Property Name="FileName" />
+                            </PropertyMappings>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\TEST\S20210520\R175255_SphereSparseNoise\TEST_S20210520_R175255_SphereSparseNoise_AllParams.csv</io:FileName>
-                          <io:Append>false</io:Append>
-                          <io:Overwrite>false</io:Overwrite>
-                          <io:Suffix>None</io:Suffix>
-                          <io:IncludeHeader>true</io:IncludeHeader>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="io:CsvWriter">
+                            <io:FileName>D:\data\Test_Framedrops\S20210806\R140213_SphereSparseNoise\Test_Framedrops_S20210806_R140213_SphereSparseNoise_AllParams.csv</io:FileName>
+                            <io:Append>false</io:Append>
+                            <io:Overwrite>false</io:Overwrite>
+                            <io:Suffix>None</io:Suffix>
+                            <io:IncludeHeader>true</io:IncludeHeader>
+                          </Builder>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:TakeUntil" />
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
+                            <Combinator xsi:type="rx:TakeUntil" />
+                          </Builder>
                         </Expression>
                       </Nodes>
                       <Edges>

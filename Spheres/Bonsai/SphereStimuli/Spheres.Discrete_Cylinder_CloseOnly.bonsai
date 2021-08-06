@@ -31,10 +31,10 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:MetadataSource">
           <p1:ExpInfo>
-            <p1:Animal>Test</p1:Animal>
+            <p1:Animal>TEST</p1:Animal>
             <p1:RootDirectory>D:\data</p1:RootDirectory>
           </p1:ExpInfo>
-          <p1:Animal>Test</p1:Animal>
+          <p1:Animal>TEST</p1:Animal>
           <p1:RootDirectory>D:\data</p1:RootDirectory>
         </Combinator>
       </Expression>
@@ -70,6 +70,12 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Format">
+          <Format>{0}/S{1}/R{2}_{3}/si_data/{0}_S{1}_R{2}_{3}</Format>
+          <Selector>Item1.Animal,Item2,Item3,Item4</Selector>
+        </Builder>
       </Expression>
       <Expression xsi:type="Format">
         <Format>{0}_S{1}_R{2}_{3}</Format>
@@ -126,7 +132,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>30</Value>
+                <Value>5</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Multiply">
@@ -295,16 +301,16 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\InitBonvision3D.bonsai">
         <WindowState>Fullscreen</WindowState>
         <DisplayDevice>Primary</DisplayDevice>
-        <ClearColor>Gray</ClearColor>
         <ScreenCalibFile>D:\code\Calibrations\ScreenCalibration\calibration_data\Ronan_Cottage_2p\210406\monitor_calibration.csv</ScreenCalibFile>
         <GammaCalibFile>D:\code\Calibrations\GammaCalibration\calibration_data\RonanCottage_2p\210305\gamma_calibration.csv</GammaCalibFile>
+        <ClearColor>Gray</ClearColor>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\PhotodiodePlane.bonsai">
         <ScaleX>0.5</ScaleX>
         <ScaleY>0.5</ScaleY>
         <ScaleZ>0.5</ScaleZ>
-        <PhotoquadX>-25</PhotoquadX>
-        <PhotoquadY>-37</PhotoquadY>
+        <PhotoquadX>-155</PhotoquadX>
+        <PhotoquadY>-40</PhotoquadY>
         <PhotoquadZ>5</PhotoquadZ>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\FrameLogger.bonsai">
@@ -376,7 +382,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\Test\S20210520\R174957_SphereCylinder\Test_S20210520_R174957_SphereCylinder_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\TEST\S20210806\R162018_SphereCylinder\TEST_S20210806_R162018_SphereCylinder_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Spheres Close &amp; Open</Name>
@@ -387,11 +393,8 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Property Name="SphereInterval" Category="Timings" />
               <Property Name="SaveFilename NewParams" DisplayName="Close NewParams" Category="ParamLogger" />
               <Property Name="AziMin" Category="Positions Azimuth" />
-              <Property Name="AziMinLim" Category="Positions Azimuth" />
-              <Property Name="AziMinCount" Category="Positions Azimuth" />
-              <Property Name="AziMaxLim" Category="Positions Azimuth" />
               <Property Name="AziMax" Category="Positions Azimuth" />
-              <Property Name="AziMaxCount" Category="Positions Azimuth" />
+              <Property Name="AziCount" Category="Positions Azimuth" />
               <Property Name="RadiusMin" Category="Positions Radius" />
               <Property Name="RadiusMax" Category="Positions Radius" />
               <Property Name="RadiusCount" Category="Positions Radius" />
@@ -416,7 +419,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="FloatProperty">
-                      <Value>0.0435</Value>
+                      <Value>0.087</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="BehaviorSubject">
@@ -430,11 +433,8 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="SphereInterval" Category="Timings" />
                     <Property Name="AziMin" />
-                    <Property Name="AziMinLim" />
-                    <Property Name="AziMinCount" />
-                    <Property Name="AziMaxLim" />
                     <Property Name="AziMax" />
-                    <Property Name="AziMaxCount" />
+                    <Property Name="AziCount" />
                     <Property Name="RadiusMin" />
                     <Property Name="RadiusMax" />
                     <Property Name="RadiusCount" />
@@ -466,11 +466,8 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
                           <Property Name="AziMin" />
-                          <Property Name="AziMinLim" />
-                          <Property Name="AziMinCount" />
-                          <Property Name="AziMaxLim" />
-                          <Property Name="AziMax" />
-                          <Property Name="AziMaxCount" />
+                          <Property Name="AziMax" DisplayName="AziMax" />
+                          <Property Name="AziCount" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>AziRange</Name>
@@ -478,35 +475,19 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                             <Nodes>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="RangeMin" DisplayName="AziMin" />
-                                <Property Name="RangeMax" DisplayName="AziMinLim" />
-                                <Property Name="Count" DisplayName="AziMinCount" />
-                              </Expression>
-                              <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                <RangeMin>70</RangeMin>
-                                <RangeMax>-30</RangeMax>
-                                <Count>11</Count>
-                              </Expression>
-                              <Expression xsi:type="ExternalizedMapping">
-                                <Property Name="RangeMin" DisplayName="AziMaxLim" />
                                 <Property Name="RangeMax" DisplayName="AziMax" />
-                                <Property Name="Count" DisplayName="AziMaxCount" />
+                                <Property Name="Count" DisplayName="AziCount" />
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                <RangeMin>110</RangeMin>
-                                <RangeMax>210</RangeMax>
+                                <RangeMin>-30</RangeMin>
+                                <RangeMax>70</RangeMax>
                                 <Count>11</Count>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:Concat" />
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="1" To="4" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source1" />
-                              <Edge From="3" To="4" Label="Source2" />
-                              <Edge From="4" To="5" Label="Source1" />
+                              <Edge From="1" To="2" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -636,9 +617,9 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>1.301029995663981</RangeMin>
+                                      <RangeMin>2.3010299956639808</RangeMin>
                                       <RangeMax>2.3010299956639808</RangeMax>
-                                      <Count>3</Count>
+                                      <Count>2</Count>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
@@ -659,8 +640,8 @@ Item3 as Count
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="gl:CreateVector3">
-                                        <gl:X>210</gl:X>
-                                        <gl:Y>220</gl:Y>
+                                        <gl:X>70</gl:X>
+                                        <gl:Y>210</gl:Y>
                                         <gl:Z>200</gl:Z>
                                       </Combinator>
                                     </Expression>
@@ -937,17 +918,17 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                           <Selector>Draw</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>63.2455521</TranslationX>
-                          <TranslationY>0</TranslationY>
-                          <TranslationZ>75.3731155</TranslationZ>
-                          <ScaleX>2.75118136</ScaleX>
-                          <ScaleY>2.75118136</ScaleY>
-                          <ScaleZ>2.75118136</ScaleZ>
+                          <TranslationX>-173.205078</TranslationX>
+                          <TranslationY>-100</TranslationY>
+                          <TranslationZ>-63.0414925</TranslationZ>
+                          <ScaleX>17.4</ScaleX>
+                          <ScaleY>17.4</ScaleY>
+                          <ScaleZ>17.4</ScaleZ>
                           <MeshName>sphere</MeshName>
                           <Ambient>
-                            <X>0.5764888</X>
-                            <Y>0.5764888</Y>
-                            <Z>0.5764888</Z>
+                            <X>0.6857668</X>
+                            <Y>0.6857668</Y>
+                            <Z>0.6857668</Z>
                           </Ambient>
                           <Diffuse>
                             <X>0</X>
@@ -1009,7 +990,7 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT30S</rx:DueTime>
+                      <rx:DueTime>PT5S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
@@ -1114,7 +1095,7 @@ Value.Item1.Item4.Item2 as Size)</scr:Expression>
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\Test\S20210520\R174957_SphereCylinder\Test_S20210520_R174957_SphereCylinder_NewParams.csv</io:FileName>
+                          <io:FileName>D:\data\TEST\S20210806\R162018_SphereCylinder\TEST_S20210806_R162018_SphereCylinder_NewParams.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -1963,9 +1944,10 @@ Value.Item1.Item2 as Ambient)</scr:Expression>
       <Edge From="9" To="10" Label="Source4" />
       <Edge From="10" To="11" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
       <Edge From="22" To="23" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

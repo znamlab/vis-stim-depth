@@ -35,7 +35,7 @@ public class CylinderCoords
             float Z0;
             X = Convert.ToSingle(Radius * Math.Cos(Theta));
             Y = Convert.ToSingle(Radius * Math.Sin(Theta));
-            Z0 = Convert.ToSingle(Radius * Math.Tan(Azimuth));
+            Z0 = Convert.ToSingle(Math.Abs(X) * Math.Tan(Azimuth));
 
 
 
