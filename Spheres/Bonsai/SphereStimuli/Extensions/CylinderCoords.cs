@@ -11,15 +11,15 @@ using Bonsai.Reactive;
 [WorkflowElementCategory(ElementCategory.Transform)]
 public class CylinderCoords
 {
-    public IObservable<Tuple<int,Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>>> Process(IObservable<Tuple<Tuple<ElementIndex<Tuple<double, double, float>>, float>, double>> source)
+    public IObservable<Tuple<int,float,Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>>> Process(IObservable<Tuple<Tuple<ElementIndex<Tuple<Tuple<double, double, float>,double>>, float>, double>> source)
     {
         return source.Select(value =>
         {
-        
             int SphereID = value.Item1.Item1.Index;
-            float Azimuth = Convert.ToSingle(value.Item1.Item1.Value.Item1);
-            float Theta = Convert.ToSingle(value.Item1.Item1.Value.Item2);
-            float Radius = Convert.ToSingle(value.Item1.Item1.Value.Item3);
+            float SphereStartTime = Convert.ToSingle(value.Item1.Item1.Value.Item2);
+            float Azimuth = Convert.ToSingle(value.Item1.Item1.Value.Item1.Item1);
+            float Theta = Convert.ToSingle(value.Item1.Item1.Value.Item1.Item2);
+            float Radius = Convert.ToSingle(value.Item1.Item1.Value.Item1.Item3);
             float OriginalSize = value.Item1.Item2;
             float MouseZ = Convert.ToSingle(value.Item2);
 
@@ -45,8 +45,8 @@ public class CylinderCoords
 
 
             //Return result: <ID>, <Azi, Ele, Depth>, <X,Y,Z0,Z, MouseZ>, <Original Size, Size>
-            Tuple<int,Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>> result = 
-                        new Tuple<int,Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>>(SphereID,new Tuple<float,float,float>(Azimuth,Theta,Radius),new Tuple<float,float,float,float,float>(X,Y,Z0,Z,MouseZ),new Tuple<float,float>(OriginalSize, Size));
+            Tuple<int, float, Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>> result = 
+                        new Tuple<int, float, Tuple<float,float,float>,Tuple<float,float,float,float,float>, Tuple<float,float>>(SphereID, SphereStartTime, new Tuple<float,float,float>(Azimuth,Theta, Radius),new Tuple<float,float,float,float,float>(X,Y,Z0,Z,MouseZ),new Tuple<float,float>(OriginalSize, Size));
 
             return result;
 
