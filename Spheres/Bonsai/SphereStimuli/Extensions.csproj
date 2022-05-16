@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bonsai.Core" Version="2.6.0" />
+    <PackageReference Include="Bonsai.Core" Version="2.6.2" />
   </ItemGroup>
 
 </Project>
