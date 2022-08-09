@@ -7,11 +7,11 @@
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
-                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -35,10 +35,10 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:MetadataSource">
           <p1:ExpInfo>
-            <p1:Animal>PZAH6.4b</p1:Animal>
+            <p1:Animal>PZAG3.4f</p1:Animal>
             <p1:RootDirectory>D:\data</p1:RootDirectory>
           </p1:ExpInfo>
-          <p1:Animal>PZAH6.4b</p1:Animal>
+          <p1:Animal>PZAG3.4f</p1:Animal>
           <p1:RootDirectory>D:\data</p1:RootDirectory>
         </Combinator>
       </Expression>
@@ -229,7 +229,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="StringProperty">
-                      <Value>SpheresPermTubeReward</Value>
+                      <Value>SpheresPermTubeRewardPlayback</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -388,7 +388,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\PZAH6.4b\S20220518\R165142_SpheresPermTubeReward\PZAH6.4b_S20220518_R165142_SpheresPermTubeReward_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\Test\S20220519\R115740_SpheresPermTubeRewardPlayback\Test_S20220519_R115740_SpheresPermTubeRewardPlayback_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>InitBonvision3D</Name>
@@ -629,59 +629,122 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="res:LoadResources" />
             </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="GroupWorkflow">
+                <Name>SetMouseZ</Name>
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>Mouse Distance</Name>
+                    </Expression>
+                    <Expression xsi:type="ExternalizedMapping">
+                      <Property Name="Value" DisplayName="EncoderCPR" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="FloatProperty">
+                        <Value>4096</Value>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="ExternalizedMapping">
+                      <Property Name="Value" DisplayName="WheelDiameter" Description="in cm" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="FloatProperty">
+                        <Value>20</Value>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="gl:RenderFrame" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Expression>
+                    <Expression xsi:type="MemberSelector">
+                      <Selector>Item2</Selector>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:CombineLatest" />
+                    </Expression>
+                    <Expression xsi:type="scr:ExpressionTransform">
+                      <scr:Expression>Item1 * (2*Math.PI*(Item3/2)) / Item2</scr:Expression>
+                    </Expression>
+                    <Expression xsi:type="BehaviorSubject">
+                      <Name>MouseZ</Name>
+                    </Expression>
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="6" Label="Source2" />
+                    <Edge From="1" To="2" Label="Source1" />
+                    <Edge From="2" To="8" Label="Source2" />
+                    <Edge From="3" To="4" Label="Source1" />
+                    <Edge From="4" To="8" Label="Source3" />
+                    <Edge From="5" To="6" Label="Source1" />
+                    <Edge From="6" To="7" Label="Source1" />
+                    <Edge From="7" To="8" Label="Source1" />
+                    <Edge From="8" To="9" Label="Source1" />
+                    <Edge From="9" To="10" Label="Source1" />
+                  </Edges>
+                </Workflow>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="FileName" DisplayName="PlayBackCSV" />
+              <Property Name="Period" DisplayName="PlatBackInterval" />
+            </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>SetMouseZ</Name>
+              <Name>SetEyeZ</Name>
               <Workflow>
                 <Nodes>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Mouse Distance</Name>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="FileName" />
+                  </Expression>
+                  <Expression xsi:type="io:CsvReader">
+                    <io:FileName>D:\data\PZAG3.4f\S20220527\R114213_SpheresPermTubeReward\simple_mouseZ_playback.csv</io:FileName>
+                    <io:ListSeparator />
+                    <io:ScanPattern>%d</io:ScanPattern>
+                    <io:SkipRows>1</io:SkipRows>
                   </Expression>
                   <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Value" DisplayName="EncoderCPR" />
+                    <Property Name="Period" />
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="FloatProperty">
-                      <Value>4096</Value>
+                    <Combinator xsi:type="gl:Timer">
+                      <gl:DueTime>PT0S</gl:DueTime>
+                      <gl:Period>PT0.02S</gl:Period>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Value" DisplayName="WheelDiameter" Description="in cm" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="ExternalizedMapping">
+                      <Property Name="Period" />
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Timer">
+                        <rx:DueTime>PT0S</rx:DueTime>
+                        <rx:Period>PT0.02S</rx:Period>
+                      </Combinator>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="FloatProperty">
-                      <Value>20</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:RenderFrame" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
+                    <Combinator xsi:type="rx:Zip" />
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>Item2</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:CombineLatest" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>Item1 * (2*Math.PI*(Item3/2)) / Item2</scr:Expression>
+                    <Selector>Item1</Selector>
                   </Expression>
                   <Expression xsi:type="BehaviorSubject">
                     <Name>MouseZ</Name>
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="6" Label="Source2" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="8" Label="Source2" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="8" Label="Source3" />
-                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="6" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="6" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source3" />
                   <Edge From="6" To="7" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -689,6 +752,12 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Name>MouseZ</Name>
             </Expression>
             <Expression xsi:type="BehaviorSubject">
+              <Name>EyeZ</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="ClearColor" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
               <Name>EyeZ</Name>
             </Expression>
             <Expression xsi:type="InputMapping">
@@ -700,16 +769,13 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>12297.3262</gl:Z>
+                <gl:Z>8.728351</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
                 <Property Name="Eye" Selector="it" />
               </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="ClearColor" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>SetViewports</Name>
@@ -733,7 +799,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>12297.3262</Z>
+                      <Z>8.728351</Z>
                     </Eye>
                     <NearClip>0.001</NearClip>
                     <FarClip>1000000</FarClip>
@@ -1300,6 +1366,37 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="io:CsvReader">
+                <io:FileName>D:\data\PZAH6.4b\S20220516\simple_mouseZ_playback.csv</io:FileName>
+                <io:ListSeparator />
+                <io:ScanPattern>%d</io:ScanPattern>
+                <io:SkipRows>1</io:SkipRows>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:Timer">
+                  <gl:DueTime>PT0S</gl:DueTime>
+                  <gl:Period>PT0.05S</gl:Period>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:Zip" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Item1</Selector>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="BehaviorSubject">
+                <Name>EyeZ Playback</Name>
+              </Builder>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -1309,11 +1406,16 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="10" Label="Source1" />
             <Edge From="10" To="11" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="14" Label="Source1" />
-            <Edge From="13" To="14" Label="Source2" />
+            <Edge From="12" To="17" Label="Source2" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="18" To="20" Label="Source1" />
+            <Edge From="19" To="20" Label="Source2" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1365,8 +1467,369 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         <Filename>FrameLog</Filename>
         <Photodiode_x0020_Filename>PhotodiodeLog</Photodiode_x0020_Filename>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\RotaryEncoderLogger.bonsai">
-        <Filename>RotaryEncoder</Filename>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>RotaryEncoderLogger</Name>
+        <Description>Log ticks data from rotary encoder</Description>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>SetMouseZ</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Mouse Distance</Name>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="Value" DisplayName="EncoderCPR" />
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>4096</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="Value" DisplayName="WheelDiameter" Description="in cm" />
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>20</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="gl:RenderFrame" />
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Item2</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>Item1 * (2*Math.PI*(Item3/2)) / Item2</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="BehaviorSubject">
+                    <Name>MouseRunningZ</Name>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="6" Label="Source2" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="8" Label="Source2" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source3" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Mouse Distance</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:RenderFrame" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>TimeStep.ElapsedRealTime</Selector>
+            </Expression>
+            <Expression xsi:type="rx:Accumulate" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:ElementIndex" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:UpdateFrame" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>TimeStep</Selector>
+            </Expression>
+            <Expression xsi:type="rx:Accumulate" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:ElementIndex" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>EyeZ</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveTimestamp</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveGeneralPrefix</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveDate</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="Filename" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>RotaryEncoder</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Metadata</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>WhichExp</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\S{1}\R{2}_{5}\{4}_S{1}_R{2}_{5}_{3}.csv</Format>
+              <Selector>Item1,Item2,Item3,Item4,Item5.Animal,Item6</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="FileName" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>MouseRunningZ</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+              <Name>Timestamp</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+it.Value.Item1.Index as Frame,
+it.Timestamp as HarpTime,
+it.Value.Item2.Value.ElapsedTime as IdealFrameTime,
+it.Value.Item1.Value as BonsaiRenderElapsedTime,
+it.Value.Item2.Value.ElapsedRealTime as BonsaiUpdateElapsedTime,
+it.Value.Item3 as RotaryEncoder,
+it.Value.Item5 as MouseZ,
+it.Value.Item4 as EyeZ
+)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="io:CsvWriter">
+              <io:FileName>D:\data\Test\S20220519\R115740_SpheresPermTubeRewardPlayback\Test_S20220519_R115740_SpheresPermTubeRewardPlayback_RotaryEncoder.csv</io:FileName>
+              <io:Delimiter>,</io:Delimiter>
+              <io:Append>true</io:Append>
+              <io:Overwrite>false</io:Overwrite>
+              <io:Suffix>None</io:Suffix>
+              <io:IncludeHeader>true</io:IncludeHeader>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="1" To="22" Label="Source3" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="22" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="22" Label="Source2" />
+            <Edge From="10" To="22" Label="Source4" />
+            <Edge From="11" To="18" Label="Source3" />
+            <Edge From="12" To="18" Label="Source1" />
+            <Edge From="13" To="18" Label="Source2" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="18" Label="Source4" />
+            <Edge From="16" To="18" Label="Source5" />
+            <Edge From="17" To="18" Label="Source6" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="20" To="25" Label="Source2" />
+            <Edge From="21" To="22" Label="Source5" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="GroupWorkflow">
+          <Name>EyeZ Logger</Name>
+          <Description>Log ticks data from rotary encoder</Description>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="GroupWorkflow">
+                  <Name>SetMouseZ</Name>
+                  <Workflow>
+                    <Nodes>
+                      <Expression xsi:type="SubscribeSubject">
+                        <Name>Mouse Distance</Name>
+                      </Expression>
+                      <Expression xsi:type="ExternalizedMapping">
+                        <Property Name="Value" DisplayName="EncoderCPR" />
+                      </Expression>
+                      <Expression xsi:type="Combinator">
+                        <Combinator xsi:type="FloatProperty">
+                          <Value>4096</Value>
+                        </Combinator>
+                      </Expression>
+                      <Expression xsi:type="ExternalizedMapping">
+                        <Property Name="Value" DisplayName="WheelDiameter" Description="in cm" />
+                      </Expression>
+                      <Expression xsi:type="Combinator">
+                        <Combinator xsi:type="FloatProperty">
+                          <Value>20</Value>
+                        </Combinator>
+                      </Expression>
+                      <Expression xsi:type="Combinator">
+                        <Combinator xsi:type="gl:RenderFrame" />
+                      </Expression>
+                      <Expression xsi:type="Combinator">
+                        <Combinator xsi:type="rx:WithLatestFrom" />
+                      </Expression>
+                      <Expression xsi:type="MemberSelector">
+                        <Selector>Item2</Selector>
+                      </Expression>
+                      <Expression xsi:type="Combinator">
+                        <Combinator xsi:type="rx:CombineLatest" />
+                      </Expression>
+                      <Expression xsi:type="scr:ExpressionTransform">
+                        <scr:Expression>Item1 * (2*Math.PI*(Item3/2)) / Item2</scr:Expression>
+                      </Expression>
+                      <Expression xsi:type="BehaviorSubject">
+                        <Name>MouseZ</Name>
+                      </Expression>
+                    </Nodes>
+                    <Edges>
+                      <Edge From="0" To="6" Label="Source2" />
+                      <Edge From="1" To="2" Label="Source1" />
+                      <Edge From="2" To="8" Label="Source2" />
+                      <Edge From="3" To="4" Label="Source1" />
+                      <Edge From="4" To="8" Label="Source3" />
+                      <Edge From="5" To="6" Label="Source1" />
+                      <Edge From="6" To="7" Label="Source1" />
+                      <Edge From="7" To="8" Label="Source1" />
+                      <Edge From="8" To="9" Label="Source1" />
+                      <Edge From="9" To="10" Label="Source1" />
+                    </Edges>
+                  </Workflow>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>Mouse Distance</Name>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="gl:RenderFrame" />
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>TimeStep.ElapsedRealTime</Selector>
+              </Expression>
+              <Expression xsi:type="rx:Accumulate" />
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:ElementIndex" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="gl:UpdateFrame" />
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>TimeStep</Selector>
+              </Expression>
+              <Expression xsi:type="rx:Accumulate" />
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:ElementIndex" />
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>EyeZ</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>SaveTimestamp</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>SaveGeneralPrefix</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>SaveDate</Name>
+              </Expression>
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Value" DisplayName="Filename" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="StringProperty">
+                  <Value>EyeZ</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>Metadata</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>WhichExp</Name>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:Zip" />
+              </Expression>
+              <Expression xsi:type="Format">
+                <Format>{0}\S{1}\R{2}_{5}\{4}_S{1}_R{2}_{5}_{3}.csv</Format>
+                <Selector>Item1,Item2,Item3,Item4,Item5.Animal,Item6</Selector>
+              </Expression>
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="FileName" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>MouseZ</Name>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+                <Name>Timestamp</Name>
+              </Expression>
+              <Expression xsi:type="scr:ExpressionTransform">
+                <scr:Expression>new(
+it.Value.Item1.Index as Frame,
+it.Timestamp as HarpTime,
+it.Value.Item2.Value.ElapsedTime as IdealFrameTime,
+it.Value.Item1.Value as BonsaiRenderElapsedTime,
+it.Value.Item2.Value.ElapsedRealTime as BonsaiUpdateElapsedTime,
+it.Value.Item3 as RotaryEncoder,
+it.Value.Item4 as MouseZ,
+it.Value.Item4 as EyeZ
+)</scr:Expression>
+              </Expression>
+              <Expression xsi:type="io:CsvWriter">
+                <io:FileName>D:\data\Test\S20220517\R113738_SpheresPermTubeReward\Test_S20220517_R113738_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
+                <io:Delimiter>,</io:Delimiter>
+                <io:Append>true</io:Append>
+                <io:Overwrite>false</io:Overwrite>
+                <io:Suffix>None</io:Suffix>
+                <io:IncludeHeader>true</io:IncludeHeader>
+              </Expression>
+            </Nodes>
+            <Edges>
+              <Edge From="1" To="22" Label="Source3" />
+              <Edge From="2" To="3" Label="Source1" />
+              <Edge From="3" To="4" Label="Source1" />
+              <Edge From="4" To="5" Label="Source1" />
+              <Edge From="5" To="22" Label="Source1" />
+              <Edge From="6" To="7" Label="Source1" />
+              <Edge From="7" To="8" Label="Source1" />
+              <Edge From="8" To="9" Label="Source1" />
+              <Edge From="9" To="22" Label="Source2" />
+              <Edge From="10" To="22" Label="Source4" />
+              <Edge From="11" To="18" Label="Source3" />
+              <Edge From="12" To="18" Label="Source1" />
+              <Edge From="13" To="18" Label="Source2" />
+              <Edge From="14" To="15" Label="Source1" />
+              <Edge From="15" To="18" Label="Source4" />
+              <Edge From="16" To="18" Label="Source5" />
+              <Edge From="17" To="18" Label="Source6" />
+              <Edge From="18" To="19" Label="Source1" />
+              <Edge From="19" To="20" Label="Source1" />
+              <Edge From="20" To="25" Label="Source2" />
+              <Edge From="21" To="22" Label="Source5" />
+              <Edge From="22" To="23" Label="Source1" />
+              <Edge From="23" To="24" Label="Source1" />
+              <Edge From="24" To="25" Label="Source1" />
+            </Edges>
+          </Workflow>
+        </Builder>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Floor</Name>
@@ -1447,9 +1910,6 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>MouseZ</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
                     <Name>FloorLength</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -1473,6 +1933,14 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Combinator xsi:type="FloatProperty">
                       <Value>-2.5</Value>
                     </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>EyeZ Playback</Name>
+                    </Builder>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>MouseZ</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:CombineLatest" />
@@ -1500,7 +1968,7 @@ Item6 as FloorHeight
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-2.5</TranslationY>
-                    <TranslationZ>12200</TranslationZ>
+                    <TranslationZ>200</TranslationZ>
                     <ScaleX>5</ScaleX>
                     <ScaleY>200</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -1536,20 +2004,21 @@ Item6 as FloorHeight
                   <Edge From="5" To="6" Label="Source1" />
                   <Edge From="7" To="9" Label="Source1" />
                   <Edge From="8" To="9" Label="Source2" />
-                  <Edge From="9" To="20" Label="Source1" />
-                  <Edge From="10" To="18" Label="Source1" />
-                  <Edge From="11" To="18" Label="Source3" />
-                  <Edge From="12" To="18" Label="Source2" />
-                  <Edge From="13" To="18" Label="Source4" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="18" Label="Source5" />
-                  <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source6" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source2" />
-                  <Edge From="20" To="21" Label="Source1" />
+                  <Edge From="9" To="21" Label="Source1" />
+                  <Edge From="10" To="19" Label="Source4" />
+                  <Edge From="11" To="19" Label="Source3" />
+                  <Edge From="12" To="19" Label="Source5" />
+                  <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="19" Label="Source6" />
+                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="16" To="19" Label="Source7" />
+                  <Edge From="17" To="19" Label="Source1" />
+                  <Edge From="18" To="19" Label="Source2" />
+                  <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="20" To="21" Label="Source2" />
                   <Edge From="21" To="22" Label="Source1" />
                   <Edge From="22" To="23" Label="Source1" />
+                  <Edge From="23" To="24" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1571,12 +2040,6 @@ Item6 as FloorHeight
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
         <RewardDuration>400</RewardDuration>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>LButton RButton Cancel ShiftKey ControlKey Menu Pause A B C P Q R S Shift Control Alt</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -1606,6 +2069,11 @@ Item6 as FloorHeight
       <Expression xsi:type="osc:SendMessage">
         <osc:Connection>UdpSend</osc:Connection>
         <osc:Address>/si_fname</osc:Address>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="BooleanProperty">
+          <Value>false</Value>
+        </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Zip" />
@@ -2265,8 +2733,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>512.28898094727742</RangeMin>
-                                      <RangeMax>512.28898094727742</RangeMax>
+                                      <RangeMin>1620.0000000000018</RangeMin>
+                                      <RangeMax>1620.0000000000018</RangeMax>
                                       <Count>2</Count>
                                     </Expression>
                                     <Expression xsi:type="SubscribeSubject">
@@ -2380,9 +2848,9 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>512.28898094727742</RangeMin>
-                                      <RangeMax>1112.2889809472774</RangeMax>
-                                      <Count>22</Count>
+                                      <RangeMin>1620.0000000000018</RangeMin>
+                                      <RangeMax>2220.0000000000018</RangeMax>
+                                      <Count>8</Count>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:Concat" />
@@ -2655,8 +3123,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>-142.30249470757707</RangeMin>
-                                      <RangeMax>483.82848200576205</RangeMax>
+                                      <RangeMin>-450.00000000000051</RangeMin>
+                                      <RangeMax>1530.0000000000016</RangeMax>
                                       <Count>23</Count>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -3780,17 +4248,17 @@ Item2.Item1.Item5.Item2 as Size)</scr:Expression>
                           <Selector>Draw</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>-9251.093</TranslationX>
-                          <TranslationY>3794.376</TranslationY>
-                          <TranslationZ>12703.0947</TranslationZ>
-                          <ScaleX>-869.912964</ScaleX>
-                          <ScaleY>-869.912964</ScaleY>
-                          <ScaleZ>-869.912964</ScaleZ>
+                          <TranslationX>-539.218567</TranslationX>
+                          <TranslationY>263.141327</TranslationY>
+                          <TranslationZ>1531.7334</TranslationZ>
+                          <ScaleX>52.1999969</ScaleX>
+                          <ScaleY>52.1999969</ScaleY>
+                          <ScaleZ>52.1999969</ScaleZ>
                           <MeshName>sphere</MeshName>
                           <Ambient>
-                            <X>0.5</X>
-                            <Y>0.5</Y>
-                            <Z>0.5</Z>
+                            <X>0</X>
+                            <Y>0</Y>
+                            <Z>0</Z>
                           </Ambient>
                           <Diffuse>
                             <X>0</X>
@@ -4035,7 +4503,7 @@ Value.Item1.Item5.Item1 as OriginalSize,
 Value.Item1.Item5.Item2 as Size)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\PZAH6.4b\S20220518\R165142_SpheresPermTubeReward\PZAH6.4b_S20220518_R165142_SpheresPermTubeReward_NewParams.csv</io:FileName>
+                          <io:FileName>D:\data\Test\S20220519\R115740_SpheresPermTubeRewardPlayback\Test_S20220519_R115740_SpheresPermTubeRewardPlayback_NewParams.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -4216,7 +4684,7 @@ Value as Reward)</scr:Expression>
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\PZAH6.4b\S20220518\R165142_SpheresPermTubeReward\PZAH6.4b_S20220518_R165142_SpheresPermTubeReward_RewardLog.csv</io:FileName>
+                          <io:FileName>D:\data\Test\S20220519\R115740_SpheresPermTubeRewardPlayback\Test_S20220519_R115740_SpheresPermTubeRewardPlayback_RewardLog.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -4265,7 +4733,7 @@ Value as Reward)</scr:Expression>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:DelaySubscription">
-                <rx:DueTime>PT30S</rx:DueTime>
+                <rx:DueTime>PT40S</rx:DueTime>
               </Combinator>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -4307,1883 +4775,6 @@ Value as Reward)</scr:Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:TakeUntil" />
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>RButton ShiftKey Menu B P R Shift Control Alt</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="SelectMany">
-        <Name>RewardRunning</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="WorkflowInput">
-              <Name>Source1</Name>
-            </Expression>
-            <Expression xsi:type="BehaviorSubject">
-              <Name>StartTrigger</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>MouseZ</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>MouseZ</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="NewRewardTriggerThreshold" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="FloatProperty">
-                <Value>0.01</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>MouseZ</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="BooleanProperty">
-                <Value>true</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="RewardDistance" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="IntProperty">
-                <Value>10</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>Reward</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Sample" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="Subtract" />
-            <Expression xsi:type="BehaviorSubject">
-              <Name>TrialMouseZ</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Buffer">
-                <rx:Count>2</rx:Count>
-                <rx:Skip>1</rx:Skip>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="scr:ExpressionCondition">
-              <scr:Expression>(Item1[1]&gt;=(Item2-Item3))&amp;&amp;(Item1[1]&gt;(Math.Floor(Item1[1]/Item2)*Item2+Item3))&amp;&amp;(Item1[0]&lt;(Math.Floor(Item1[1]/Item2)*Item2+Item3))&amp;&amp;(Item1[1]&gt;item1[0])</scr:Expression>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="BooleanProperty">
-                <Value>false</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="PublishSubject">
-              <Name>NewSphereTrigger</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Sample" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="MulticastSubject">
-              <Name>Reward</Name>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="ExternalizedMapping">
-                <Property Name="ThetaMin" />
-                <Property Name="ThetaMax" />
-                <Property Name="TakeThetaNum" />
-                <Property Name="ZoMin" />
-                <Property Name="RadiusMax" />
-                <Property Name="RadiusMin" />
-                <Property Name="RadiusLogBase" />
-                <Property Name="ZoScaleK" />
-                <Property Name="TubeLenth" />
-                <Property Name="TubeSpacing" />
-                <Property Name="InvisibleAngle" />
-                <Property Name="ExtraSpheresBehind" Category="ZoPosition" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="GroupWorkflow">
-                <Name>ParamSettings</Name>
-                <Workflow>
-                  <Nodes>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="ThetaMin" Category="ThetaPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>-40</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>ThetaMin</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="ThetaMax" Category="ThetaPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>220</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>ThetaMax</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="TakeThetaNum" Category="ThetaPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="IntProperty">
-                        <Value>1</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>TakeThetaNum</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="ZoMin" Category="ZoPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>0</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>ZoMin</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="TubeLenth" Category="ZoPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>1000</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>TubeLength</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="RadiusMax" Category="RadiusPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>200</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>RadiusMax</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="RadiusLogBase" Category="RadiusPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>2</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>RadiusLogBase</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="TubeSpacing" Category="ZoPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>5</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>TubeSpacing</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="ZoScaleK" Category="ZoPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>20</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>ZoScaleK</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="InvisibleAngle" Category="ZoPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>20</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>InvisibleAngle</Name>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="num:DegreeToRadian" />
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="RadiusMin" Category="RadiusPosition" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="FloatProperty">
-                        <Value>20</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>RadiusMin</Name>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="rx:Zip" />
-                    </Expression>
-                    <Expression xsi:type="scr:ExpressionTransform">
-                      <scr:Expression>Math.Floor(Item1/Math.Tan(Item2)/(Item3*Item1/item4))</scr:Expression>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>SphereNumPerMoment</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Value" DisplayName="ExtraSpheresBehind" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="IntProperty">
-                        <Value>10</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="BehaviorSubject">
-                      <Name>ExtraSpheresBehind</Name>
-                    </Expression>
-                  </Nodes>
-                  <Edges>
-                    <Edge From="0" To="1" Label="Source1" />
-                    <Edge From="1" To="2" Label="Source1" />
-                    <Edge From="3" To="4" Label="Source1" />
-                    <Edge From="4" To="5" Label="Source1" />
-                    <Edge From="6" To="7" Label="Source1" />
-                    <Edge From="7" To="8" Label="Source1" />
-                    <Edge From="9" To="10" Label="Source1" />
-                    <Edge From="10" To="11" Label="Source1" />
-                    <Edge From="12" To="13" Label="Source1" />
-                    <Edge From="13" To="14" Label="Source1" />
-                    <Edge From="15" To="16" Label="Source1" />
-                    <Edge From="16" To="17" Label="Source1" />
-                    <Edge From="18" To="19" Label="Source1" />
-                    <Edge From="19" To="20" Label="Source1" />
-                    <Edge From="21" To="22" Label="Source1" />
-                    <Edge From="22" To="23" Label="Source1" />
-                    <Edge From="23" To="34" Label="Source3" />
-                    <Edge From="24" To="25" Label="Source1" />
-                    <Edge From="25" To="26" Label="Source1" />
-                    <Edge From="26" To="34" Label="Source4" />
-                    <Edge From="27" To="28" Label="Source1" />
-                    <Edge From="28" To="29" Label="Source1" />
-                    <Edge From="29" To="30" Label="Source1" />
-                    <Edge From="30" To="34" Label="Source2" />
-                    <Edge From="31" To="32" Label="Source1" />
-                    <Edge From="32" To="33" Label="Source1" />
-                    <Edge From="33" To="34" Label="Source1" />
-                    <Edge From="34" To="35" Label="Source1" />
-                    <Edge From="35" To="36" Label="Source1" />
-                    <Edge From="37" To="38" Label="Source1" />
-                    <Edge From="38" To="39" Label="Source1" />
-                  </Edges>
-                </Workflow>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="ExternalizedMapping">
-                <Property Name="Size" Category="SphereSettings" />
-                <Property Name="SaveFilename NewParams" />
-                <Property Name="BackgroundColor" Category="SphereSettings" />
-                <Property Name="TargetAmb" Category="SphereSettings" />
-                <Property Name="DistanceBehind" Category="TrialConditions" />
-                <Property Name="FadeInTime" Category="SphereSettings" />
-                <Property Name="NewSphereTriggerThreshold" Category="ZoPosition" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="GroupWorkflow">
-                <Name>SpheresClose</Name>
-                <Description>Depth is in log10 space.</Description>
-                <Workflow>
-                  <Nodes>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="Size" />
-                      <Property Name="DistanceBehind" Category="TrialCondition" />
-                      <Property Name="NewSphereTriggerThreshold" />
-                    </Expression>
-                    <Expression xsi:type="GroupWorkflow">
-                      <Name>ManageSphereParams</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>RepeatNumber</Name>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="Count" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="GroupWorkflow">
-                            <Name>RadiusRange</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>DepthCount</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="IntProperty">
-                                    <Value>3</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>RadiusMin</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>RadiusMax</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>RadiusLogBase</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Zip" />
-                                </Expression>
-                                <Expression xsi:type="scr:ExpressionTransform">
-                                  <scr:Name>Log</scr:Name>
-                                  <scr:Expression>new(
-Math.Log(Item1,Item4) as Min,
-Math.Log(Item2,Item4) as Max,
-Item3 as Count
-)</scr:Expression>
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Min</Selector>
-                                </Expression>
-                                <Expression xsi:type="PropertyMapping">
-                                  <PropertyMappings>
-                                    <Property Name="RangeMin" />
-                                  </PropertyMappings>
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Max</Selector>
-                                </Expression>
-                                <Expression xsi:type="PropertyMapping">
-                                  <PropertyMappings>
-                                    <Property Name="RangeMax" />
-                                  </PropertyMappings>
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Count</Selector>
-                                </Expression>
-                                <Expression xsi:type="PropertyMapping">
-                                  <PropertyMappings>
-                                    <Property Name="Count" />
-                                  </PropertyMappings>
-                                </Expression>
-                                <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                  <RangeMin>4.3219280948873626</RangeMin>
-                                  <RangeMax>7.6438561897747244</RangeMax>
-                                  <Count>3</Count>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="scr:ExpressionTransform">
-                                  <scr:Name>Power</scr:Name>
-                                  <scr:Expression>Math.Pow(Item2,Item1)</scr:Expression>
-                                </Expression>
-                                <Expression xsi:type="Disable">
-                                  <Builder xsi:type="Combinator">
-                                    <Combinator xsi:type="num:Permutation" />
-                                  </Builder>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                                <Edge From="1" To="5" Label="Source3" />
-                                <Edge From="2" To="5" Label="Source1" />
-                                <Edge From="3" To="5" Label="Source2" />
-                                <Edge From="4" To="5" Label="Source4" />
-                                <Edge From="4" To="14" Label="Source2" />
-                                <Edge From="5" To="6" Label="Source1" />
-                                <Edge From="6" To="7" Label="Source1" />
-                                <Edge From="6" To="9" Label="Source1" />
-                                <Edge From="6" To="11" Label="Source1" />
-                                <Edge From="7" To="8" Label="Source1" />
-                                <Edge From="8" To="13" Label="Source1" />
-                                <Edge From="9" To="10" Label="Source1" />
-                                <Edge From="10" To="13" Label="Source2" />
-                                <Edge From="11" To="12" Label="Source1" />
-                                <Edge From="12" To="13" Label="Source3" />
-                                <Edge From="13" To="14" Label="Source1" />
-                                <Edge From="14" To="15" Label="Source1" />
-                                <Edge From="15" To="16" Label="Source1" />
-                                <Edge From="16" To="17" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="DistanceBehind" />
-                            <Property Name="NewSphereTriggerThreshold" />
-                          </Expression>
-                          <Expression xsi:type="CreateObservable">
-                            <Name>Theta &amp; Zo Range</Name>
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="BehaviorSubject">
-                                  <Name>ThisDepth</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>ThisDepth</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>TubeSpacing</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>RadiusMin</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:CombineLatest" />
-                                </Expression>
-                                <Expression xsi:type="scr:ExpressionTransform">
-                                  <scr:Expression>Item2*Item1/Item3</scr:Expression>
-                                </Expression>
-                                <Expression xsi:type="MulticastSubject">
-                                  <Name>ZoSpacing</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>TubeLength</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Zip" />
-                                </Expression>
-                                <Expression xsi:type="scr:ExpressionTransform">
-                                  <scr:Expression>Math.Round(Item1/Item2)</scr:Expression>
-                                </Expression>
-                                <Expression xsi:type="BehaviorSubject">
-                                  <Name>TakeZoNum</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>TubeLength</Name>
-                                </Expression>
-                                <Expression xsi:type="BehaviorSubject">
-                                  <Name>ZoMax</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>InterTrialDelay</Name>
-                                </Expression>
-                                <Expression xsi:type="PropertyMapping">
-                                  <PropertyMappings>
-                                    <Property Name="DueTime" />
-                                  </PropertyMappings>
-                                </Expression>
-                                <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Double">
-                                  <Name>Depth</Name>
-                                </Expression>
-                                <Expression xsi:type="GroupWorkflow">
-                                  <Name>ZoRange</Name>
-                                  <Workflow>
-                                    <Nodes>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>MouseZ</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>TakeZoNum</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ZoMin</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ZoSpacing</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>SphereNumPerMoment</Name>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Multiply" />
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Add" />
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="RangeMin" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>SphereNumPerMoment</Name>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Subtract" />
-                                      <Expression xsi:type="Add">
-                                        <Operand xsi:type="IntProperty">
-                                          <Value>1</Value>
-                                        </Operand>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Count" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>TubeLength</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="RangeMax" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                        <RangeMin>50.000000000000007</RangeMin>
-                                        <RangeMax>1000</RangeMax>
-                                        <Count>191</Count>
-                                      </Expression>
-                                      <Expression xsi:type="Disable">
-                                        <Builder xsi:type="MulticastSubject">
-                                          <Name>TrialStartTrigger</Name>
-                                        </Builder>
-                                      </Expression>
-                                      <Expression xsi:type="WorkflowOutput" />
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Max" />
-                                      </Expression>
-                                      <Expression xsi:type="AsyncSubject">
-                                        <Name>MaxZo</Name>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:WithLatestFrom" />
-                                      </Expression>
-                                    </Nodes>
-                                    <Edges>
-                                      <Edge From="0" To="22" Label="Source2" />
-                                      <Edge From="1" To="11" Label="Source1" />
-                                      <Edge From="2" To="7" Label="Source1" />
-                                      <Edge From="3" To="5" Label="Source1" />
-                                      <Edge From="4" To="5" Label="Source2" />
-                                      <Edge From="5" To="6" Label="Source1" />
-                                      <Edge From="6" To="7" Label="Source2" />
-                                      <Edge From="7" To="8" Label="Source1" />
-                                      <Edge From="8" To="9" Label="Source1" />
-                                      <Edge From="9" To="17" Label="Source1" />
-                                      <Edge From="10" To="11" Label="Source2" />
-                                      <Edge From="11" To="12" Label="Source1" />
-                                      <Edge From="12" To="13" Label="Source1" />
-                                      <Edge From="13" To="14" Label="Source1" />
-                                      <Edge From="14" To="17" Label="Source3" />
-                                      <Edge From="15" To="16" Label="Source1" />
-                                      <Edge From="16" To="17" Label="Source2" />
-                                      <Edge From="17" To="18" Label="Source1" />
-                                      <Edge From="18" To="19" Label="Source1" />
-                                      <Edge From="18" To="20" Label="Source1" />
-                                      <Edge From="18" To="22" Label="Source1" />
-                                      <Edge From="20" To="21" Label="Source1" />
-                                    </Edges>
-                                  </Workflow>
-                                </Expression>
-                                <Expression xsi:type="CreateObservable">
-                                  <Name>ThetaRange</Name>
-                                  <Workflow>
-                                    <Nodes>
-                                      <Expression xsi:type="WorkflowInput">
-                                        <Name>Source1</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>TakeThetaNum</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Count" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ThetaMin</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Lower" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ThetaMax</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Upper" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="p2:CreateContinuousUniform">
-                                          <p2:Lower>-40</p2:Lower>
-                                          <p2:Upper>220</p2:Upper>
-                                        </Combinator>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="num:Permutation" />
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="p2:SampleMany">
-                                          <p2:Count>1</p2:Count>
-                                        </Combinator>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:CombineLatest" />
-                                      </Expression>
-                                      <Expression xsi:type="WorkflowOutput" />
-                                    </Nodes>
-                                    <Edges>
-                                      <Edge From="0" To="10" Label="Source2" />
-                                      <Edge From="1" To="2" Label="Source1" />
-                                      <Edge From="2" To="9" Label="Source2" />
-                                      <Edge From="3" To="4" Label="Source1" />
-                                      <Edge From="4" To="7" Label="Source1" />
-                                      <Edge From="5" To="6" Label="Source1" />
-                                      <Edge From="6" To="7" Label="Source2" />
-                                      <Edge From="7" To="8" Label="Source1" />
-                                      <Edge From="8" To="9" Label="Source1" />
-                                      <Edge From="9" To="10" Label="Source1" />
-                                      <Edge From="10" To="11" Label="Source1" />
-                                    </Edges>
-                                  </Workflow>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Concat" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="BooleanProperty">
-                                    <Value>false</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="PublishSubject" TypeArguments="sys:Boolean">
-                                  <Name>EndTrigger</Name>
-                                </Expression>
-                                <Expression xsi:type="scr:ExpressionCondition">
-                                  <scr:Expression>(it==True)</scr:Expression>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="PublishSubject">
-                                  <Name>EndThisTrial</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>NewSphereTrigger</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Zip" />
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Item1</Selector>
-                                </Expression>
-                                <Expression xsi:type="GroupWorkflow">
-                                  <Name>ZoRange</Name>
-                                  <Workflow>
-                                    <Nodes>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ZoMin</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ZoMin</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ZoSpacing</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>SphereNumPerMoment</Name>
-                                      </Expression>
-                                      <Expression xsi:type="Subtract">
-                                        <Operand xsi:type="IntProperty">
-                                          <Value>1</Value>
-                                        </Operand>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Multiply" />
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Add" />
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="RangeMax" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>SphereNumPerMoment</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ZoSpacing</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ExtraSpheresBehind</Name>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Multiply" />
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Subtract" />
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="RangeMin" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ExtraSpheresBehind</Name>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:Zip" />
-                                      </Expression>
-                                      <Expression xsi:type="Add" />
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Count" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                        <RangeMin>-50.000000000000007</RangeMin>
-                                        <RangeMax>45.000000000000007</RangeMax>
-                                        <Count>20</Count>
-                                      </Expression>
-                                      <Expression xsi:type="MulticastSubject">
-                                        <Name>TrialStartTrigger</Name>
-                                      </Expression>
-                                      <Expression xsi:type="WorkflowOutput" />
-                                    </Nodes>
-                                    <Edges>
-                                      <Edge From="0" To="15" Label="Source1" />
-                                      <Edge From="1" To="7" Label="Source1" />
-                                      <Edge From="2" To="5" Label="Source1" />
-                                      <Edge From="3" To="4" Label="Source1" />
-                                      <Edge From="4" To="5" Label="Source2" />
-                                      <Edge From="5" To="6" Label="Source1" />
-                                      <Edge From="6" To="7" Label="Source2" />
-                                      <Edge From="7" To="8" Label="Source1" />
-                                      <Edge From="8" To="9" Label="Source1" />
-                                      <Edge From="9" To="22" Label="Source2" />
-                                      <Edge From="10" To="19" Label="Source1" />
-                                      <Edge From="11" To="13" Label="Source1" />
-                                      <Edge From="12" To="13" Label="Source2" />
-                                      <Edge From="13" To="14" Label="Source1" />
-                                      <Edge From="14" To="15" Label="Source2" />
-                                      <Edge From="15" To="16" Label="Source1" />
-                                      <Edge From="16" To="17" Label="Source1" />
-                                      <Edge From="17" To="22" Label="Source1" />
-                                      <Edge From="18" To="19" Label="Source2" />
-                                      <Edge From="19" To="20" Label="Source1" />
-                                      <Edge From="20" To="21" Label="Source1" />
-                                      <Edge From="21" To="22" Label="Source3" />
-                                      <Edge From="22" To="23" Label="Source1" />
-                                      <Edge From="23" To="24" Label="Source1" />
-                                    </Edges>
-                                  </Workflow>
-                                </Expression>
-                                <Expression xsi:type="CreateObservable">
-                                  <Name>ThetaRange</Name>
-                                  <Workflow>
-                                    <Nodes>
-                                      <Expression xsi:type="WorkflowInput">
-                                        <Name>Source1</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>TakeThetaNum</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Count" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ThetaMin</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Lower" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>ThetaMax</Name>
-                                      </Expression>
-                                      <Expression xsi:type="PropertyMapping">
-                                        <PropertyMappings>
-                                          <Property Name="Upper" />
-                                        </PropertyMappings>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="p2:CreateContinuousUniform">
-                                          <p2:Lower>-40</p2:Lower>
-                                          <p2:Upper>220</p2:Upper>
-                                        </Combinator>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="num:Permutation" />
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="p2:SampleMany">
-                                          <p2:Count>1</p2:Count>
-                                        </Combinator>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:CombineLatest" />
-                                      </Expression>
-                                      <Expression xsi:type="WorkflowOutput" />
-                                    </Nodes>
-                                    <Edges>
-                                      <Edge From="0" To="10" Label="Source2" />
-                                      <Edge From="1" To="2" Label="Source1" />
-                                      <Edge From="2" To="9" Label="Source2" />
-                                      <Edge From="3" To="4" Label="Source1" />
-                                      <Edge From="4" To="7" Label="Source1" />
-                                      <Edge From="5" To="6" Label="Source1" />
-                                      <Edge From="6" To="7" Label="Source2" />
-                                      <Edge From="7" To="8" Label="Source1" />
-                                      <Edge From="8" To="9" Label="Source1" />
-                                      <Edge From="9" To="10" Label="Source1" />
-                                      <Edge From="10" To="11" Label="Source1" />
-                                    </Edges>
-                                  </Workflow>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Concat" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Merge" />
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>ThisDepth</Name>
-                                </Expression>
-                                <Expression xsi:type="MulticastSubject">
-                                  <Name>Depth</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Merge" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:CombineLatest" />
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Item1.Item1</Selector>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="num:DegreeToRadian" />
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Item1.Item2</Selector>
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Item2</Selector>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Zip" />
-                                </Expression>
-                                <Expression xsi:type="MulticastSubject">
-                                  <Name>SpherePos</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:TakeUntil" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Delay">
-                                    <rx:DueTime>PT10S</rx:DueTime>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>MaxZo</Name>
-                                </Expression>
-                                <Expression xsi:type="ExternalizedMapping">
-                                  <Property Name="DistanceBehind" />
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>TrialInitialMouseZ</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="Add" />
-                                <Expression xsi:type="Condition">
-                                  <Workflow>
-                                    <Nodes>
-                                      <Expression xsi:type="WorkflowInput">
-                                        <Name>Source1</Name>
-                                      </Expression>
-                                      <Expression xsi:type="SubscribeSubject">
-                                        <Name>MouseZ</Name>
-                                      </Expression>
-                                      <Expression xsi:type="ExternalizedMapping">
-                                        <Property Name="Value" DisplayName="DistanceBehind" />
-                                      </Expression>
-                                      <Expression xsi:type="Subtract">
-                                        <Operand xsi:type="DoubleProperty">
-                                          <Value>20</Value>
-                                        </Operand>
-                                      </Expression>
-                                      <Expression xsi:type="Combinator">
-                                        <Combinator xsi:type="rx:CombineLatest" />
-                                      </Expression>
-                                      <Expression xsi:type="LessThan" />
-                                      <Expression xsi:type="MulticastSubject">
-                                        <Name>EndTrigger</Name>
-                                      </Expression>
-                                      <Expression xsi:type="WorkflowOutput" />
-                                    </Nodes>
-                                    <Edges>
-                                      <Edge From="0" To="4" Label="Source1" />
-                                      <Edge From="1" To="3" Label="Source1" />
-                                      <Edge From="2" To="3" Label="Source2" />
-                                      <Edge From="3" To="4" Label="Source2" />
-                                      <Edge From="4" To="5" Label="Source1" />
-                                      <Edge From="5" To="6" Label="Source1" />
-                                      <Edge From="6" To="7" Label="Source1" />
-                                    </Edges>
-                                  </Workflow>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="BooleanProperty">
-                                    <Value>true</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>EndThisTrial</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="FloatProperty">
-                                    <Value>-9999</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="MulticastSubject">
-                                  <Name>Depth</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="BooleanProperty">
-                                    <Value>true</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>GlobalElapsedTime</Name>
-                                </Expression>
-                                <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Double">
-                                  <Name>TrialStartTrigger</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Sample" />
-                                </Expression>
-                                <Expression xsi:type="MulticastSubject">
-                                  <Name>TrialStartTime</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>MouseZ</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Sample" />
-                                </Expression>
-                                <Expression xsi:type="MulticastSubject">
-                                  <Name>TrialInitialMouseZ</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>MouseZ</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="Subtract" />
-                                <Expression xsi:type="BehaviorSubject">
-                                  <Name>TrialMouseZ</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Buffer">
-                                    <rx:Count>2</rx:Count>
-                                    <rx:Skip>1</rx:Skip>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="ExternalizedMapping">
-                                  <Property Name="Value" DisplayName="NewSphereTriggerThreshold" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="FloatProperty">
-                                    <Value>0.01</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>MouseZ</Name>
-                                </Expression>
-                                <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Double">
-                                  <Name>ZoSpacing</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:CombineLatest" />
-                                </Expression>
-                                <Expression xsi:type="scr:ExpressionCondition">
-                                  <scr:Expression>(Item1[1]&gt;=(Item2-Item3))&amp;&amp;(Item1[1]&gt;(Math.Floor(Item1[1]/Item2)*Item2+Item3))&amp;&amp;(Item1[0]&lt;(Math.Floor(Item1[1]/Item2)*Item2+Item3))</scr:Expression>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="BooleanProperty">
-                                    <Value>false</Value>
-                                  </Combinator>
-                                </Expression>
-                                <Expression xsi:type="PublishSubject">
-                                  <Name>NewSphereTrigger</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Sample" />
-                                </Expression>
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                                <Edge From="2" To="5" Label="Source1" />
-                                <Edge From="3" To="5" Label="Source2" />
-                                <Edge From="4" To="5" Label="Source3" />
-                                <Edge From="5" To="6" Label="Source1" />
-                                <Edge From="6" To="7" Label="Source1" />
-                                <Edge From="7" To="9" Label="Source2" />
-                                <Edge From="8" To="9" Label="Source1" />
-                                <Edge From="9" To="10" Label="Source1" />
-                                <Edge From="10" To="11" Label="Source1" />
-                                <Edge From="12" To="13" Label="Source1" />
-                                <Edge From="14" To="15" Label="Source1" />
-                                <Edge From="15" To="43" Label="Source2" />
-                                <Edge From="16" To="34" Label="Source2" />
-                                <Edge From="17" To="18" Label="Source1" />
-                                <Edge From="18" To="19" Label="Source1" />
-                                <Edge From="19" To="26" Label="Source1" />
-                                <Edge From="20" To="23" Label="Source2" />
-                                <Edge From="21" To="22" Label="Source1" />
-                                <Edge From="22" To="23" Label="Source1" />
-                                <Edge From="23" To="24" Label="Source1" />
-                                <Edge From="24" To="42" Label="Source2" />
-                                <Edge From="25" To="26" Label="Source2" />
-                                <Edge From="26" To="27" Label="Source1" />
-                                <Edge From="27" To="31" Label="Source2" />
-                                <Edge From="28" To="29" Label="Source1" />
-                                <Edge From="29" To="30" Label="Source1" />
-                                <Edge From="30" To="31" Label="Source1" />
-                                <Edge From="31" To="35" Label="Source1" />
-                                <Edge From="32" To="33" Label="Source1" />
-                                <Edge From="33" To="34" Label="Source1" />
-                                <Edge From="34" To="35" Label="Source2" />
-                                <Edge From="35" To="36" Label="Source1" />
-                                <Edge From="35" To="38" Label="Source1" />
-                                <Edge From="35" To="39" Label="Source1" />
-                                <Edge From="36" To="37" Label="Source1" />
-                                <Edge From="37" To="40" Label="Source1" />
-                                <Edge From="38" To="40" Label="Source2" />
-                                <Edge From="39" To="40" Label="Source3" />
-                                <Edge From="40" To="41" Label="Source1" />
-                                <Edge From="41" To="42" Label="Source1" />
-                                <Edge From="42" To="43" Label="Source1" />
-                                <Edge From="43" To="44" Label="Source1" />
-                                <Edge From="45" To="48" Label="Source1" />
-                                <Edge From="46" To="50" Label="Source2" />
-                                <Edge From="47" To="48" Label="Source2" />
-                                <Edge From="48" To="49" Label="Source1" />
-                                <Edge From="49" To="50" Label="Source1" />
-                                <Edge From="51" To="53" Label="Source2" />
-                                <Edge From="52" To="53" Label="Source1" />
-                                <Edge From="53" To="54" Label="Source1" />
-                                <Edge From="54" To="55" Label="Source1" />
-                                <Edge From="55" To="56" Label="Source1" />
-                                <Edge From="57" To="59" Label="Source1" />
-                                <Edge From="58" To="59" Label="Source2" />
-                                <Edge From="59" To="60" Label="Source1" />
-                                <Edge From="60" To="62" Label="Source2" />
-                                <Edge From="61" To="62" Label="Source1" />
-                                <Edge From="62" To="63" Label="Source1" />
-                                <Edge From="63" To="65" Label="Source2" />
-                                <Edge From="64" To="65" Label="Source1" />
-                                <Edge From="65" To="66" Label="Source1" />
-                                <Edge From="66" To="67" Label="Source1" />
-                                <Edge From="67" To="68" Label="Source1" />
-                                <Edge From="68" To="73" Label="Source1" />
-                                <Edge From="69" To="70" Label="Source1" />
-                                <Edge From="70" To="73" Label="Source3" />
-                                <Edge From="71" To="77" Label="Source1" />
-                                <Edge From="72" To="73" Label="Source2" />
-                                <Edge From="73" To="74" Label="Source1" />
-                                <Edge From="74" To="75" Label="Source1" />
-                                <Edge From="75" To="76" Label="Source1" />
-                                <Edge From="76" To="77" Label="Source2" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Concat" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:RepeatCount">
-                              <rx:Count>50</rx:Count>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="Size" Category="MiscParams" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="FloatProperty">
-                              <Value>0.087</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject">
-                            <Name>OriginalSize</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Take">
-                              <rx:Count>1</rx:Count>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="gl:RenderFrame" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>TimeStep.ElapsedRealTime</Selector>
-                          </Expression>
-                          <Expression xsi:type="rx:Accumulate" />
-                          <Expression xsi:type="PublishSubject">
-                            <Name>ElapsedTime</Name>
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Double,sys:Double,sys:Double)">
-                            <Name>SpherePos</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:WithLatestFrom" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:ElementIndex" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:CombineLatest" />
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Double">
-                            <Name>TrialInitialMouseZ</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:WithLatestFrom" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="p1:TubeMapping" />
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="p1:SphericalCoordinates_SP" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject">
-                            <Name>SphereNewParams</Name>
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Double">
-                            <Name>TrialStartTime</Name>
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject">
-                            <Name>TrialStartTimeSub</Name>
-                          </Expression>
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="6" Label="Source2" />
-                          <Edge From="2" To="4" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source2" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="7" To="8" Label="Source1" />
-                          <Edge From="8" To="9" Label="Source1" />
-                          <Edge From="9" To="10" Label="Source1" />
-                          <Edge From="10" To="18" Label="Source2" />
-                          <Edge From="11" To="12" Label="Source1" />
-                          <Edge From="12" To="13" Label="Source1" />
-                          <Edge From="13" To="14" Label="Source1" />
-                          <Edge From="14" To="16" Label="Source2" />
-                          <Edge From="15" To="16" Label="Source1" />
-                          <Edge From="16" To="17" Label="Source1" />
-                          <Edge From="17" To="18" Label="Source1" />
-                          <Edge From="18" To="20" Label="Source1" />
-                          <Edge From="19" To="20" Label="Source2" />
-                          <Edge From="20" To="21" Label="Source1" />
-                          <Edge From="21" To="22" Label="Source1" />
-                          <Edge From="22" To="23" Label="Source1" />
-                          <Edge From="24" To="25" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Expression>
-                    <Expression xsi:type="SubscribeSubject">
-                      <Name>SphereNumPerMoment</Name>
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="BackgroundColor" />
-                      <Property Name="TargetAmb" />
-                      <Property Name="FadeInTime" />
-                    </Expression>
-                    <Expression xsi:type="SubscribeSubject">
-                      <Name>ExtraSpheresBehind</Name>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="rx:Zip" />
-                    </Expression>
-                    <Expression xsi:type="Add" />
-                    <Expression xsi:type="PropertyMapping">
-                      <PropertyMappings>
-                        <Property Name="Count" />
-                      </PropertyMappings>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="rx:Range">
-                        <rx:Start>0</rx:Start>
-                        <rx:Count>20</rx:Count>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="CreateObservable">
-                      <Name>CreateSpheres</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="WorkflowInput">
-                            <Name>Source1</Name>
-                          </Expression>
-                          <Expression xsi:type="AsyncSubject">
-                            <Name>SphereIndex</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Draw</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>SphereNewParams</Name>
-                          </Expression>
-                          <Expression xsi:type="Condition">
-                            <Workflow>
-                              <Nodes>
-                                <Expression xsi:type="WorkflowInput">
-                                  <Name>Source1</Name>
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Item1</Selector>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>SphereIndex</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>SphereNumPerMoment</Name>
-                                </Expression>
-                                <Expression xsi:type="SubscribeSubject">
-                                  <Name>ExtraSpheresBehind</Name>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:Zip" />
-                                </Expression>
-                                <Expression xsi:type="Add" />
-                                <Expression xsi:type="PropertyMapping">
-                                  <PropertyMappings>
-                                    <Property Name="Value" />
-                                  </PropertyMappings>
-                                </Expression>
-                                <Expression xsi:type="Mod">
-                                  <Operand xsi:type="IntProperty">
-                                    <Value>20</Value>
-                                  </Operand>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="MemberSelector">
-                                  <Selector>Item3.Item3</Selector>
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="rx:WithLatestFrom" />
-                                </Expression>
-                                <Expression xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:SphereIdxCondition" />
-                                </Expression>
-                                <Expression xsi:type="WorkflowOutput" />
-                              </Nodes>
-                              <Edges>
-                                <Edge From="0" To="1" Label="Source1" />
-                                <Edge From="0" To="10" Label="Source1" />
-                                <Edge From="1" To="8" Label="Source1" />
-                                <Edge From="2" To="9" Label="Source2" />
-                                <Edge From="3" To="5" Label="Source1" />
-                                <Edge From="4" To="5" Label="Source2" />
-                                <Edge From="5" To="6" Label="Source1" />
-                                <Edge From="6" To="7" Label="Source1" />
-                                <Edge From="7" To="8" Label="Source2" />
-                                <Edge From="8" To="9" Label="Source1" />
-                                <Edge From="9" To="11" Label="Source1" />
-                                <Edge From="10" To="11" Label="Source2" />
-                                <Edge From="11" To="12" Label="Source1" />
-                                <Edge From="12" To="13" Label="Source1" />
-                              </Edges>
-                            </Workflow>
-                          </Expression>
-                          <Expression xsi:type="MulticastSubject">
-                            <Name>LogSphereParams</Name>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="TargetAmb" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="FloatProperty">
-                              <Value>0</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="BackgroundColor" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="FloatProperty">
-                              <Value>0.5</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="FadeInTime" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="FloatProperty">
-                              <Value>0.5</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>SphereNewParams</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Condition">
-                              <Workflow>
-                                <Nodes>
-                                  <Expression xsi:type="WorkflowInput">
-                                    <Name>Source1</Name>
-                                  </Expression>
-                                  <Expression xsi:type="MemberSelector">
-                                    <Selector>Item1</Selector>
-                                  </Expression>
-                                  <Expression xsi:type="SubscribeSubject">
-                                    <Name>SphereIndex</Name>
-                                  </Expression>
-                                  <Expression xsi:type="SubscribeSubject">
-                                    <Name>SphereNumPerMoment</Name>
-                                  </Expression>
-                                  <Expression xsi:type="PropertyMapping">
-                                    <PropertyMappings>
-                                      <Property Name="Value" />
-                                    </PropertyMappings>
-                                  </Expression>
-                                  <Expression xsi:type="Mod">
-                                    <Operand xsi:type="IntProperty">
-                                      <Value>30</Value>
-                                    </Operand>
-                                  </Expression>
-                                  <Expression xsi:type="Combinator">
-                                    <Combinator xsi:type="rx:WithLatestFrom" />
-                                  </Expression>
-                                  <Expression xsi:type="MemberSelector">
-                                    <Selector>Item3.Item3</Selector>
-                                  </Expression>
-                                  <Expression xsi:type="Combinator">
-                                    <Combinator xsi:type="rx:WithLatestFrom" />
-                                  </Expression>
-                                  <Expression xsi:type="Combinator">
-                                    <Combinator xsi:type="p1:SphereIdxCondition" />
-                                  </Expression>
-                                  <Expression xsi:type="WorkflowOutput" />
-                                </Nodes>
-                                <Edges>
-                                  <Edge From="0" To="1" Label="Source1" />
-                                  <Edge From="0" To="7" Label="Source1" />
-                                  <Edge From="1" To="5" Label="Source1" />
-                                  <Edge From="2" To="6" Label="Source2" />
-                                  <Edge From="3" To="4" Label="Source1" />
-                                  <Edge From="4" To="5" Label="Source2" />
-                                  <Edge From="5" To="6" Label="Source1" />
-                                  <Edge From="6" To="8" Label="Source1" />
-                                  <Edge From="7" To="8" Label="Source2" />
-                                  <Edge From="8" To="9" Label="Source1" />
-                                  <Edge From="9" To="10" Label="Source1" />
-                                </Edges>
-                              </Workflow>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>Item2</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>ElapsedTime</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="rx:WithLatestFrom" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Subtract" />
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>GlobalElapsedTime</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrialStartTimeSub</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:CombineLatest" />
-                          </Expression>
-                          <Expression xsi:type="Subtract" />
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:CombineLatest" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="p1:CreateFadingIn" />
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="p1:CreateFadingNew" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:CombineLatest" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:WithLatestFrom" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Name>Rename</scr:Name>
-                            <scr:Expression>new(
-Item1 as Draw,
-Item2.Item1.Item1 as SphereID,
-Item2.Item2 as Ambient,
-Item2.Item1.Item3.Item1 as Azimuth,
-Item2.Item1.Item3.Item2 as Elevation,
-Item2.Item1.Item3.Item3 as Depth,
-Item2.Item1.Item4.Item1 as X, 
-Item2.Item1.Item4.Item2 as Y, 
-Item2.Item1.Item4.Item3 as Z0, 
-Item2.Item1.Item4.Item4 as Z, 
-Item2.Item1.Item4.Item5 as MouseZ,
-Item2.Item1.Item5.Item2 as Size)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="InputMapping">
-                            <PropertyMappings>
-                              <Property Name="TranslationY" Selector="Y" />
-                              <Property Name="TranslationZ" Selector="Z" />
-                              <Property Name="ScaleX" Selector="Size" />
-                              <Property Name="ScaleY" Selector="Size" />
-                              <Property Name="ScaleZ" Selector="Size" />
-                              <Property Name="TranslationX" Selector="X" />
-                              <Property Name="Ambient" Selector="Ambient" />
-                            </PropertyMappings>
-                            <Selector>Draw</Selector>
-                          </Expression>
-                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                            <TranslationX>19.9870224</TranslationX>
-                            <TranslationY>-0.720345438</TranslationY>
-                            <TranslationZ>345</TranslationZ>
-                            <ScaleX>1.74</ScaleX>
-                            <ScaleY>1.74</ScaleY>
-                            <ScaleZ>1.74</ScaleZ>
-                            <MeshName>sphere</MeshName>
-                            <Ambient>
-                              <X>0</X>
-                              <Y>0</Y>
-                              <Z>0</Z>
-                            </Ambient>
-                            <Diffuse>
-                              <X>0</X>
-                              <Y>0</Y>
-                              <Z>0</Z>
-                            </Diffuse>
-                            <Specular>
-                              <X>0</X>
-                              <Y>0</Y>
-                              <Z>0</Z>
-                            </Specular>
-                            <SpecularExponent>10</SpecularExponent>
-                            <RotationZ>0</RotationZ>
-                            <RotationY>0</RotationY>
-                            <RotationX>0</RotationX>
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="2" To="26" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="4" To="5" Label="Source1" />
-                          <Edge From="5" To="25" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                          <Edge From="7" To="22" Label="Source4" />
-                          <Edge From="8" To="9" Label="Source1" />
-                          <Edge From="9" To="22" Label="Source5" />
-                          <Edge From="10" To="11" Label="Source1" />
-                          <Edge From="11" To="22" Label="Source3" />
-                          <Edge From="12" To="13" Label="Source1" />
-                          <Edge From="13" To="14" Label="Source1" />
-                          <Edge From="14" To="16" Label="Source2" />
-                          <Edge From="15" To="16" Label="Source1" />
-                          <Edge From="16" To="17" Label="Source1" />
-                          <Edge From="17" To="22" Label="Source1" />
-                          <Edge From="18" To="20" Label="Source1" />
-                          <Edge From="19" To="20" Label="Source2" />
-                          <Edge From="20" To="21" Label="Source1" />
-                          <Edge From="21" To="22" Label="Source2" />
-                          <Edge From="22" To="23" Label="Source1" />
-                          <Edge From="23" To="24" Label="Source1" />
-                          <Edge From="24" To="25" Label="Source2" />
-                          <Edge From="25" To="26" Label="Source2" />
-                          <Edge From="26" To="27" Label="Source1" />
-                          <Edge From="27" To="28" Label="Source1" />
-                          <Edge From="28" To="29" Label="Source1" />
-                          <Edge From="29" To="30" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="rx:Merge" />
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="SaveFilename NewParams" Category="ParamLogger" />
-                    </Expression>
-                    <Expression xsi:type="GroupWorkflow">
-                      <Name>SphereParamsLoggerClose</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Frames</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>StartTrigger</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:WithLatestFrom" />
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Item1</Selector>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>SaveGeneralPrefix</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>SaveDate</Name>
-                          </Expression>
-                          <Expression xsi:type="ExternalizedMapping">
-                            <Property Name="Value" DisplayName="SaveFilename NewParams" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="StringProperty">
-                              <Value>NewParams</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Metadata</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>WhichExp</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>SaveTimestamp</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Format">
-                            <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
-                            <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
-                            <PropertyMappings>
-                              <Property Name="FileName" />
-                            </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Int32,sys:Single,sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single))">
-                            <Name>LogSphereParams</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:WithLatestFrom" />
-                          </Expression>
-                          <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                            <Name>Timestamp</Name>
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>new(
-Timestamp as HarpTime,
-Value.Item2.Index as Frame,
-Value.Item1.Item1 as SphereID,
-Value.Item1.Item2 as StartTime,
-Math.Round(Value.Item1.Item3.Item1/Math.PI*180) as Theta,
-Value.Item1.Item3.Item2 as Zo,
-Value.Item1.Item3.Item3 as Depth,
-Value.Item1.Item4.Item1 as X, 
-Value.Item1.Item4.Item2 as Y, 
-Value.Item1.Item4.Item3 as Z0, 
-Value.Item1.Item4.Item4 as Z, 
-Value.Item1.Item4.Item5 as MouseZ,
-Value.Item1.Item5.Item1 as OriginalSize,
-Value.Item1.Item5.Item2 as Size)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="io:CsvWriter">
-                            <io:FileName>D:\data\Test\S20211008\R150052_SpheresPermTube\Test_S20211008_R150052_SpheresPermTube_NewParams.csv</io:FileName>
-                            <io:Append>false</io:Append>
-                            <io:Overwrite>false</io:Overwrite>
-                            <io:Suffix>None</io:Suffix>
-                            <io:IncludeHeader>true</io:IncludeHeader>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>SphereID</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>Azimuth</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>Elevation</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>Depth</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>Frame</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="rx:Zip" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="scr:ExpressionTransform">
-                              <scr:Expression>new(
-Item5 as Frame,
-Item1 as SphereID,
-Item2 as Azimuth,
-Item3 as Elevation,
-Item4 as Depth
-)</scr:Expression>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="ReplaySubject">
-                              <Name>SphereParamsReplay</Name>
-                              <BufferSize xsi:nil="true" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="MemberSelector">
-                              <Selector>Item3.Item2</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>NewSphereTrigger</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="rx:CombineLatest" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                              <Name>Timestamp</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>SaveGeneralPrefix</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>SaveDate</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="StringProperty">
-                                <Value>NewSphereTrigger</Value>
-                              </Combinator>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>Metadata</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>WhichExp</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>SaveTimestamp</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="rx:Zip" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Format">
-                              <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
-                              <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="PropertyMapping">
-                              <PropertyMappings>
-                                <Property Name="FileName" />
-                              </PropertyMappings>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="io:CsvWriter">
-                              <io:FileName>D:\data\Test\S20211007\R203254_SpheresPermTube\Test_S20211007_R203254_SpheresPermTube_NewSphereTrigger.csv</io:FileName>
-                              <io:Append>false</io:Append>
-                              <io:Overwrite>false</io:Overwrite>
-                              <io:Suffix>None</io:Suffix>
-                              <io:IncludeHeader>true</io:IncludeHeader>
-                            </Builder>
-                          </Expression>
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="2" Label="Source1" />
-                          <Edge From="1" To="2" Label="Source2" />
-                          <Edge From="2" To="3" Label="Source1" />
-                          <Edge From="3" To="15" Label="Source2" />
-                          <Edge From="4" To="11" Label="Source1" />
-                          <Edge From="5" To="11" Label="Source2" />
-                          <Edge From="6" To="7" Label="Source1" />
-                          <Edge From="7" To="11" Label="Source5" />
-                          <Edge From="8" To="11" Label="Source6" />
-                          <Edge From="9" To="11" Label="Source4" />
-                          <Edge From="10" To="11" Label="Source3" />
-                          <Edge From="11" To="12" Label="Source1" />
-                          <Edge From="12" To="13" Label="Source1" />
-                          <Edge From="13" To="18" Label="Source2" />
-                          <Edge From="14" To="15" Label="Source1" />
-                          <Edge From="14" To="27" Label="Source1" />
-                          <Edge From="15" To="16" Label="Source1" />
-                          <Edge From="16" To="17" Label="Source1" />
-                          <Edge From="17" To="18" Label="Source1" />
-                          <Edge From="18" To="19" Label="Source1" />
-                          <Edge From="18" To="20" Label="Source1" />
-                          <Edge From="18" To="21" Label="Source1" />
-                          <Edge From="18" To="22" Label="Source1" />
-                          <Edge From="18" To="23" Label="Source1" />
-                          <Edge From="19" To="24" Label="Source1" />
-                          <Edge From="20" To="24" Label="Source2" />
-                          <Edge From="21" To="24" Label="Source3" />
-                          <Edge From="22" To="24" Label="Source4" />
-                          <Edge From="23" To="24" Label="Source5" />
-                          <Edge From="24" To="25" Label="Source1" />
-                          <Edge From="25" To="26" Label="Source1" />
-                          <Edge From="27" To="29" Label="Source2" />
-                          <Edge From="28" To="29" Label="Source1" />
-                          <Edge From="29" To="30" Label="Source1" />
-                          <Edge From="30" To="40" Label="Source1" />
-                          <Edge From="31" To="37" Label="Source1" />
-                          <Edge From="32" To="37" Label="Source2" />
-                          <Edge From="33" To="37" Label="Source5" />
-                          <Edge From="34" To="37" Label="Source6" />
-                          <Edge From="35" To="37" Label="Source4" />
-                          <Edge From="36" To="37" Label="Source3" />
-                          <Edge From="37" To="38" Label="Source1" />
-                          <Edge From="38" To="39" Label="Source1" />
-                          <Edge From="39" To="40" Label="Source2" />
-                        </Edges>
-                      </Workflow>
-                    </Expression>
-                  </Nodes>
-                  <Edges>
-                    <Edge From="0" To="1" Label="Source1" />
-                    <Edge From="2" To="5" Label="Source1" />
-                    <Edge From="3" To="9" Label="Source2" />
-                    <Edge From="4" To="5" Label="Source2" />
-                    <Edge From="5" To="6" Label="Source1" />
-                    <Edge From="6" To="7" Label="Source1" />
-                    <Edge From="7" To="8" Label="Source1" />
-                    <Edge From="8" To="9" Label="Source1" />
-                    <Edge From="9" To="10" Label="Source1" />
-                    <Edge From="11" To="12" Label="Source1" />
-                  </Edges>
-                </Workflow>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="ExternalizedMapping">
-                <Property Name="DueTime" DisplayName="InitialDelay" Category="Timings" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="rx:DelaySubscription">
-                  <rx:DueTime>PT10S</rx:DueTime>
-                </Combinator>
-              </Builder>
-            </Expression>
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="2" To="11" Label="Source1" />
-            <Edge From="3" To="12" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="16" Label="Source3" />
-            <Edge From="6" To="20" Label="Source1" />
-            <Edge From="7" To="21" Label="Source2" />
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="16" Label="Source2" />
-            <Edge From="10" To="11" Label="Source2" />
-            <Edge From="11" To="12" Label="Source2" />
-            <Edge From="12" To="13" Label="Source1" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="15" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source2" />
-            <Edge From="20" To="21" Label="Source1" />
-            <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="23" Label="Source1" />
-            <Edge From="23" To="24" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
-            <Edge From="27" To="28" Label="Source1" />
-            <Edge From="28" To="30" Label="Source1" />
-            <Edge From="29" To="30" Label="Source2" />
-          </Edges>
-        </Workflow>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:TakeUntil" />
-      </Expression>
       <Expression xsi:type="PublishSubject" TypeArguments="sys:Int32">
         <Name>TrialNo</Name>
       </Expression>
@@ -6195,20 +4786,17 @@ Item4 as Depth
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
-      <Edge From="19" To="28" Label="Source1" />
-      <Edge From="19" To="33" Label="Source2" />
-      <Edge From="20" To="30" Label="Source2" />
+      <Edge From="20" To="31" Label="Source2" />
       <Edge From="21" To="25" Label="Source3" />
       <Edge From="22" To="25" Label="Source2" />
       <Edge From="23" To="25" Label="Source1" />
       <Edge From="24" To="25" Label="Source4" />
       <Edge From="25" To="26" Label="Source1" />
       <Edge From="26" To="27" Label="Source1" />
-      <Edge From="26" To="28" Label="Source2" />
-      <Edge From="28" To="29" Label="Source1" />
+      <Edge From="26" To="29" Label="Source1" />
+      <Edge From="28" To="29" Label="Source2" />
       <Edge From="29" To="30" Label="Source1" />
-      <Edge From="31" To="32" Label="Source1" />
-      <Edge From="32" To="33" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

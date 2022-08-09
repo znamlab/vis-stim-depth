@@ -402,7 +402,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\Test_Framedrops\S20210806\R145250_SphereSparseNoise\Test_Framedrops_S20210806_R145250_SphereSparseNoise_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\Test_Framedrops\S20210827\R144415_SphereSparseNoise\Test_Framedrops_S20210827_R144415_SphereSparseNoise_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -739,9 +739,9 @@ Item3 as Count
                           <Property Name="DueTime" DisplayName="InterSphereInterval" />
                         </Expression>
                         <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:Timer">
-                            <gl:DueTime>PT0.01S</gl:DueTime>
-                            <gl:Period>PT0S</gl:Period>
+                          <Combinator xsi:type="rx:Timer">
+                            <rx:DueTime>PT0.01S</rx:DueTime>
+                            <rx:Period>PT0S</rx:Period>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -765,8 +765,9 @@ Item3 as Count
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:Timer">
-                            <gl:DueTime>PT30S</gl:DueTime>
+                          <Combinator xsi:type="rx:Timer">
+                            <rx:DueTime>PT30S</rx:DueTime>
+                            <rx:Period>PT0S</rx:Period>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -922,7 +923,7 @@ Item3 as Count
                           </Builder>
                         </Expression>
                         <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:CombineLatest" />
+                          <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
                         <Expression xsi:type="scr:ExpressionTransform">
                           <scr:Name>Rename</scr:Name>
@@ -953,17 +954,17 @@ Item2.Item1.Item4.Item2 as Size)</scr:Expression>
                           <Selector>Draw</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>59.0089035</TranslationX>
-                          <TranslationY>16.369154</TranslationY>
-                          <TranslationZ>-15.811388</TranslationZ>
-                          <ScaleX>2.75118136</ScaleX>
-                          <ScaleY>2.75118136</ScaleY>
-                          <ScaleZ>2.75118136</ScaleZ>
+                          <TranslationX>-150</TranslationX>
+                          <TranslationY>100</TranslationY>
+                          <TranslationZ>86.60255</TranslationZ>
+                          <ScaleX>8.7</ScaleX>
+                          <ScaleY>8.7</ScaleY>
+                          <ScaleZ>8.7</ScaleZ>
                           <MeshName>sphere</MeshName>
                           <Ambient>
-                            <X>0.5</X>
-                            <Y>0.5</Y>
-                            <Z>0.5</Z>
+                            <X>1</X>
+                            <Y>1</Y>
+                            <Z>1</Z>
                           </Ambient>
                           <Diffuse>
                             <X>0</X>
@@ -1116,7 +1117,7 @@ Value.Item1.Item4.Item2 as Size)</scr:Expression>
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\Test_Framedrops\S20210806\R145250_SphereSparseNoise\Test_Framedrops_S20210806_R145250_SphereSparseNoise_NewParams.csv</io:FileName>
+                          <io:FileName>D:\data\Test_Framedrops\S20210827\R144415_SphereSparseNoise\Test_Framedrops_S20210827_R144415_SphereSparseNoise_NewParams.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
