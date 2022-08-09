@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.6.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Description>Frame &amp; Photodiode logger</Description>
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RenderFrame" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>TimeStep.ElapsedRealTime</Selector>
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:ElementIndex" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:UpdateFrame" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>TimeStep</Selector>
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:ElementIndex" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+        <Name>Timestamp</Name>
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new(
+it.Value.Item1.Index as Frame,
+it.Timestamp as HarpTime,
+it.Value.Item2.Value.ElapsedTime as IdealFrameTime,
+it.Value.Item1.Value as BonsaiRenderElapsedTime,
+it.Value.Item2.Value.ElapsedRealTime as BonsaiUpdateElapsedTime
+)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SaveTimestamp</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SaveGeneralPrefix</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SaveDate</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Value" DisplayName="Filename" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty">
+          <Value>FrameLog</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Metadata</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>WhichExp</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="Format">
+        <Format>{0}\S{1}\R{2}_{5}\{4}_S{1}_R{2}_{5}_{3}.csv</Format>
+        <Selector>Item1,Item2,Item3,Item4,Item5.Animal,Item6</Selector>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="FileName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>D:\data\Test\S20210519\R165830_Retinotopy\Test_S20210519_R165830_Retinotopy_FrameLog.csv</io:FileName>
+        <io:Delimiter>,</io:Delimiter>
+        <io:Append>true</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>None</io:Suffix>
+        <io:IncludeHeader>true</io:IncludeHeader>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="WorkflowOutput" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Index</Selector>
+      </Expression>
+      <Expression xsi:type="BehaviorSubject">
+        <Name>FrameNo</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RenderFrame" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>TimeStep.ElapsedRealTime</Selector>
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:ElementIndex" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:UpdateFrame" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>TimeStep</Selector>
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:ElementIndex" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>photodiode</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>PhotoQuadColor</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:CombineLatest" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+        <Name>Timestamp</Name>
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new(
+it.Value.Item1.Item1.Index as Frame,
+it.Timestamp as HarpTime,
+it.Value.Item1.Item2.Value.ElapsedTime as IdealFrameTime,
+it.Value.Item1.Item1.Value as BonsaiRenderElapsedTime,
+it.Value.Item1.Item2.Value.ElapsedRealTime as BonsaiUpdateElapsedTime,
+it.Value.Item2 as PhotoQuadColor,
+it.Value.Item3 as Photodiode
+)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SaveTimestamp</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SaveGeneralPrefix</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SaveDate</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Value" DisplayName="Photodiode Filename" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty">
+          <Value>PhotodiodeLog</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Metadata</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>WhichExp</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="Format">
+        <Format>{0}\S{1}\R{2}_{5}\{4}_S{1}_R{2}_{5}_{3}.csv</Format>
+        <Selector>Item1,Item2,Item3,Item4,Item5.Animal,Item6</Selector>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="FileName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>D:\data\Test\S20210519\R165830_Retinotopy\Test_S20210519_R165830_Retinotopy_PhotodiodeLog.csv</io:FileName>
+        <io:Delimiter>,</io:Delimiter>
+        <io:Append>true</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>None</io:Suffix>
+        <io:IncludeHeader>true</io:IncludeHeader>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="WorkflowOutput" />
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="8" Label="Source1" />
+      <Edge From="3" To="23" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source2" />
+      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="21" Label="Source1" />
+      <Edge From="11" To="18" Label="Source3" />
+      <Edge From="12" To="18" Label="Source1" />
+      <Edge From="13" To="18" Label="Source2" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="18" Label="Source4" />
+      <Edge From="16" To="18" Label="Source5" />
+      <Edge From="17" To="18" Label="Source6" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="21" Label="Source2" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="28" To="33" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="32" To="33" Label="Source2" />
+      <Edge From="33" To="36" Label="Source1" />
+      <Edge From="34" To="36" Label="Source3" />
+      <Edge From="35" To="36" Label="Source2" />
+      <Edge From="36" To="37" Label="Source1" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="38" To="49" Label="Source1" />
+      <Edge From="39" To="46" Label="Source3" />
+      <Edge From="40" To="46" Label="Source1" />
+      <Edge From="41" To="46" Label="Source2" />
+      <Edge From="42" To="43" Label="Source1" />
+      <Edge From="43" To="46" Label="Source4" />
+      <Edge From="44" To="46" Label="Source5" />
+      <Edge From="45" To="46" Label="Source6" />
+      <Edge From="46" To="47" Label="Source1" />
+      <Edge From="47" To="48" Label="Source1" />
+      <Edge From="48" To="49" Label="Source2" />
+      <Edge From="49" To="50" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
