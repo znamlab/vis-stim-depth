@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "4OfRN6zDiYWhFx7Pg/YeqIX1kBR1bHSMtXgEVbB3Izryor1e/ea3wVQGW5AZDmtmumzj1k/KtiQ7KtrrwbyhBA==",
+  "success": true,
+  "projectFilePath": "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\Extensions.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\VisStim-2p\\.nuget\\packages\\bonsai.core\\2.6.2\\bonsai.core.2.6.2.nupkg.sha512",
+    "C:\\Users\\VisStim-2p\\.nuget\\packages\\rx-core\\2.2.5\\rx-core.2.2.5.nupkg.sha512",
+    "C:\\Users\\VisStim-2p\\.nuget\\packages\\rx-interfaces\\2.2.5\\rx-interfaces.2.2.5.nupkg.sha512",
+    "C:\\Users\\VisStim-2p\\.nuget\\packages\\rx-linq\\2.2.5\\rx-linq.2.2.5.nupkg.sha512"
+  ],
+  "logs": []
+}
