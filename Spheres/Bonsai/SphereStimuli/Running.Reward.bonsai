@@ -234,7 +234,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\Test\S20220428\R194424_RunningReward\Test_S20220428_R194424_RunningReward_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\Test\S20220527\R113916_RunningReward\Test_S20220527_R113916_RunningReward_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>InitBonvision3D</Name>
@@ -546,7 +546,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>0</gl:Z>
+                <gl:Z>2056.10181</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -579,7 +579,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>0</Z>
+                      <Z>2056.10181</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
@@ -1346,7 +1346,7 @@ Item6 as FloorHeight
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-2.5</TranslationY>
-                    <TranslationZ>200</TranslationZ>
+                    <TranslationZ>2000</TranslationZ>
                     <ScaleX>5</ScaleX>
                     <ScaleY>200</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -1416,7 +1416,7 @@ Item6 as FloorHeight
         </Workflow>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
-        <RewardDuration>30000</RewardDuration>
+        <RewardDuration>300</RewardDuration>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
