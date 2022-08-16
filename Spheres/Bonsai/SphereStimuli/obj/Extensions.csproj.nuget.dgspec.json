@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\Extensions.csproj": {}
+  },
+  "projects": {
+    "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\Extensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\Extensions.csproj",
+        "projectName": "Extensions",
+        "projectPath": "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\Extensions.csproj",
+        "packagesPath": "C:\\Users\\VisStim-2p\\.nuget\\packages\\",
+        "outputPath": "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "D:\\code\\vis-stim-depth\\Spheres\\Bonsai\\SphereStimuli\\NuGet.Config",
+          "C:\\Users\\VisStim-2p\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/f/bonsai": {},
+          "https://www.myget.org/f/bonsai-community": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Bonsai.Core": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.6.0"
+<WorkflowBuilder Version="2.6.2"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:osc="clr-namespace:Bonsai.Osc;assembly=Bonsai.Osc"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
@@ -374,7 +374,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\Test_Framedrops\S20210910\R170959_SphereSparseNoise\Test_Framedrops_S20210910_R170959_SphereSparseNoise_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\PZAH2.1b\S20211004\R194439_SphereSparseNoise\PZAH2.1b_S20211004_R194439_SphereSparseNoise_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>InitBonvision3D</Name>
@@ -621,7 +621,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>401.534821</gl:Z>
+                <gl:Z>0</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -654,7 +654,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>401.534821</Z>
+                      <Z>0</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
@@ -687,7 +687,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Rotation>
                       <X>0.0360390469</X>
                       <Y>-87.6625443</Y>
-                      <Z>0.4738361</Z>
+                      <Z>0.47383610000000004</Z>
                     </Rotation>
                     <Translation>
                       <X>-27</X>
@@ -1066,7 +1066,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Width>29.296875</Width>
                     <Height>52.0833321</Height>
                     <Rotation>
-                      <X>0.4698254</X>
+                      <X>0.46982540000000006</X>
                       <Y>91.10029</Y>
                       <Z>-0.10943494</Z>
                     </Rotation>
@@ -2116,7 +2116,6 @@ Item2.Item1.Item5.Item2 as Size)</scr:Expression>
                             <Property Name="ScaleX" Selector="Size" />
                             <Property Name="ScaleY" Selector="Size" />
                             <Property Name="ScaleZ" Selector="Size" />
-                            <Property Name="Ambient" Selector="Ambient" />
                           </PropertyMappings>
                           <Selector>Draw</Selector>
                         </Expression>
