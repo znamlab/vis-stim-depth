@@ -5,15 +5,15 @@
                  xmlns:p1="clr-namespace:;assembly=Extensions"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
-                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
-                 xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
-                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:p2="clr-namespace:Bonsai.Harp.CF;assembly=Bonsai.Harp.CF"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
-                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:p3="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
                  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -435,7 +435,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\PZAH6.4b\S20221006\R181641_SpheresPermTubeReward\PZAH6.4b_S20221006_R181641_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\PZAH6.4b\S20221007\R165323_SpheresPermTubeReward\PZAH6.4b_S20221007_R165323_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1612,13 +1612,267 @@ Item2 as EyeZ)</scr:Expression>
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\PhotodiodePlane.bonsai">
-        <ScaleX>0.5</ScaleX>
-        <ScaleY>0.5</ScaleY>
-        <ScaleZ>0.5</ScaleZ>
-        <PhotoquadX>-155</PhotoquadX>
-        <PhotoquadY>-40</PhotoquadY>
-        <PhotoquadZ>5</PhotoquadZ>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>PhotodiodePlane MultiColor</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="FileName" DisplayName="Sequence File" />
+            </Expression>
+            <Expression xsi:type="io:CsvReader">
+              <io:FileName>Extensions\random_sequence_5values_alternate.csv</io:FileName>
+              <io:ScanPattern>%d</io:ScanPattern>
+              <io:SkipRows>0</io:SkipRows>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:ToList" />
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>sequence</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Draw</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="ScaleX" />
+              <Property Name="ScaleY" />
+              <Property Name="ScaleZ" />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="PhotoquadX" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="FloatProperty">
+                <Value>-155</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="num:DegreeToRadian" />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="PhotoquadY" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="FloatProperty">
+                <Value>-40</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="num:DegreeToRadian" />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="PhotoquadZ" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="FloatProperty">
+                <Value>5</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Name>SphericalCoordinates</scr:Name>
+              <scr:Expression>new(
+Item3 * Math.Cos(Item2) * Math.Cos(Item1) as X,
+Item3 * Math.Sin(Item2) as Y,
+Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
+)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>X</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="TranslationX" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Y</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="TranslationY" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Z0</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>EyeZ</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="Add" />
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="TranslationZ" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:RenderFrame" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:ElementIndex" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Index</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>sequence</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Count</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="Mod" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>sequence</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>it.item2[it.item1]</scr:Expression>
+            </Expression>
+            <Expression xsi:type="PublishSubject">
+              <Name>PhotoQuadColor</Name>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Ambient" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>-3.47136021</TranslationX>
+              <TranslationY>-3.213938</TranslationY>
+              <TranslationZ>-1.61872184</TranslationZ>
+              <ScaleX>0.5</ScaleX>
+              <ScaleY>0.5</ScaleY>
+              <ScaleZ>0.5</ScaleZ>
+              <MeshName>Plane</MeshName>
+              <Ambient>
+                <X>0.25</X>
+                <Y>0.25</Y>
+                <Z>0.25</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Diffuse>
+              <Specular>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>0</RotationX>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="GroupWorkflow">
+                <Name>PhotoQuadLogger</Name>
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>photodiode</Name>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>PhotoQuadAmbient</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="gl:UpdateFrame" />
+                    </Expression>
+                    <Expression xsi:type="MemberSelector">
+                      <Selector>TimeStep</Selector>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:ElementIndex" />
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:CombineLatest" />
+                    </Expression>
+                    <Expression xsi:type="scr:ExpressionTransform">
+                      <scr:Description />
+                      <scr:Expression>new(
+Item3.Index as Frame,
+Item3.Value.ElapsedTime as ElapsedTime,
+Item3.Value.ElapsedRealTime as ElapsedRealTime,
+Item2 as PhotodiodeAmbient,
+Item1 as PhotodiodeSignal
+)</scr:Expression>
+                    </Expression>
+                    <Expression xsi:type="io:CsvWriter">
+                      <io:FileName>saved_csv\PhotodiodeQuad.csv</io:FileName>
+                      <io:Append>false</io:Append>
+                      <io:Overwrite>false</io:Overwrite>
+                      <io:Suffix>Timestamp</io:Suffix>
+                      <io:IncludeHeader>true</io:IncludeHeader>
+                    </Expression>
+                    <Expression xsi:type="WorkflowOutput" />
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="5" Label="Source1" />
+                    <Edge From="1" To="5" Label="Source2" />
+                    <Edge From="2" To="3" Label="Source1" />
+                    <Edge From="3" To="4" Label="Source1" />
+                    <Edge From="4" To="5" Label="Source3" />
+                    <Edge From="5" To="6" Label="Source1" />
+                    <Edge From="6" To="7" Label="Source1" />
+                    <Edge From="7" To="8" Label="Source1" />
+                  </Edges>
+                </Workflow>
+              </Builder>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="37" Label="Source1" />
+            <Edge From="5" To="37" Label="Source6" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="14" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="14" Label="Source2" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="14" Label="Source3" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="15" To="18" Label="Source1" />
+            <Edge From="15" To="20" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="37" Label="Source3" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="37" Label="Source4" />
+            <Edge From="20" To="22" Label="Source1" />
+            <Edge From="21" To="22" Label="Source2" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="37" Label="Source5" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="30" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="30" Label="Source2" />
+            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="31" To="33" Label="Source1" />
+            <Edge From="32" To="33" Label="Source2" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="36" To="37" Label="Source2" />
+            <Edge From="37" To="38" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>FrameLogger</Name>
@@ -1684,7 +1938,7 @@ it.Value.Item3 as Photodiode
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\PZAH6.4b\S20221006\R181641_SpheresPermTubeReward\PZAH6.4b_S20221006_R181641_SpheresPermTubeReward_PhotodiodeLog.csv</io:FileName>
+              <io:FileName>D:\data\PZAH6.4b\S20221007\R165323_SpheresPermTubeReward\\PhotodiodeLog.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -1766,7 +2020,7 @@ Item2 as UpdateFrameIndex
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\PZAH6.4b\S20221006\R181641_SpheresPermTubeReward\PZAH6.4b_S20221006_R181641_SpheresPermTubeReward_FrameLog.csv</io:FileName>
+              <io:FileName>D:\data\PZAH6.4b\S20221007\R165323_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -1903,7 +2157,7 @@ it.Value.Item4 as EyeZ
 )</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\PZAH6.4b\S20221006\R181641_SpheresPermTubeReward\PZAH6.4b_S20221006_R181641_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
+              <io:FileName>D:\data\PZAH6.4b\S20221007\R165323_SpheresPermTubeReward\PZAH6.4b_S20221007_R165323_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
