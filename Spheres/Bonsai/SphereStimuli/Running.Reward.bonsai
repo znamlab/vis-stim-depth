@@ -76,7 +76,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="StringProperty">
-                      <Value>RunningReward</Value>
+                      <Value>RunningRewardDark</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -234,7 +234,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\Test\S20220527\R113916_RunningReward\Test_S20220527_R113916_RunningReward_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\Test\S20221024\R123135_RunningRewardDark\Test_S20221024_R123135_RunningRewardDark_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>InitBonvision3D</Name>
@@ -546,7 +546,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>2056.10181</gl:Z>
+                <gl:Z>177.404877</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -579,7 +579,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>2056.10181</Z>
+                      <Z>177.404877</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
@@ -1215,6 +1215,73 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         <Filename>RotaryEncoder</Filename>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
+        <Name>ManualReward</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>R</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="BooleanProperty">
+                <Value>true</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject">
+              <Name>ManualReward</Name>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>Reward</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>U</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="RewardDuration" Description="Duration of valve opening in ms" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>300</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>RewardDuration</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="10" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source2" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
         <Name>Floor</Name>
         <Description />
         <Workflow>
@@ -1346,7 +1413,7 @@ Item6 as FloorHeight
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-2.5</TranslationY>
-                    <TranslationZ>2000</TranslationZ>
+                    <TranslationZ>200</TranslationZ>
                     <ScaleX>5</ScaleX>
                     <ScaleY>200</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -1414,9 +1481,6 @@ Item6 as FloorHeight
             <Edge From="8" To="9" Label="Source1" />
           </Edges>
         </Workflow>
-      </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
-        <RewardDuration>300</RewardDuration>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
@@ -3407,7 +3471,7 @@ Item4 as Depth
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="FloatProperty">
-                <Value>0.01</Value>
+                <Value>1</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -3470,6 +3534,9 @@ Item4 as Depth
             </Expression>
             <Expression xsi:type="MulticastSubject">
               <Name>Reward</Name>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>RewardLog</Name>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
             <Expression xsi:type="Disable">
@@ -5247,15 +5314,110 @@ Item4 as Depth
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
-            <Edge From="27" To="28" Label="Source1" />
-            <Edge From="28" To="30" Label="Source1" />
-            <Edge From="29" To="30" Label="Source2" />
+            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="31" Label="Source1" />
+            <Edge From="30" To="31" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:TakeUntil" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>RewardLog</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveGeneralPrefix</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveDate</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="SaveFilename Reward" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>RewardLog</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Metadata</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>WhichExp</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SaveTimestamp</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
+              <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="FileName" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Boolean">
+              <Name>RewardLog</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>MouseZ</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ManualReward</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Merge" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+              <Name>Timestamp</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+Timestamp as HarpTime,
+Value.Item1 as Reward,
+Value.Item2 as MouseZ)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="io:CsvWriter">
+              <io:FileName>D:\data\Test\S20221024\R123135_RunningRewardDark\Test_S20221024_R123135_RunningRewardDark_RewardLog.csv</io:FileName>
+              <io:Append>false</io:Append>
+              <io:Overwrite>false</io:Overwrite>
+              <io:Suffix>None</io:Suffix>
+              <io:IncludeHeader>true</io:IncludeHeader>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="7" Label="Source1" />
+            <Edge From="1" To="7" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="7" Label="Source5" />
+            <Edge From="4" To="7" Label="Source6" />
+            <Edge From="5" To="7" Label="Source4" />
+            <Edge From="6" To="7" Label="Source3" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="17" Label="Source2" />
+            <Edge From="10" To="13" Label="Source1" />
+            <Edge From="11" To="14" Label="Source2" />
+            <Edge From="12" To="13" Label="Source2" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
     </Nodes>
     <Edges>
