@@ -733,7 +733,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                 <gl:Meshes>
                   <gl:MeshConfiguration xsi:type="gl:TexturedModel">
                     <gl:Name>sphere</gl:Name>
-                    <gl:FileName>D:\code\vis-stim-depth\Spheres\Objects\sphere.obj</gl:FileName>
+                    <gl:FileName>..\..\Objects\sphere.obj</gl:FileName>
                   </gl:MeshConfiguration>
                 </gl:Meshes>
               </Combinator>
