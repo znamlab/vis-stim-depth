@@ -435,7 +435,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\Test_S20221118_R142436_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -998,7 +998,7 @@ Item2.SequenceIndex as SequenceIndex)</scr:Expression>
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>0</gl:Z>
+                <gl:Z>170.21051</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
@@ -1028,7 +1028,7 @@ Item2.SequenceIndex as SequenceIndex)</scr:Expression>
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>0</Z>
+                      <Z>170.21051</Z>
                     </Eye>
                     <NearClip>0.001</NearClip>
                     <FarClip>1000000</FarClip>
@@ -1780,15 +1780,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
               <TranslationX>-3.47136021</TranslationX>
               <TranslationY>-3.213938</TranslationY>
-              <TranslationZ>-1.61872184</TranslationZ>
+              <TranslationZ>168.591782</TranslationZ>
               <ScaleX>0.5</ScaleX>
               <ScaleY>0.5</ScaleY>
               <ScaleZ>0.5</ScaleZ>
               <MeshName>Plane</MeshName>
               <Ambient>
-                <X>0.25</X>
-                <Y>0.25</Y>
-                <Z>0.25</Z>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
               </Ambient>
               <Diffuse>
                 <X>0</X>
@@ -1912,7 +1912,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -2029,7 +2029,7 @@ it.Value.Item4 as EyeZ
 )</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\Test_S20221118_R142436_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -3105,8 +3105,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>162.00000000000006</RangeMin>
-                                      <RangeMax>162.00000000000006</RangeMax>
+                                      <RangeMin>16.2</RangeMin>
+                                      <RangeMax>16.2</RangeMax>
                                       <Count>2</Count>
                                     </Expression>
                                     <Expression xsi:type="SubscribeSubject">
@@ -3220,9 +3220,9 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>162.00000000000006</RangeMin>
-                                      <RangeMax>762</RangeMax>
-                                      <Count>68</Count>
+                                      <RangeMin>16.2</RangeMin>
+                                      <RangeMax>616.2</RangeMax>
+                                      <Count>668</Count>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:Concat" />
@@ -3495,8 +3495,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>-45.000000000000014</RangeMin>
-                                      <RangeMax>153.00000000000006</RangeMax>
+                                      <RangeMin>-4.5</RangeMin>
+                                      <RangeMax>15.3</RangeMax>
                                       <Count>23</Count>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -4228,6 +4228,21 @@ Item3 as Count
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p1:TubeMapping_NewZ" />
                         </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>new(
+Item1 as SphereID,
+Item2 as SphereStartTime,
+Item3.Item1 as Theta,
+Item3.Item2 as Z0,
+Item3.Item3 as Radius,
+Item4.Item1 as X,
+Item4.Item2 as Y,
+Item4.Item3 as Z0,
+Item4.Item4 as Z,
+Item4.Item5 as EyeZ,
+Item5.Item1 as OriginalSize,
+Item5.Item2 as Size)</scr:Expression>
+                        </Expression>
                         <Expression xsi:type="BehaviorSubject">
                           <Name>SphereNewParams</Name>
                         </Expression>
@@ -4276,8 +4291,9 @@ Item3 as Count
                         <Edge From="27" To="28" Label="Source1" />
                         <Edge From="28" To="29" Label="Source1" />
                         <Edge From="29" To="30" Label="Source1" />
-                        <Edge From="31" To="32" Label="Source1" />
-                        <Edge From="33" To="34" Label="Source1" />
+                        <Edge From="30" To="31" Label="Source1" />
+                        <Edge From="32" To="33" Label="Source1" />
+                        <Edge From="34" To="35" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -4329,7 +4345,7 @@ Item3 as Count
                                 <Name>Source1</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
-                                <Selector>Item1</Selector>
+                                <Selector>SphereID</Selector>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>SphereIndex</Name>
@@ -4354,11 +4370,14 @@ Item3 as Count
                                   <Value>23</Value>
                                 </Operand>
                               </Expression>
+                              <Expression xsi:type="MulticastSubject">
+                                <Name>SphereOriginalID</Name>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:WithLatestFrom" />
                               </Expression>
                               <Expression xsi:type="MemberSelector">
-                                <Selector>Item3.Item3</Selector>
+                                <Selector>Radius</Selector>
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:WithLatestFrom" />
@@ -4370,24 +4389,27 @@ Item3 as Count
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="0" To="10" Label="Source1" />
+                              <Edge From="0" To="11" Label="Source1" />
                               <Edge From="1" To="8" Label="Source1" />
-                              <Edge From="2" To="9" Label="Source2" />
+                              <Edge From="2" To="10" Label="Source2" />
                               <Edge From="3" To="5" Label="Source1" />
                               <Edge From="4" To="5" Label="Source2" />
                               <Edge From="5" To="6" Label="Source1" />
                               <Edge From="6" To="7" Label="Source1" />
                               <Edge From="7" To="8" Label="Source2" />
                               <Edge From="8" To="9" Label="Source1" />
-                              <Edge From="9" To="11" Label="Source1" />
-                              <Edge From="10" To="11" Label="Source2" />
-                              <Edge From="11" To="12" Label="Source1" />
+                              <Edge From="9" To="10" Label="Source1" />
+                              <Edge From="10" To="12" Label="Source1" />
+                              <Edge From="11" To="12" Label="Source2" />
                               <Edge From="12" To="13" Label="Source1" />
+                              <Edge From="13" To="14" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
-                        <Expression xsi:type="MulticastSubject">
-                          <Name>LogSphereParams</Name>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="MulticastSubject">
+                            <Name>LogSphereParams</Name>
+                          </Builder>
                         </Expression>
                         <Expression xsi:type="PublishSubject">
                           <Name>NewSphereTime</Name>
@@ -4595,40 +4617,30 @@ Item3 as Count
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
-                        <Expression xsi:type="scr:ExpressionTransform">
-                          <scr:Name>Rename</scr:Name>
-                          <scr:Expression>new(
-Item1 as Draw,
-Item2.Item2 as Ambient,
-Item2.Item1.Item4.Item1 as X, 
-Item2.Item1.Item4.Item2 as Y, 
-Item2.Item1.Item4.Item4 as Z, 
-Item2.Item1.Item5.Item2 as Size)</scr:Expression>
-                        </Expression>
                         <Expression xsi:type="InputMapping">
                           <PropertyMappings>
-                            <Property Name="TranslationY" Selector="Y" />
-                            <Property Name="TranslationZ" Selector="Z" />
-                            <Property Name="ScaleX" Selector="Size" />
-                            <Property Name="ScaleY" Selector="Size" />
-                            <Property Name="ScaleZ" Selector="Size" />
-                            <Property Name="TranslationX" Selector="X" />
-                            <Property Name="Ambient" Selector="Ambient" />
+                            <Property Name="TranslationY" Selector="Item2.Item1.Y" />
+                            <Property Name="TranslationZ" Selector="Item2.Item1.Z" />
+                            <Property Name="ScaleX" Selector="Item2.Item1.Size" />
+                            <Property Name="ScaleY" Selector="Item2.Item1.Size" />
+                            <Property Name="ScaleZ" Selector="Item2.Item1.Size" />
+                            <Property Name="TranslationX" Selector="Item2.Item1.X" />
+                            <Property Name="Ambient" Selector="Item2.Item2" />
                           </PropertyMappings>
-                          <Selector>Draw</Selector>
+                          <Selector>Item1</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>-9579.005</TranslationX>
-                          <TranslationY>2867.52075</TranslationY>
-                          <TranslationZ>5148.60352</TranslationZ>
-                          <ScaleX>-869.912964</ScaleX>
-                          <ScaleY>-869.912964</ScaleY>
-                          <ScaleZ>-869.912964</ScaleZ>
+                          <TranslationX>-5.808587</TranslationX>
+                          <TranslationY>1.50343454</TranslationY>
+                          <TranslationZ>183.0204</TranslationZ>
+                          <ScaleX>0.521999955</ScaleX>
+                          <ScaleY>0.521999955</ScaleY>
+                          <ScaleZ>0.521999955</ScaleZ>
                           <MeshName>sphere</MeshName>
                           <Ambient>
-                            <X>0.5</X>
-                            <Y>0.5</Y>
-                            <Z>0.5</Z>
+                            <X>0</X>
+                            <Y>0</Y>
+                            <Z>0</Z>
                           </Ambient>
                           <Diffuse>
                             <X>0</X>
@@ -4646,6 +4658,9 @@ Item2.Item1.Item5.Item2 as Size)</scr:Expression>
                           <RotationX>0</RotationX>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
+                        <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
+                          <Name>SphereOriginalID</Name>
+                        </Expression>
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
@@ -4700,7 +4715,6 @@ Item2.Item1.Item5.Item2 as Size)</scr:Expression>
                         <Edge From="50" To="51" Label="Source1" />
                         <Edge From="51" To="52" Label="Source1" />
                         <Edge From="52" To="53" Label="Source1" />
-                        <Edge From="53" To="54" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -4710,153 +4724,154 @@ Item2.Item1.Item5.Item2 as Size)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="SaveFilename NewParams" Category="ParamLogger" />
                   </Expression>
-                  <Expression xsi:type="GroupWorkflow">
-                    <Name>SphereParamsLoggerClose</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Frames</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>StartTrigger</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:WithLatestFrom" />
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item1</Selector>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveGeneralPrefix</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveDate</Name>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="SaveFilename NewParams" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="StringProperty">
-                            <Value>NewParams</Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Metadata</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>WhichExp</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveTimestamp</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Zip" />
-                        </Expression>
-                        <Expression xsi:type="Format">
-                          <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
-                          <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="FileName" />
-                          </PropertyMappings>
-                        </Expression>
-                        <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Int32,sys:Single,sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single))">
-                          <Name>LogSphereParams</Name>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Item3.Item2</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
-                            <Name>NewSphereTrigger</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="rx:CombineLatest" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                            <Name>Timestamp</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="GroupWorkflow">
+                      <Name>SphereParamsLoggerClose</Name>
+                      <Workflow>
+                        <Nodes>
+                          <Expression xsi:type="SubscribeSubject">
+                            <Name>Frames</Name>
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
+                            <Name>StartTrigger</Name>
+                          </Expression>
+                          <Expression xsi:type="Combinator">
+                            <Combinator xsi:type="rx:WithLatestFrom" />
+                          </Expression>
+                          <Expression xsi:type="MemberSelector">
+                            <Selector>Item1</Selector>
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
                             <Name>SaveGeneralPrefix</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
                             <Name>SaveDate</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
+                          </Expression>
+                          <Expression xsi:type="ExternalizedMapping">
+                            <Property Name="Value" DisplayName="SaveFilename NewParams" />
+                          </Expression>
+                          <Expression xsi:type="Combinator">
                             <Combinator xsi:type="StringProperty">
-                              <Value>NewSphereTrigger</Value>
+                              <Value>NewParams</Value>
                             </Combinator>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
                             <Name>Metadata</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
                             <Name>WhichExp</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="SubscribeSubject">
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
                             <Name>SaveTimestamp</Name>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
+                          </Expression>
+                          <Expression xsi:type="Combinator">
                             <Combinator xsi:type="rx:Zip" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Format">
+                          </Expression>
+                          <Expression xsi:type="Format">
                             <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
                             <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="PropertyMapping">
+                          </Expression>
+                          <Expression xsi:type="PropertyMapping">
                             <PropertyMappings>
                               <Property Name="FileName" />
                             </PropertyMappings>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="io:CsvWriter">
-                            <io:FileName>D:\data\Test\S20211007\R203254_SpheresPermTube\Test_S20211007_R203254_SpheresPermTube_NewSphereTrigger.csv</io:FileName>
-                            <io:Append>false</io:Append>
-                            <io:Overwrite>false</io:Overwrite>
-                            <io:Suffix>None</io:Suffix>
-                            <io:IncludeHeader>true</io:IncludeHeader>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>MouseZ</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:CombineLatest" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:WithLatestFrom" />
-                        </Expression>
-                        <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                          <Name>Timestamp</Name>
-                        </Expression>
-                        <Expression xsi:type="scr:ExpressionTransform">
-                          <scr:Expression>new(
+                          </Expression>
+                          <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Int32,sys:Single,sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single))">
+                            <Name>LogSphereParams</Name>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="MemberSelector">
+                              <Selector>Item3.Item2</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="SubscribeSubject">
+                              <Name>NewSphereTrigger</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="Combinator">
+                              <Combinator xsi:type="rx:CombineLatest" />
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+                              <Name>Timestamp</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="SubscribeSubject">
+                              <Name>SaveGeneralPrefix</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="SubscribeSubject">
+                              <Name>SaveDate</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="Combinator">
+                              <Combinator xsi:type="StringProperty">
+                                <Value>NewSphereTrigger</Value>
+                              </Combinator>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="SubscribeSubject">
+                              <Name>Metadata</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="SubscribeSubject">
+                              <Name>WhichExp</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="SubscribeSubject">
+                              <Name>SaveTimestamp</Name>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="Combinator">
+                              <Combinator xsi:type="rx:Zip" />
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="Format">
+                              <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
+                              <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="PropertyMapping">
+                              <PropertyMappings>
+                                <Property Name="FileName" />
+                              </PropertyMappings>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="io:CsvWriter">
+                              <io:FileName>D:\data\Test\S20211007\R203254_SpheresPermTube\Test_S20211007_R203254_SpheresPermTube_NewSphereTrigger.csv</io:FileName>
+                              <io:Append>false</io:Append>
+                              <io:Overwrite>false</io:Overwrite>
+                              <io:Suffix>None</io:Suffix>
+                              <io:IncludeHeader>true</io:IncludeHeader>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="SubscribeSubject">
+                            <Name>MouseZ</Name>
+                          </Expression>
+                          <Expression xsi:type="Combinator">
+                            <Combinator xsi:type="rx:CombineLatest" />
+                          </Expression>
+                          <Expression xsi:type="Combinator">
+                            <Combinator xsi:type="rx:WithLatestFrom" />
+                          </Expression>
+                          <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+                            <Name>Timestamp</Name>
+                          </Expression>
+                          <Expression xsi:type="scr:ExpressionTransform">
+                            <scr:Expression>new(
 Timestamp as HarpTime,
 Value.Item2.Item1.Index as Frame,
 Value.Item1.Item1 as SphereID,
@@ -4871,111 +4886,115 @@ Value.Item1.Item4.Item4 as Z,
 Value.Item2.Item2 as MouseZ,
 Value.Item1.Item5.Item1 as OriginalSize,
 Value.Item1.Item5.Item2 as Size)</scr:Expression>
-                        </Expression>
-                        <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\Test\S20221108\R111051_SpheresPermTubeReward\Test_S20221108_R111051_SpheresPermTubeReward_NewParams.csv</io:FileName>
-                          <io:Append>false</io:Append>
-                          <io:Overwrite>false</io:Overwrite>
-                          <io:Suffix>None</io:Suffix>
-                          <io:IncludeHeader>true</io:IncludeHeader>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>SphereID</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Azimuth</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Elevation</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Depth</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="MemberSelector">
-                            <Selector>Frame</Selector>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>new(
+                          </Expression>
+                          <Expression xsi:type="io:CsvWriter">
+                            <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_NewParams.csv</io:FileName>
+                            <io:Append>false</io:Append>
+                            <io:Overwrite>false</io:Overwrite>
+                            <io:Suffix>None</io:Suffix>
+                            <io:IncludeHeader>true</io:IncludeHeader>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="MemberSelector">
+                              <Selector>SphereID</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="MemberSelector">
+                              <Selector>Azimuth</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="MemberSelector">
+                              <Selector>Elevation</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="MemberSelector">
+                              <Selector>Depth</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="MemberSelector">
+                              <Selector>Frame</Selector>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="Combinator">
+                              <Combinator xsi:type="rx:Zip" />
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="scr:ExpressionTransform">
+                              <scr:Expression>new(
 Item5 as Frame,
 Item1 as SphereID,
 Item2 as Azimuth,
 Item3 as Elevation,
 Item4 as Depth
 )</scr:Expression>
-                          </Builder>
-                        </Expression>
-                        <Expression xsi:type="Disable">
-                          <Builder xsi:type="ReplaySubject">
-                            <Name>SphereParamsReplay</Name>
-                            <BufferSize xsi:nil="true" />
-                          </Builder>
-                        </Expression>
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="2" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source2" />
-                        <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="30" Label="Source1" />
-                        <Edge From="4" To="11" Label="Source1" />
-                        <Edge From="5" To="11" Label="Source2" />
-                        <Edge From="6" To="7" Label="Source1" />
-                        <Edge From="7" To="11" Label="Source5" />
-                        <Edge From="8" To="11" Label="Source6" />
-                        <Edge From="9" To="11" Label="Source4" />
-                        <Edge From="10" To="11" Label="Source3" />
-                        <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="13" To="34" Label="Source2" />
-                        <Edge From="14" To="31" Label="Source1" />
-                        <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="17" Label="Source2" />
-                        <Edge From="16" To="17" Label="Source1" />
-                        <Edge From="17" To="18" Label="Source1" />
-                        <Edge From="18" To="28" Label="Source1" />
-                        <Edge From="19" To="25" Label="Source1" />
-                        <Edge From="20" To="25" Label="Source2" />
-                        <Edge From="21" To="25" Label="Source5" />
-                        <Edge From="22" To="25" Label="Source6" />
-                        <Edge From="23" To="25" Label="Source4" />
-                        <Edge From="24" To="25" Label="Source3" />
-                        <Edge From="25" To="26" Label="Source1" />
-                        <Edge From="26" To="27" Label="Source1" />
-                        <Edge From="27" To="28" Label="Source2" />
-                        <Edge From="29" To="30" Label="Source2" />
-                        <Edge From="30" To="31" Label="Source2" />
-                        <Edge From="31" To="32" Label="Source1" />
-                        <Edge From="32" To="33" Label="Source1" />
-                        <Edge From="33" To="34" Label="Source1" />
-                        <Edge From="34" To="35" Label="Source1" />
-                        <Edge From="34" To="36" Label="Source1" />
-                        <Edge From="34" To="37" Label="Source1" />
-                        <Edge From="34" To="38" Label="Source1" />
-                        <Edge From="34" To="39" Label="Source1" />
-                        <Edge From="35" To="40" Label="Source1" />
-                        <Edge From="36" To="40" Label="Source2" />
-                        <Edge From="37" To="40" Label="Source3" />
-                        <Edge From="38" To="40" Label="Source4" />
-                        <Edge From="39" To="40" Label="Source5" />
-                        <Edge From="40" To="41" Label="Source1" />
-                        <Edge From="41" To="42" Label="Source1" />
-                      </Edges>
-                    </Workflow>
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="Disable">
+                            <Builder xsi:type="ReplaySubject">
+                              <Name>SphereParamsReplay</Name>
+                              <BufferSize xsi:nil="true" />
+                            </Builder>
+                          </Expression>
+                          <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
+                            <Name>SphereOriginalID</Name>
+                          </Expression>
+                        </Nodes>
+                        <Edges>
+                          <Edge From="0" To="2" Label="Source1" />
+                          <Edge From="1" To="2" Label="Source2" />
+                          <Edge From="2" To="3" Label="Source1" />
+                          <Edge From="3" To="30" Label="Source1" />
+                          <Edge From="4" To="11" Label="Source1" />
+                          <Edge From="5" To="11" Label="Source2" />
+                          <Edge From="6" To="7" Label="Source1" />
+                          <Edge From="7" To="11" Label="Source5" />
+                          <Edge From="8" To="11" Label="Source6" />
+                          <Edge From="9" To="11" Label="Source4" />
+                          <Edge From="10" To="11" Label="Source3" />
+                          <Edge From="11" To="12" Label="Source1" />
+                          <Edge From="12" To="13" Label="Source1" />
+                          <Edge From="13" To="34" Label="Source2" />
+                          <Edge From="14" To="31" Label="Source1" />
+                          <Edge From="14" To="15" Label="Source1" />
+                          <Edge From="15" To="17" Label="Source2" />
+                          <Edge From="16" To="17" Label="Source1" />
+                          <Edge From="17" To="18" Label="Source1" />
+                          <Edge From="18" To="28" Label="Source1" />
+                          <Edge From="19" To="25" Label="Source1" />
+                          <Edge From="20" To="25" Label="Source2" />
+                          <Edge From="21" To="25" Label="Source5" />
+                          <Edge From="22" To="25" Label="Source6" />
+                          <Edge From="23" To="25" Label="Source4" />
+                          <Edge From="24" To="25" Label="Source3" />
+                          <Edge From="25" To="26" Label="Source1" />
+                          <Edge From="26" To="27" Label="Source1" />
+                          <Edge From="27" To="28" Label="Source2" />
+                          <Edge From="29" To="30" Label="Source2" />
+                          <Edge From="30" To="31" Label="Source2" />
+                          <Edge From="31" To="32" Label="Source1" />
+                          <Edge From="32" To="33" Label="Source1" />
+                          <Edge From="33" To="34" Label="Source1" />
+                          <Edge From="34" To="35" Label="Source1" />
+                          <Edge From="34" To="36" Label="Source1" />
+                          <Edge From="34" To="37" Label="Source1" />
+                          <Edge From="34" To="38" Label="Source1" />
+                          <Edge From="34" To="39" Label="Source1" />
+                          <Edge From="35" To="40" Label="Source1" />
+                          <Edge From="36" To="40" Label="Source2" />
+                          <Edge From="37" To="40" Label="Source3" />
+                          <Edge From="38" To="40" Label="Source4" />
+                          <Edge From="39" To="40" Label="Source5" />
+                          <Edge From="40" To="41" Label="Source1" />
+                          <Edge From="41" To="42" Label="Source1" />
+                        </Edges>
+                      </Workflow>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(scg:IList(sys:Boolean),sys:Boolean)">
                     <Name>EndTriggerOut</Name>
@@ -5054,7 +5073,7 @@ Value as Reward)</scr:Expression>
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\Test\S20221108\R111051_SpheresPermTubeReward\Test_S20221108_R111051_SpheresPermTubeReward_RewardLog.csv</io:FileName>
+                          <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_RewardLog.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
