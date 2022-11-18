@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.6.2"
+<WorkflowBuilder Version="2.6.3"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:osc="clr-namespace:Bonsai.Osc;assembly=Bonsai.Osc"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
@@ -435,7 +435,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\Test\S20221108\R111051_SpheresPermTubeReward\Test_S20221108_R111051_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\Test_S20221118_R142436_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -998,7 +998,7 @@ Item2.SequenceIndex as SequenceIndex)</scr:Expression>
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>5352.53467</gl:Z>
+                <gl:Z>0</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
@@ -1028,7 +1028,7 @@ Item2.SequenceIndex as SequenceIndex)</scr:Expression>
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>5352.53467</Z>
+                      <Z>0</Z>
                     </Eye>
                     <NearClip>0.001</NearClip>
                     <FarClip>1000000</FarClip>
@@ -1780,15 +1780,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
               <TranslationX>-3.47136021</TranslationX>
               <TranslationY>-3.213938</TranslationY>
-              <TranslationZ>5350.916</TranslationZ>
+              <TranslationZ>-1.61872184</TranslationZ>
               <ScaleX>0.5</ScaleX>
               <ScaleY>0.5</ScaleY>
               <ScaleZ>0.5</ScaleZ>
               <MeshName>Plane</MeshName>
               <Ambient>
-                <X>0.75</X>
-                <Y>0.75</Y>
-                <Z>0.75</Z>
+                <X>0.25</X>
+                <Y>0.25</Y>
+                <Z>0.25</Z>
               </Ambient>
               <Diffuse>
                 <X>0</X>
@@ -1912,7 +1912,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20221108\R111051_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -2029,7 +2029,7 @@ it.Value.Item4 as EyeZ
 )</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20221108\R111051_SpheresPermTubeReward\Test_S20221108_R111051_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\Test_S20221118_R142436_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -2062,6 +2062,149 @@ it.Value.Item4 as EyeZ
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>CopyFiles</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Timer">
+                <rx:DueTime>PT1S</rx:DueTime>
+                <rx:Period>PT0S</rx:Period>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RootName</Name>
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\SphereTube_simplified.bonsai</Format>
+              <Selector>it</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="DestinationPath" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:CopyFile">
+                <p1:SourcePath>SphereTube_simplified.bonsai</p1:SourcePath>
+                <p1:DestinationPath>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\\SphereTube_simplified.bonsai</p1:DestinationPath>
+                <p1:Overwrite>false</p1:Overwrite>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>SphereTubeCopy</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Timer">
+                <rx:DueTime>PT1S</rx:DueTime>
+                <rx:Period>PT0S</rx:Period>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RootName</Name>
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\random_sequence_5values_alternate.csv</Format>
+              <Selector>it</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="DestinationPath" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:CopyFile">
+                <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
+                <p1:DestinationPath>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                <p1:Overwrite>false</p1:Overwrite>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>SequenceCopy</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Timer">
+                <rx:DueTime>PT1S</rx:DueTime>
+                <rx:Period>PT0S</rx:Period>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RootName</Name>
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\TubeMapping_NewZ.cs</Format>
+              <Selector>it</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="DestinationPath" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:CopyFile">
+                <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
+                <p1:DestinationPath>D:\data\Test\S20221118\R142436_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                <p1:Overwrite>false</p1:Overwrite>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TubeMappingCopy</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="4" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="11" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source2" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="13" To="17" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source2" />
+            <Edge From="17" To="18" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -2197,7 +2340,7 @@ Item6 as FloorHeight
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-2.5</TranslationY>
-                    <TranslationZ>5000</TranslationZ>
+                    <TranslationZ>200</TranslationZ>
                     <ScaleX>5</ScaleX>
                     <ScaleY>200</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -6896,20 +7039,20 @@ Item4 as Depth
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
-      <Edge From="19" To="28" Label="Source1" />
-      <Edge From="19" To="33" Label="Source2" />
-      <Edge From="20" To="30" Label="Source2" />
-      <Edge From="21" To="25" Label="Source3" />
-      <Edge From="22" To="25" Label="Source2" />
-      <Edge From="23" To="25" Label="Source1" />
-      <Edge From="24" To="25" Label="Source4" />
-      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="20" To="29" Label="Source1" />
+      <Edge From="20" To="34" Label="Source2" />
+      <Edge From="21" To="31" Label="Source2" />
+      <Edge From="22" To="26" Label="Source3" />
+      <Edge From="23" To="26" Label="Source2" />
+      <Edge From="24" To="26" Label="Source1" />
+      <Edge From="25" To="26" Label="Source4" />
       <Edge From="26" To="27" Label="Source1" />
-      <Edge From="26" To="28" Label="Source2" />
-      <Edge From="28" To="29" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="27" To="29" Label="Source2" />
       <Edge From="29" To="30" Label="Source1" />
-      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
       <Edge From="32" To="33" Label="Source1" />
+      <Edge From="33" To="34" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
