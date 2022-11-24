@@ -435,7 +435,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\Test\S20221124\R122453_SpheresPermTubeReward\Test_S20221124_R122453_SpheresPermTubeReward_harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -998,7 +998,7 @@ Item2.SequenceIndex as SequenceIndex)</scr:Expression>
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>170.21051</gl:Z>
+                <gl:Z>1616.41687</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
@@ -1028,7 +1028,7 @@ Item2.SequenceIndex as SequenceIndex)</scr:Expression>
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>170.21051</Z>
+                      <Z>1616.41687</Z>
                     </Eye>
                     <NearClip>0.001</NearClip>
                     <FarClip>1000000</FarClip>
@@ -1780,15 +1780,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
               <TranslationX>-3.47136021</TranslationX>
               <TranslationY>-3.213938</TranslationY>
-              <TranslationZ>168.591782</TranslationZ>
+              <TranslationZ>1614.79822</TranslationZ>
               <ScaleX>0.5</ScaleX>
               <ScaleY>0.5</ScaleY>
               <ScaleZ>0.5</ScaleZ>
               <MeshName>Plane</MeshName>
               <Ambient>
-                <X>1</X>
-                <Y>1</Y>
-                <Z>1</Z>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
               </Ambient>
               <Diffuse>
                 <X>0</X>
@@ -1912,7 +1912,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20221124\R122453_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -1973,41 +1973,6 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
               <Name>EyeZ</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>SaveTimestamp</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SaveGeneralPrefix</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SaveDate</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Filename" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="StringProperty">
-                <Value>RotaryEncoder</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>Metadata</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>WhichExp</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Zip" />
-            </Expression>
-            <Expression xsi:type="Format">
-              <Format>{0}\S{1}\R{2}_{5}\{4}_S{1}_R{2}_{5}_{3}.csv</Format>
-              <Selector>Item1,Item2,Item3,Item4,Item5.Animal,Item6</Selector>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="FileName" />
-              </PropertyMappings>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
               <Name>MouseZ</Name>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2028,8 +1993,20 @@ it.Value.Item4 as MouseZ,
 it.Value.Item4 as EyeZ
 )</scr:Expression>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RootName</Name>
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\RotaryEncoder.csv</Format>
+              <Selector>it</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="FileName" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20221124\R122453_SpheresPermTubeReward\Test_S20221124_R122453_SpheresPermTubeReward_RotaryEncoder.csv</io:FileName>
               <io:Delimiter>,</io:Delimiter>
               <io:Append>true</io:Append>
               <io:Overwrite>false</io:Overwrite>
@@ -2038,30 +2015,23 @@ it.Value.Item4 as EyeZ
             </Expression>
           </Nodes>
           <Edges>
-            <Edge From="0" To="21" Label="Source3" />
+            <Edge From="0" To="11" Label="Source3" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="21" Label="Source1" />
+            <Edge From="4" To="11" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="21" Label="Source2" />
-            <Edge From="9" To="21" Label="Source4" />
-            <Edge From="10" To="17" Label="Source3" />
-            <Edge From="11" To="17" Label="Source1" />
-            <Edge From="12" To="17" Label="Source2" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="17" Label="Source4" />
-            <Edge From="15" To="17" Label="Source5" />
-            <Edge From="16" To="17" Label="Source6" />
-            <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="24" Label="Source2" />
-            <Edge From="20" To="21" Label="Source5" />
-            <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="23" Label="Source1" />
-            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="8" To="11" Label="Source2" />
+            <Edge From="9" To="11" Label="Source4" />
+            <Edge From="10" To="11" Label="Source5" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="17" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
@@ -2197,7 +2167,7 @@ Item6 as FloorHeight
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-2.5</TranslationY>
-                    <TranslationZ>200</TranslationZ>
+                    <TranslationZ>1400</TranslationZ>
                     <ScaleX>5</ScaleX>
                     <ScaleY>200</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -2641,7 +2611,6 @@ Item6 as FloorHeight
               <Property Name="RewardDelay" Category="Reward" />
               <Property Name="BackgroundColor" />
               <Property Name="TargetAmb" />
-              <Property Name="SaveFilename NewParams" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>SpheresClose</Name>
@@ -4533,9 +4502,9 @@ Item5.Item2 as Size
                           <Selector>Item1</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>-5.808587</TranslationX>
-                          <TranslationY>1.50343454</TranslationY>
-                          <TranslationZ>183.0204</TranslationZ>
+                          <TranslationX>-5.882204</TranslationX>
+                          <TranslationY>1.18307948</TranslationY>
+                          <TranslationZ>1617.952</TranslationZ>
                           <ScaleX>0.521999955</ScaleX>
                           <ScaleY>0.521999955</ScaleY>
                           <ScaleZ>0.521999955</ScaleZ>
@@ -4633,48 +4602,10 @@ Item5.Item2 as Size
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Merge" />
                   </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="SaveFilename NewParams" Category="ParamLogger" />
-                  </Expression>
                   <Expression xsi:type="GroupWorkflow">
                     <Name>SphereParamsLoggerClose</Name>
                     <Workflow>
                       <Nodes>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveGeneralPrefix</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveDate</Name>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="SaveFilename NewParams" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="StringProperty">
-                            <Value>NewParams</Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Metadata</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>WhichExp</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveTimestamp</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Zip" />
-                        </Expression>
-                        <Expression xsi:type="Format">
-                          <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
-                          <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="FileName" />
-                          </PropertyMappings>
-                        </Expression>
                         <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Tuple(sys:Int32,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single),sys:Int32)">
                           <Name>LogSphereParams</Name>
                         </Expression>
@@ -4700,8 +4631,20 @@ Value.Item5.Item1 as OriginalSize,
 Value.Item5.Item2 as Size
 )</scr:Expression>
                         </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>RootName</Name>
+                        </Expression>
+                        <Expression xsi:type="Format">
+                          <Format>{0}\NewParams.csv</Format>
+                          <Selector>it</Selector>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="FileName" />
+                          </PropertyMappings>
+                        </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_NewParams.csv</io:FileName>
+                          <io:FileName>D:\data\Test\S20221124\R122453_SpheresPermTubeReward\\NewParams.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -4756,31 +4699,24 @@ Item4 as Depth
                         </Expression>
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="7" Label="Source1" />
-                        <Edge From="1" To="7" Label="Source2" />
-                        <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="7" Label="Source5" />
-                        <Edge From="4" To="7" Label="Source6" />
-                        <Edge From="5" To="7" Label="Source4" />
-                        <Edge From="6" To="7" Label="Source3" />
-                        <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="13" Label="Source2" />
-                        <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="12" Label="Source1" />
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="6" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source2" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="6" To="8" Label="Source1" />
+                        <Edge From="6" To="9" Label="Source1" />
+                        <Edge From="6" To="10" Label="Source1" />
+                        <Edge From="6" To="11" Label="Source1" />
+                        <Edge From="7" To="12" Label="Source1" />
+                        <Edge From="8" To="12" Label="Source2" />
+                        <Edge From="9" To="12" Label="Source3" />
+                        <Edge From="10" To="12" Label="Source4" />
+                        <Edge From="11" To="12" Label="Source5" />
                         <Edge From="12" To="13" Label="Source1" />
                         <Edge From="13" To="14" Label="Source1" />
-                        <Edge From="13" To="15" Label="Source1" />
-                        <Edge From="13" To="16" Label="Source1" />
-                        <Edge From="13" To="17" Label="Source1" />
-                        <Edge From="13" To="18" Label="Source1" />
-                        <Edge From="14" To="19" Label="Source1" />
-                        <Edge From="15" To="19" Label="Source2" />
-                        <Edge From="16" To="19" Label="Source3" />
-                        <Edge From="17" To="19" Label="Source4" />
-                        <Edge From="18" To="19" Label="Source5" />
-                        <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -4826,34 +4762,11 @@ Timestamp as HarpTime,
 Value as Reward)</scr:Expression>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveGeneralPrefix</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveDate</Name>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="SaveFilename Reward" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="StringProperty">
-                            <Value>RewardLog</Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Metadata</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>WhichExp</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>SaveTimestamp</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Zip" />
+                          <Name>RootName</Name>
                         </Expression>
                         <Expression xsi:type="Format">
-                          <Format>{0}\S{1}\R{2}_{3}\{5}_S{1}_R{2}_{3}_{4}.csv</Format>
-                          <Selector>Item1,Item2,Item3,Item4,Item5,Item6.Animal</Selector>
+                          <Format>{0}\RewardLog.csv</Format>
+                          <Selector>it</Selector>
                         </Expression>
                         <Expression xsi:type="PropertyMapping">
                           <PropertyMappings>
@@ -4861,7 +4774,7 @@ Value as Reward)</scr:Expression>
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>D:\data\Test\S20221109\R111749_SpheresPermTubeReward\Test_S20221109_R111749_SpheresPermTubeReward_RewardLog.csv</io:FileName>
+                          <io:FileName>D:\data\Test\S20221124\R122453_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -4872,18 +4785,11 @@ Value as Reward)</scr:Expression>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="13" Label="Source1" />
-                        <Edge From="3" To="10" Label="Source1" />
-                        <Edge From="4" To="10" Label="Source2" />
-                        <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="10" Label="Source5" />
-                        <Edge From="7" To="10" Label="Source6" />
-                        <Edge From="8" To="10" Label="Source4" />
-                        <Edge From="9" To="10" Label="Source3" />
-                        <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source2" />
-                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="2" To="6" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source2" />
+                        <Edge From="6" To="7" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -4898,13 +4804,12 @@ Value as Reward)</scr:Expression>
                   <Edge From="7" To="8" Label="Source1" />
                   <Edge From="8" To="9" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
                   <Edge From="13" To="14" Label="Source1" />
                   <Edge From="14" To="15" Label="Source1" />
                   <Edge From="15" To="16" Label="Source1" />
                   <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source1" />
-                  <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="18" To="19" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
