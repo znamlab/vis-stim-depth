@@ -360,47 +360,17 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         <Workflow>
           <Nodes>
             <Expression xsi:type="SubscribeSubject">
-              <Name>SaveTimestamp</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SaveGeneralPrefix</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SaveDate</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>Metadata</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>WhichExp</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="HarpLog" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="StringProperty">
-                <Value>harpmessage</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Zip" />
+              <Name>RootName</Name>
             </Expression>
             <Expression xsi:type="Format">
-              <Format>{0}\S{1}\R{2}_{5}\{4}_S{1}_R{2}_{5}_{3}.bin</Format>
-              <Selector>Item1,Item2,Item3,Item4,Item5.Animal,Item6</Selector>
+              <Format>{0}\harpmessage.bin</Format>
+              <Selector>it</Selector>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
-            <Edge From="0" To="7" Label="Source3" />
-            <Edge From="1" To="7" Label="Source1" />
-            <Edge From="2" To="7" Label="Source2" />
-            <Edge From="3" To="7" Label="Source5" />
-            <Edge From="4" To="7" Label="Source6" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="7" Label="Source4" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
