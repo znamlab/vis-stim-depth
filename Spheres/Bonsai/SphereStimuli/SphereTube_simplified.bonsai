@@ -428,7 +428,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\Test\S20221205\R145239_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\Test\S20221205\R155057_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -997,7 +997,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>2402.076</gl:Z>
+                      <gl:Z>0</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1027,7 +1027,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>2402.076</Z>
+                            <Z>0</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1780,15 +1780,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-3.47136021</TranslationX>
                     <TranslationY>-3.213938</TranslationY>
-                    <TranslationZ>2400.457</TranslationZ>
+                    <TranslationZ>-1.61872184</TranslationZ>
                     <ScaleX>0.5</ScaleX>
                     <ScaleY>0.5</ScaleY>
                     <ScaleZ>0.5</ScaleZ>
                     <MeshName>Plane</MeshName>
                     <Ambient>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
+                      <X>0.25</X>
+                      <Y>0.25</Y>
+                      <Z>0.25</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1920,7 +1920,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\Test\S20221205\R155057_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2016,7 +2016,7 @@ it.Value.Item4 as EyeZ
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
+                    <io:FileName>D:\data\Test\S20221205\R155057_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2070,7 +2070,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_simplified.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\SphereTube_simplified.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\Test\S20221205\R155057_SpheresPermTubeReward\\SphereTube_simplified.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2110,7 +2110,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\Test\S20221205\R155057_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2149,7 +2149,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\Test\S20221205\R155057_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2320,7 +2320,7 @@ Item6 as FloorHeight
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-2.5</TranslationY>
-                          <TranslationZ>2600</TranslationZ>
+                          <TranslationZ>200</TranslationZ>
                           <ScaleX>5</ScaleX>
                           <ScaleY>200</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2659,6 +2659,11 @@ Item6 as FloorHeight
                         <Expression xsi:type="scr:ExpressionTransform">
                           <scr:Expression>Math.Floor(Item1/Math.Tan(Item2)/(Item3*Item1/item4))</scr:Expression>
                         </Expression>
+                        <Expression xsi:type="Add">
+                          <Operand xsi:type="DoubleProperty">
+                            <Value>1</Value>
+                          </Operand>
+                        </Expression>
                         <Expression xsi:type="BehaviorSubject">
                           <Name>SphereNumPerMoment</Name>
                         </Expression>
@@ -2743,15 +2748,16 @@ Item6 as FloorHeight
                         <Edge From="47" To="48" Label="Source1" />
                         <Edge From="48" To="49" Label="Source1" />
                         <Edge From="49" To="50" Label="Source1" />
-                        <Edge From="50" To="53" Label="Source2" />
-                        <Edge From="51" To="52" Label="Source1" />
+                        <Edge From="50" To="51" Label="Source1" />
+                        <Edge From="51" To="54" Label="Source2" />
                         <Edge From="52" To="53" Label="Source1" />
                         <Edge From="53" To="54" Label="Source1" />
                         <Edge From="54" To="55" Label="Source1" />
-                        <Edge From="56" To="57" Label="Source1" />
+                        <Edge From="55" To="56" Label="Source1" />
                         <Edge From="57" To="58" Label="Source1" />
-                        <Edge From="59" To="60" Label="Source1" />
+                        <Edge From="58" To="59" Label="Source1" />
                         <Edge From="60" To="61" Label="Source1" />
+                        <Edge From="61" To="62" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -2847,8 +2853,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>1.7917595236399573</RangeMin>
-                                      <RangeMax>6.3969298494772167</RangeMax>
+                                      <RangeMin>2.9957323645279721</RangeMin>
+                                      <RangeMax>2.9957323645279721</RangeMax>
                                       <Count>5</Count>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
@@ -3084,8 +3090,8 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>162.00000000000006</RangeMin>
-                                            <RangeMax>162.00000000000006</RangeMax>
+                                            <RangeMin>57.000000000000014</RangeMin>
+                                            <RangeMax>57.000000000000014</RangeMax>
                                             <Count>2</Count>
                                           </Expression>
                                           <Expression xsi:type="SubscribeSubject">
@@ -3199,9 +3205,9 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>162.00000000000006</RangeMin>
-                                            <RangeMax>762</RangeMax>
-                                            <Count>68</Count>
+                                            <RangeMin>57.000000000000014</RangeMin>
+                                            <RangeMax>657</RangeMax>
+                                            <Count>201</Count>
                                           </Expression>
                                           <Expression xsi:type="Combinator">
                                             <Combinator xsi:type="rx:Concat" />
@@ -3474,9 +3480,9 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>-45.000000000000014</RangeMin>
-                                            <RangeMax>153.00000000000006</RangeMax>
-                                            <Count>23</Count>
+                                            <RangeMin>-15.000000000000004</RangeMin>
+                                            <RangeMax>54.000000000000014</RangeMax>
+                                            <Count>24</Count>
                                           </Expression>
                                           <Expression xsi:type="MulticastSubject">
                                             <Name>TrialStartTrigger</Name>
@@ -4307,7 +4313,7 @@ Item5.Item2 as Size)</scr:Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Range">
                             <rx:Start>0</rx:Start>
-                            <rx:Count>23</rx:Count>
+                            <rx:Count>24</rx:Count>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="CreateObservable">
@@ -4355,7 +4361,7 @@ Item5.Item2 as Size)</scr:Expression>
                                     </Expression>
                                     <Expression xsi:type="Mod">
                                       <Operand xsi:type="IntProperty">
-                                        <Value>23</Value>
+                                        <Value>24</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -4655,9 +4661,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-9920.641</TranslationX>
-                                <TranslationY>1249.35291</TranslationY>
-                                <TranslationZ>2064.42773</TranslationZ>
+                                <TranslationX>-8173.3584</TranslationX>
+                                <TranslationY>-5759.88</TranslationY>
+                                <TranslationZ>667.0554</TranslationZ>
                                 <ScaleX>-869.912964</ScaleX>
                                 <ScaleY>-869.912964</ScaleY>
                                 <ScaleZ>-869.912964</ScaleZ>
@@ -4888,7 +4894,7 @@ Item1.OriginalSize as OriginalSize,
 Item1.Size as Size)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\NewParams.csv</io:FileName>
+                                <io:FileName>D:\data\Test\S20221205\R154933_SpheresPermTubeReward\\NewParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5031,7 +5037,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\AllParams.csv</io:FileName>
+                                <io:FileName>D:\data\Test\S20221205\R154933_SpheresPermTubeReward\\AllParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5176,7 +5182,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex,
 Item1.Value as Reward)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\Test\S20221205\R145135_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
+                                <io:FileName>D:\data\Test\S20221205\R154933_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
