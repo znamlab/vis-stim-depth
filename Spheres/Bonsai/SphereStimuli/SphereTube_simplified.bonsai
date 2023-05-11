@@ -69,10 +69,10 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:MetadataSource">
           <p1:ExpInfo>
-            <p1:Animal>PZAH8.2h</p1:Animal>
+            <p1:Animal>PZAH8.2f</p1:Animal>
             <p1:RootDirectory>D:\data</p1:RootDirectory>
           </p1:ExpInfo>
-          <p1:Animal>PZAH8.2h</p1:Animal>
+          <p1:Animal>PZAH8.2f</p1:Animal>
           <p1:RootDirectory>D:\data</p1:RootDirectory>
         </Combinator>
       </Expression>
@@ -428,7 +428,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\PZAH8.2f\S20230106\R190418_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -997,7 +997,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>0</gl:Z>
+                      <gl:Z>5671.00439</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1027,7 +1027,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>0</Z>
+                            <Z>5671.00439</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1113,7 +1113,7 @@ Item3 as FrameIndex)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="PropertySource" TypeArguments="gl:LoadImage,sys:String">
                                 <MemberName>FileName</MemberName>
-                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr1_gammalut_gray_illum_corrected_table.bmp</Value>
+                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr1_gammalut_gray_average_table.bmp</Value>
                               </Expression>
                               <Expression xsi:type="InputMapping">
                                 <PropertyMappings>
@@ -1129,7 +1129,7 @@ Item3 as FrameIndex)</scr:Expression>
                                   <gl:WrapT>ClampToEdge</gl:WrapT>
                                   <gl:MinFilter>Linear</gl:MinFilter>
                                   <gl:MagFilter>Linear</gl:MagFilter>
-                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr1_gammalut_gray_illum_corrected_table.bmp</gl:FileName>
+                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr1_gammalut_gray_average_table.bmp</gl:FileName>
                                   <gl:ColorType>Unchanged</gl:ColorType>
                                   <gl:FlipMode>Vertical</gl:FlipMode>
                                 </Combinator>
@@ -1240,7 +1240,7 @@ Item3 as FrameIndex)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="PropertySource" TypeArguments="gl:LoadImage,sys:String">
                                 <MemberName>FileName</MemberName>
-                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr2_gammalut_gray_illum_corrected_table.bmp</Value>
+                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr2_gammalut_gray_average_table.bmp</Value>
                               </Expression>
                               <Expression xsi:type="InputMapping">
                                 <PropertyMappings>
@@ -1256,7 +1256,7 @@ Item3 as FrameIndex)</scr:Expression>
                                   <gl:WrapT>ClampToEdge</gl:WrapT>
                                   <gl:MinFilter>Linear</gl:MinFilter>
                                   <gl:MagFilter>Linear</gl:MagFilter>
-                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr2_gammalut_gray_illum_corrected_table.bmp</gl:FileName>
+                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr2_gammalut_gray_average_table.bmp</gl:FileName>
                                   <gl:ColorType>Unchanged</gl:ColorType>
                                   <gl:FlipMode>Vertical</gl:FlipMode>
                                 </Combinator>
@@ -1367,7 +1367,7 @@ Item3 as FrameIndex)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="PropertySource" TypeArguments="gl:LoadImage,sys:String">
                                 <MemberName>FileName</MemberName>
-                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr3_gammalut_gray_illum_corrected_table.bmp</Value>
+                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr3_gammalut_gray_average_table.bmp</Value>
                               </Expression>
                               <Expression xsi:type="InputMapping">
                                 <PropertyMappings>
@@ -1383,7 +1383,7 @@ Item3 as FrameIndex)</scr:Expression>
                                   <gl:WrapT>ClampToEdge</gl:WrapT>
                                   <gl:MinFilter>Linear</gl:MinFilter>
                                   <gl:MagFilter>Linear</gl:MagFilter>
-                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr3_gammalut_gray_illum_corrected_table.bmp</gl:FileName>
+                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr3_gammalut_gray_average_table.bmp</gl:FileName>
                                   <gl:ColorType>Unchanged</gl:ColorType>
                                   <gl:FlipMode>Vertical</gl:FlipMode>
                                 </Combinator>
@@ -1494,7 +1494,7 @@ Item3 as FrameIndex)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="PropertySource" TypeArguments="gl:LoadImage,sys:String">
                                 <MemberName>FileName</MemberName>
-                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr4_gammalut_gray_illum_corrected_table.bmp</Value>
+                                <Value>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr4_gammalut_gray_average_table.bmp</Value>
                               </Expression>
                               <Expression xsi:type="InputMapping">
                                 <PropertyMappings>
@@ -1510,7 +1510,7 @@ Item3 as FrameIndex)</scr:Expression>
                                   <gl:WrapT>ClampToEdge</gl:WrapT>
                                   <gl:MinFilter>Linear</gl:MinFilter>
                                   <gl:MagFilter>Linear</gl:MagFilter>
-                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\221202\Scr4_gammalut_gray_illum_corrected_table.bmp</gl:FileName>
+                                  <gl:FileName>GammaCalibration\calibration_data\RonanCottage_2p\230106\Scr4_gammalut_gray_average_table.bmp</gl:FileName>
                                   <gl:ColorType>Unchanged</gl:ColorType>
                                   <gl:FlipMode>Vertical</gl:FlipMode>
                                 </Combinator>
@@ -1780,15 +1780,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-3.47136021</TranslationX>
                     <TranslationY>-3.213938</TranslationY>
-                    <TranslationZ>-1.61872184</TranslationZ>
+                    <TranslationZ>5669.38574</TranslationZ>
                     <ScaleX>0.5</ScaleX>
                     <ScaleY>0.5</ScaleY>
                     <ScaleZ>0.5</ScaleZ>
                     <MeshName>Plane</MeshName>
                     <Ambient>
-                      <X>0.25</X>
-                      <Y>0.25</Y>
-                      <Z>0.25</Z>
+                      <X>0.5</X>
+                      <Y>0.5</Y>
+                      <Z>0.5</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1938,7 +1938,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH8.2f\S20230106\R190418_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2040,7 +2040,7 @@ it.Value.Item4 as EyeZ
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH8.2f\S20230106\R190418_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2094,7 +2094,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_simplified.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\SphereTube_simplified.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH8.2f\S20230106\R190418_SpheresPermTubeReward\\SphereTube_simplified.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2134,7 +2134,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH8.2f\S20230106\R190418_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2173,7 +2173,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH8.2f\S20230106\R190418_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2344,7 +2344,7 @@ Item6 as FloorHeight
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-2.5</TranslationY>
-                          <TranslationZ>200</TranslationZ>
+                          <TranslationZ>5600</TranslationZ>
                           <ScaleX>5</ScaleX>
                           <ScaleY>200</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2414,7 +2414,7 @@ Item6 as FloorHeight
               </Workflow>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
-              <RewardDuration>3000</RewardDuration>
+              <RewardDuration>800</RewardDuration>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="wie:KeyDown">
@@ -3114,8 +3114,8 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>540.74947988879285</RangeMin>
-                                            <RangeMax>540.74947988879285</RangeMax>
+                                            <RangeMin>1710.0000000000018</RangeMin>
+                                            <RangeMax>1710.0000000000018</RangeMax>
                                             <Count>2</Count>
                                           </Expression>
                                           <Expression xsi:type="SubscribeSubject">
@@ -3229,9 +3229,9 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>540.74947988879285</RangeMin>
-                                            <RangeMax>1140.7494798887928</RangeMax>
-                                            <Count>22</Count>
+                                            <RangeMin>1710.0000000000018</RangeMin>
+                                            <RangeMax>2310.0000000000018</RangeMax>
+                                            <Count>8</Count>
                                           </Expression>
                                           <Expression xsi:type="Combinator">
                                             <Combinator xsi:type="rx:Concat" />
@@ -3504,8 +3504,8 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>-142.30249470757707</RangeMin>
-                                            <RangeMax>512.28898094727742</RangeMax>
+                                            <RangeMin>-450.00000000000051</RangeMin>
+                                            <RangeMax>1620.0000000000018</RangeMax>
                                             <Count>24</Count>
                                           </Expression>
                                           <Expression xsi:type="MulticastSubject">
@@ -4685,12 +4685,12 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>188.932419</TranslationX>
-                                <TranslationY>-17.4510746</TranslationY>
-                                <TranslationZ>512.289</TranslationZ>
-                                <ScaleX>16.50709</ScaleX>
-                                <ScaleY>16.50709</ScaleY>
-                                <ScaleZ>16.50709</ScaleZ>
+                                <TranslationX>581.792969</TranslationX>
+                                <TranslationY>146.686508</TranslationY>
+                                <TranslationZ>172068.313</TranslationZ>
+                                <ScaleX>52.1999969</ScaleX>
+                                <ScaleY>52.1999969</ScaleY>
+                                <ScaleZ>52.1999969</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
                                   <X>0</X>
@@ -4918,7 +4918,7 @@ Item1.OriginalSize as OriginalSize,
 Item1.Size as Size)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\NewParams.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH8.2i\S20221209\R143545_SpheresPermTubeReward\\NewParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5061,7 +5061,7 @@ Item1.Size as Size,
 Item1.Ambience as Ambience)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\AllParams.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH8.2i\S20221209\R143545_SpheresPermTubeReward\\AllParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5208,7 +5208,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex,
 Item1.Value as Reward)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH8.2h\S20221209\R120653_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH8.2i\S20221209\R143545_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5299,6 +5299,9 @@ Item1.Value as Reward)</scr:Expression>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:TakeUntil" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>photodiode</Name>
             </Expression>
           </Nodes>
           <Edges>

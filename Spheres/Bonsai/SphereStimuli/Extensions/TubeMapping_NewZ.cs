@@ -41,7 +41,7 @@ public class TubeMapping_NewZ
 
                 // Add MouseZ
                 float Z;
-                float VisibleLength = ZoSpacing * (SphereNumPerMoment);
+                float VisibleLength = ZoSpacing * (SphereNumPerMoment-1);
                 if (Z0 > VisibleLength)
                 {
                     Z0 = VisibleLength; 
