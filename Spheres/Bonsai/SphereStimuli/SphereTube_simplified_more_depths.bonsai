@@ -69,10 +69,10 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:MetadataSource">
           <p1:ExpInfo>
-            <p1:Animal>PZAH10.2d</p1:Animal>
+            <p1:Animal>PZAH10.2f</p1:Animal>
             <p1:RootDirectory>D:\data</p1:RootDirectory>
           </p1:ExpInfo>
-          <p1:Animal>PZAH10.2d</p1:Animal>
+          <p1:Animal>PZAH10.2f</p1:Animal>
           <p1:RootDirectory>D:\data</p1:RootDirectory>
         </Combinator>
       </Expression>
@@ -482,7 +482,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1051,7 +1051,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>131171.328</gl:Z>
+                      <gl:Z>0</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1081,7 +1081,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>131171.328</Z>
+                            <Z>0</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1834,15 +1834,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-3.47136021</TranslationX>
                     <TranslationY>-3.213938</TranslationY>
-                    <TranslationZ>131169.7</TranslationZ>
+                    <TranslationZ>-1.61872184</TranslationZ>
                     <ScaleX>0.5</ScaleX>
                     <ScaleY>0.5</ScaleY>
                     <ScaleZ>0.5</ScaleZ>
                     <MeshName>Plane</MeshName>
                     <Ambient>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
+                      <X>0.75</X>
+                      <Y>0.75</Y>
+                      <Z>0.75</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1992,7 +1992,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2094,7 +2094,7 @@ it.Value.Item4 as EyeZ
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2148,7 +2148,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_simplified.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\SphereTube_simplified_more_depths.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\SphereTube_simplified_more_depths.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2188,7 +2188,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2227,7 +2227,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2398,7 +2398,7 @@ Item6 as FloorHeight
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-2.5</TranslationY>
-                          <TranslationZ>131000</TranslationZ>
+                          <TranslationZ>200</TranslationZ>
                           <ScaleX>5</ScaleX>
                           <ScaleY>200</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -3177,8 +3177,8 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>56.999999999999986</RangeMin>
-                                            <RangeMax>56.999999999999986</RangeMax>
+                                            <RangeMin>455.99999999999977</RangeMin>
+                                            <RangeMax>455.99999999999977</RangeMax>
                                             <Count>2</Count>
                                           </Expression>
                                           <Expression xsi:type="SubscribeSubject">
@@ -3292,9 +3292,9 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>56.999999999999986</RangeMin>
-                                            <RangeMax>657</RangeMax>
-                                            <Count>201</Count>
+                                            <RangeMin>455.99999999999977</RangeMin>
+                                            <RangeMax>1055.9999999999998</RangeMax>
+                                            <Count>26</Count>
                                           </Expression>
                                           <Expression xsi:type="Combinator">
                                             <Combinator xsi:type="rx:Concat" />
@@ -3567,8 +3567,8 @@ Item3 as Count
                                             </PropertyMappings>
                                           </Expression>
                                           <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>-14.999999999999996</RangeMin>
-                                            <RangeMax>53.999999999999986</RangeMax>
+                                            <RangeMin>-119.99999999999994</RangeMin>
+                                            <RangeMax>431.99999999999983</RangeMax>
                                             <Count>24</Count>
                                           </Expression>
                                           <Expression xsi:type="MulticastSubject">
@@ -4748,12 +4748,12 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>19.9814358</TranslationX>
-                                <TranslationY>-0.861504853</TranslationY>
-                                <TranslationZ>130624.141</TranslationZ>
-                                <ScaleX>1.74</ScaleX>
-                                <ScaleY>1.74</ScaleY>
-                                <ScaleZ>1.74</ScaleZ>
+                                <TranslationX>-159.810959</TranslationX>
+                                <TranslationY>-7.77549934</TranslationY>
+                                <TranslationZ>432</TranslationZ>
+                                <ScaleX>13.92</ScaleX>
+                                <ScaleY>13.92</ScaleY>
+                                <ScaleZ>13.92</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
                                   <X>0</X>
@@ -4981,7 +4981,7 @@ Item1.OriginalSize as OriginalSize,
 Item1.Size as Size)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\NewParams.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\NewParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5124,7 +5124,7 @@ Item1.Size as Size,
 Item1.Ambience as Ambience)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\AllParams.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\AllParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5271,7 +5271,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex,
 Item1.Value as Reward)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH10.2d\S20230818\R142615_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
