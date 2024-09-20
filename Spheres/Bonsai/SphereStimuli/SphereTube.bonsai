@@ -482,7 +482,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1051,7 +1051,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>0</gl:Z>
+                      <gl:Z>240.589554</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1081,7 +1081,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>0</Z>
+                            <Z>240.589554</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1834,15 +1834,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-3.47136021</TranslationX>
                     <TranslationY>-3.213938</TranslationY>
-                    <TranslationZ>-1.61872184</TranslationZ>
+                    <TranslationZ>238.970825</TranslationZ>
                     <ScaleX>0.5</ScaleX>
                     <ScaleY>0.5</ScaleY>
                     <ScaleZ>0.5</ScaleZ>
                     <MeshName>Plane</MeshName>
                     <Ambient>
-                      <X>1</X>
-                      <Y>1</Y>
-                      <Z>1</Z>
+                      <X>0.25</X>
+                      <Y>0.25</Y>
+                      <Z>0.25</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1992,7 +1992,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2094,7 +2094,7 @@ it.Value.Item4 as EyeZ
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2147,8 +2147,8 @@ it.Value.Item4 as EyeZ
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
-                      <p1:SourcePath>SphereTube_simplified.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\SphereTube_simplified_more_depths.bonsai</p1:DestinationPath>
+                      <p1:SourcePath>SphereTube.bonsai</p1:SourcePath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\SphereTube_simplified_more_depths.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2188,7 +2188,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2227,7 +2227,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -4740,8 +4740,8 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-159.810959</TranslationX>
-                                <TranslationY>-7.77549934</TranslationY>
+                                <TranslationX>-148.969864</TranslationX>
+                                <TranslationY>-58.377903</TranslationY>
                                 <TranslationZ>432</TranslationZ>
                                 <ScaleX>13.92</ScaleX>
                                 <ScaleY>13.92</ScaleY>
@@ -4973,7 +4973,7 @@ Item1.OriginalSize as OriginalSize,
 Item1.Size as Size)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\NewParams.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\NewParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5116,7 +5116,7 @@ Item1.Size as Size,
 Item1.Ambience as Ambience)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\AllParams.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\AllParams.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5263,7 +5263,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex,
 Item1.Value as Reward)</scr:Expression>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
+                                <io:FileName>D:\data\PZAH10.2f\S20240920\R112317_SpheresPermTubeReward\\RewardLog.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
