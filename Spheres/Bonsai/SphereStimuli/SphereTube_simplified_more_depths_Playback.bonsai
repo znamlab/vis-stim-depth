@@ -435,7 +435,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Selector>Year,Month,Day</Selector>
             </Expression>
             <Expression xsi:type="Format">
-              <Format>{0}{1}{2}</Format>
+              <Format>{1}{2}</Format>
               <Selector>Item1,Item2,Item3</Selector>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2103,100 +2103,6 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
               </Workflow>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>RotaryEncoderLogger</Name>
-              <Description>Log ticks data from rotary encoder</Description>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Mouse Distance</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:RenderFrame" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>TimeStep.ElapsedRealTime</Selector>
-                  </Expression>
-                  <Expression xsi:type="rx:Accumulate" />
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:ElementIndex" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="gl:UpdateFrame" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>TimeStep</Selector>
-                  </Expression>
-                  <Expression xsi:type="rx:Accumulate" />
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:ElementIndex" />
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>EyeZ</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>MouseZ</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:CombineLatest" />
-                  </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                    <Name>Timestamp</Name>
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-it.Value.Item1.Index as Frame,
-it.Timestamp as HarpTime,
-it.Value.Item2.Value.ElapsedTime as IdealFrameTime,
-it.Value.Item1.Value as BonsaiRenderElapsedTime,
-it.Value.Item2.Value.ElapsedRealTime as BonsaiUpdateElapsedTime,
-it.Value.Item3 as RotaryEncoder,
-it.Value.Item5 as MouseZ,
-it.Value.Item4 as EyeZ
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>RootName</Name>
-                  </Expression>
-                  <Expression xsi:type="Format">
-                    <Format>{0}\RotaryEncoder.csv</Format>
-                    <Selector>it</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="FileName" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2f\S20230627\R163021_SpheresPermTubeRewardPlayback\\RotaryEncoder.csv</io:FileName>
-                    <io:Delimiter>,</io:Delimiter>
-                    <io:Append>true</io:Append>
-                    <io:Overwrite>false</io:Overwrite>
-                    <io:Suffix>None</io:Suffix>
-                    <io:IncludeHeader>true</io:IncludeHeader>
-                  </Expression>
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="11" Label="Source3" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="11" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="11" Label="Source2" />
-                  <Edge From="9" To="11" Label="Source4" />
-                  <Edge From="10" To="11" Label="Source5" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source2" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
               <Name>CopyFiles</Name>
               <Workflow>
                 <Nodes>
@@ -2542,14 +2448,6 @@ Item6 as FloorHeight
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
               <RewardDuration>400</RewardDuration>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="wie:KeyDown">
-                  <wie:Filter>LButton RButton Cancel ShiftKey ControlKey Menu Pause A B C P Q R S Shift Control Alt</wie:Filter>
-                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-                </Combinator>
-              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
@@ -5438,18 +5336,17 @@ Item1.Value as Reward)</scr:Expression>
             </Expression>
           </Nodes>
           <Edges>
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="18" Label="Source1" />
-            <Edge From="10" To="20" Label="Source2" />
-            <Edge From="11" To="15" Label="Source3" />
-            <Edge From="12" To="15" Label="Source2" />
-            <Edge From="13" To="15" Label="Source1" />
-            <Edge From="14" To="15" Label="Source4" />
-            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="7" To="16" Label="Source1" />
+            <Edge From="8" To="18" Label="Source2" />
+            <Edge From="9" To="13" Label="Source3" />
+            <Edge From="10" To="13" Label="Source2" />
+            <Edge From="11" To="13" Label="Source1" />
+            <Edge From="12" To="13" Label="Source4" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="14" To="16" Label="Source2" />
             <Edge From="16" To="17" Label="Source1" />
-            <Edge From="16" To="18" Label="Source2" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>

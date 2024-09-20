@@ -389,7 +389,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Selector>Year,Month,Day</Selector>
             </Expression>
             <Expression xsi:type="Format">
-              <Format>{0}{1}{2}</Format>
+              <Format>{1}{2}</Format>
               <Selector>Item1,Item2,Item3</Selector>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2469,14 +2469,6 @@ Item6 as FloorHeight
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
               <RewardDuration>400</RewardDuration>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="wie:KeyDown">
-                  <wie:Filter>LButton RButton Cancel ShiftKey ControlKey Menu Pause A B C P Q R S Shift Control Alt</wie:Filter>
-                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-                </Combinator>
-              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
@@ -5742,18 +5734,17 @@ Item1.Value as Reward)</scr:Expression>
             </Expression>
           </Nodes>
           <Edges>
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="18" Label="Source1" />
-            <Edge From="10" To="20" Label="Source2" />
-            <Edge From="11" To="15" Label="Source3" />
-            <Edge From="12" To="15" Label="Source2" />
-            <Edge From="13" To="15" Label="Source1" />
-            <Edge From="14" To="15" Label="Source4" />
+            <Edge From="8" To="17" Label="Source1" />
+            <Edge From="9" To="19" Label="Source2" />
+            <Edge From="10" To="14" Label="Source3" />
+            <Edge From="11" To="14" Label="Source2" />
+            <Edge From="12" To="14" Label="Source1" />
+            <Edge From="13" To="14" Label="Source4" />
+            <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="16" To="18" Label="Source2" />
+            <Edge From="15" To="17" Label="Source2" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>

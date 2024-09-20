@@ -389,7 +389,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Selector>Year,Month,Day</Selector>
             </Expression>
             <Expression xsi:type="Format">
-              <Format>{0}{1}{2}</Format>
+              <Format>{1}{2}</Format>
               <Selector>Item1,Item2,Item3</Selector>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -403,7 +403,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
-                <Property Name="Seed" />
+                <Property Name="Seed" Selector="it" />
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -482,7 +482,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1840,9 +1840,9 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                     <ScaleZ>0.5</ScaleZ>
                     <MeshName>Plane</MeshName>
                     <Ambient>
-                      <X>0.75</X>
-                      <Y>0.75</Y>
-                      <Z>0.75</Z>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>1</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1992,7 +1992,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2094,7 +2094,7 @@ it.Value.Item4 as EyeZ
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
+                    <io:FileName>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\RotaryEncoder.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2148,7 +2148,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_simplified.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\SphereTube_simplified_more_depths.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\SphereTube_simplified_more_depths.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2188,7 +2188,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2227,7 +2227,7 @@ it.Value.Item4 as EyeZ
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240415\R140711_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\PZAH10.2f\S20240920\R105754_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2469,14 +2469,6 @@ Item6 as FloorHeight
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
               <RewardDuration>400</RewardDuration>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="wie:KeyDown">
-                  <wie:Filter>LButton RButton Cancel ShiftKey ControlKey Menu Pause A B C P Q R S Shift Control Alt</wie:Filter>
-                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-                </Combinator>
-              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
@@ -5365,18 +5357,17 @@ Item1.Value as Reward)</scr:Expression>
             </Expression>
           </Nodes>
           <Edges>
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="18" Label="Source1" />
-            <Edge From="10" To="20" Label="Source2" />
-            <Edge From="11" To="15" Label="Source3" />
-            <Edge From="12" To="15" Label="Source2" />
-            <Edge From="13" To="15" Label="Source1" />
-            <Edge From="14" To="15" Label="Source4" />
+            <Edge From="8" To="17" Label="Source1" />
+            <Edge From="9" To="19" Label="Source2" />
+            <Edge From="10" To="14" Label="Source3" />
+            <Edge From="11" To="14" Label="Source2" />
+            <Edge From="12" To="14" Label="Source1" />
+            <Edge From="13" To="14" Label="Source4" />
+            <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="16" To="18" Label="Source2" />
+            <Edge From="15" To="17" Label="Source2" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
