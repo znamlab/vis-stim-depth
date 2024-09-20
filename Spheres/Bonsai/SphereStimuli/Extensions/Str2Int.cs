@@ -14,7 +14,7 @@ public class Str2Int
     {
         return source.Select(value => 
         {   
-            int result = int.Parse(value);
+            int result = Int32.Parse(value);
             return result;
         });
     }
