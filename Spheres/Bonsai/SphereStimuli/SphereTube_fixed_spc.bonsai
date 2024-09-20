@@ -2043,7 +2043,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                     <Name>RootName</Name>
                   </Expression>
                   <Expression xsi:type="Format">
-                    <Format>{0}\SphereTube_simplified_more_depths_corrected.bonsai</Format>
+                    <Format>{0}\SphereTube_fixed_spc.bonsai</Format>
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
