@@ -528,7 +528,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\PZAH10.2f\S20230725\R142154_SpheresPermTubeRewardPlayback\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\PZAH10.2d\S20240920\R112554_SpheresPermTubeRewardPlayback\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -2116,7 +2116,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                     <Name>RootName</Name>
                   </Expression>
                   <Expression xsi:type="Format">
-                    <Format>{0}\SphereTube_simplified_more_depths_Playback.bonsai</Format>
+                    <Format>{0}\SphereTube_playback.bonsai</Format>
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
