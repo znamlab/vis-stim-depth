@@ -13,13 +13,14 @@ public class CreateFadingInOut
     public IObservable<float> Process(IObservable<Tuple<double, float, float, float, double, double>> source)
     {
         return source.Select(value => {
-            float start_amb = value.Item4;
-            float target_amb = value.Item3;
             float elapsedTime = Convert.ToSingle(value.Item1);
             float fadeinTime = value.Item2;
-            float ambient = start_amb;
+            float target_amb = value.Item3;
+            float start_amb = value.Item4;
             float trialElapsedTime = Convert.ToSingle(value.Item5);
             float trialStopTime = Convert.ToSingle(value.Item6);
+
+            float ambient = start_amb;
 
             float k1 = (target_amb-start_amb)/fadeinTime;
 

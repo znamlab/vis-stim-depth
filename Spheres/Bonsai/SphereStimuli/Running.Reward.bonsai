@@ -502,7 +502,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\harp_hardware.bonsai">
-        <HarpSavePath>D:\data\Test\S20240814\R163808_SpheresPermTubeReward\Test_S20240814_R163808_SpheresPermTubeReward_harpmessage.bin</HarpSavePath>
+        <HarpSavePath>D:\data\Test\S20241104\R104427_SpheresPermTubeReward\Test_S20241104_R104427_SpheresPermTubeReward_harpmessage.bin</HarpSavePath>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>InitBonvision3D</Name>
@@ -523,7 +523,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                 <gl:CursorVisible>true</gl:CursorVisible>
                 <gl:Location xsi:nil="true" />
                 <gl:WindowBorder>Resizable</gl:WindowBorder>
-                <gl:WindowState>Normal</gl:WindowState>
+                <gl:WindowState>Fullscreen</gl:WindowState>
                 <gl:DisplayDevice>Primary</gl:DisplayDevice>
                 <gl:TargetRenderFrequency>140</gl:TargetRenderFrequency>
                 <gl:TargetUpdateFrequency xsi:nil="true" />
@@ -814,7 +814,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
               <Combinator xsi:type="gl:CreateVector3">
                 <gl:X>0</gl:X>
                 <gl:Y>0</gl:Y>
-                <gl:Z>0</gl:Z>
+                <gl:Z>4348.78955</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -847,7 +847,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                     <Eye>
                       <X>0</X>
                       <Y>0</Y>
-                      <Z>0</Z>
+                      <Z>4348.78955</Z>
                     </Eye>
                     <NearClip>0.1</NearClip>
                     <FarClip>1000</FarClip>
@@ -1521,7 +1521,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
-                <Value>300</Value>
+                <Value>1000</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -1744,7 +1744,7 @@ Item6 as FloorHeight
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-2.5</TranslationY>
-                    <TranslationZ>200</TranslationZ>
+                    <TranslationZ>4400</TranslationZ>
                     <ScaleX>5</ScaleX>
                     <ScaleY>200</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -1888,7 +1888,7 @@ Item6 as FloorHeight
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
-                <Value>600</Value>
+                <Value>50</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -1949,7 +1949,7 @@ Item6 as FloorHeight
                   </Expression>
                   <Expression xsi:type="LessThanOrEqual">
                     <Operand xsi:type="DoubleProperty">
-                      <Value>0.7</Value>
+                      <Value>0.8</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
@@ -4448,8 +4448,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>51.228898094727747</RangeMin>
-                                      <RangeMax>51.228898094727747</RangeMax>
+                                      <RangeMin>16.2</RangeMin>
+                                      <RangeMax>16.2</RangeMax>
                                       <Count>2</Count>
                                     </Expression>
                                     <Expression xsi:type="SubscribeSubject">
@@ -4563,9 +4563,9 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>51.228898094727747</RangeMin>
-                                      <RangeMax>651.2288980947277</RangeMax>
-                                      <Count>212</Count>
+                                      <RangeMin>16.2</RangeMin>
+                                      <RangeMax>316.2</RangeMax>
+                                      <Count>334</Count>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:Concat" />
@@ -4838,8 +4838,8 @@ Item3 as Count
                                       </PropertyMappings>
                                     </Expression>
                                     <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                      <RangeMin>-14.230249470757707</RangeMin>
-                                      <RangeMax>48.382848200576205</RangeMax>
+                                      <RangeMin>-4.5</RangeMin>
+                                      <RangeMax>15.3</RangeMax>
                                       <Count>23</Count>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -5965,9 +5965,9 @@ Item2.Item1.Item5.Item2 as Size)</scr:Expression>
                           <Selector>Draw</Selector>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                          <TranslationX>-7941.61133</TranslationX>
-                          <TranslationY>6075.42627</TranslationY>
-                          <TranslationZ>74679.48</TranslationZ>
+                          <TranslationX>-9056.112</TranslationX>
+                          <TranslationY>-4238.73</TranslationY>
+                          <TranslationZ>4022.334</TranslationZ>
                           <ScaleX>-869.912964</ScaleX>
                           <ScaleY>-869.912964</ScaleY>
                           <ScaleZ>-869.912964</ScaleZ>
@@ -6560,7 +6560,7 @@ Value.Item1 as Reward,
 Value.Item2 as MouseZ)</scr:Expression>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\data\Test\S20240814\R163808_SpheresPermTubeReward\Test_S20240814_R163808_SpheresPermTubeReward_RewardLog.csv</io:FileName>
+              <io:FileName>D:\data\Test\S20241104\R104427_SpheresPermTubeReward\Test_S20241104_R104427_SpheresPermTubeReward_RewardLog.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
