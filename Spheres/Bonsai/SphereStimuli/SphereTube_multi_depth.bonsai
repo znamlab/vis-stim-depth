@@ -402,7 +402,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="num:CreateRandom">
-                <num:Seed>1213</num:Seed>
+                <num:Seed>131</num:Seed>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -475,7 +475,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1044,7 +1044,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>0</gl:Z>
+                      <gl:Z>3411.94141</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1074,7 +1074,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>0</Z>
+                            <Z>3411.94141</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1827,7 +1827,7 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-0.694272041</TranslationX>
                     <TranslationY>-0.642787635</TranslationY>
-                    <TranslationZ>-0.323744357</TranslationZ>
+                    <TranslationZ>3411.61768</TranslationZ>
                     <ScaleX>0.1</ScaleX>
                     <ScaleY>0.1</ScaleY>
                     <ScaleZ>0.1</ScaleZ>
@@ -1985,7 +1985,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2047,7 +2047,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_fixed_spc.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\SphereTube_fixed_spc.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\SphereTube_fixed_spc.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2087,7 +2087,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2126,7 +2126,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2297,7 +2297,7 @@ Item6 as FloorHeight
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-2.5</TranslationY>
-                          <TranslationZ>200</TranslationZ>
+                          <TranslationZ>3200</TranslationZ>
                           <ScaleX>5</ScaleX>
                           <ScaleY>200</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -5103,22 +5103,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -5149,6 +5133,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -5168,9 +5251,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>9.238391</TranslationX>
-                                <TranslationY>3.82780957</TranslationY>
-                                <TranslationZ>24</TranslationZ>
+                                <TranslationX>9.458557</TranslationX>
+                                <TranslationY>-3.24587274</TranslationY>
+                                <TranslationZ>3435.94141</TranslationZ>
                                 <ScaleX>0.87</ScaleX>
                                 <ScaleY>0.87</ScaleY>
                                 <ScaleZ>0.87</ScaleZ>
@@ -5226,34 +5309,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -5261,7 +5344,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -5273,36 +5356,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -5407,7 +5498,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5556,7 +5647,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5713,7 +5804,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -8500,22 +8591,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -8546,6 +8621,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -8565,9 +8739,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>18.4904919</TranslationX>
-                                <TranslationY>7.622449</TranslationY>
-                                <TranslationZ>48</TranslationZ>
+                                <TranslationX>17.37256</TranslationX>
+                                <TranslationY>-9.909296</TranslationY>
+                                <TranslationZ>3459.94141</TranslationZ>
                                 <ScaleX>1.74</ScaleX>
                                 <ScaleY>1.74</ScaleY>
                                 <ScaleZ>1.74</ScaleZ>
@@ -8623,34 +8797,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -8658,7 +8832,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -8670,36 +8844,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -8804,7 +8986,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -8953,7 +9135,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -9110,7 +9292,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -11897,22 +12079,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -11943,6 +12109,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -11962,9 +12227,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>36.42455</TranslationX>
-                                <TranslationY>-16.5303459</TranslationY>
-                                <TranslationZ>96</TranslationZ>
+                                <TranslationX>-34.41382</TranslationX>
+                                <TranslationY>20.3884563</TranslationY>
+                                <TranslationZ>3507.94141</TranslationZ>
                                 <ScaleX>3.48</ScaleX>
                                 <ScaleY>3.48</ScaleY>
                                 <ScaleZ>3.48</ScaleZ>
@@ -12020,34 +12285,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -12055,7 +12320,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -12067,36 +12332,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -12201,7 +12474,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12350,7 +12623,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12507,7 +12780,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -15294,22 +15567,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -15340,6 +15597,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -15359,9 +15715,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-66.31818</TranslationX>
-                                <TranslationY>44.742588</TranslationY>
-                                <TranslationZ>192</TranslationZ>
+                                <TranslationX>72.60108</TranslationX>
+                                <TranslationY>33.6018257</TranslationY>
+                                <TranslationZ>3603.94141</TranslationZ>
                                 <ScaleX>6.96</ScaleX>
                                 <ScaleY>6.96</ScaleY>
                                 <ScaleZ>6.96</ScaleZ>
@@ -15417,34 +15773,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -15452,7 +15808,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -15464,36 +15820,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -15598,7 +15962,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -15747,7 +16111,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -15904,7 +16268,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -18691,22 +19055,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -18737,6 +19085,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -18756,9 +19203,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-159.997375</TranslationX>
-                                <TranslationY>0.9155846</TranslationY>
-                                <TranslationZ>384</TranslationZ>
+                                <TranslationX>-151.719666</TranslationX>
+                                <TranslationY>50.8049545</TranslationY>
+                                <TranslationZ>3795.94141</TranslationZ>
                                 <ScaleX>13.92</ScaleX>
                                 <ScaleY>13.92</ScaleY>
                                 <ScaleZ>13.92</ScaleZ>
@@ -18814,34 +19261,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -18849,7 +19296,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -18861,36 +19308,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -18995,7 +19450,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19144,7 +19599,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19301,7 +19756,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -22088,22 +22543,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -22134,6 +22573,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -22153,9 +22691,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-293.961823</TranslationX>
-                                <TranslationY>-126.437523</TranslationY>
-                                <TranslationZ>768</TranslationZ>
+                                <TranslationX>-319.992462</TranslationX>
+                                <TranslationY>2.19645739</TranslationY>
+                                <TranslationZ>4179.94141</TranslationZ>
                                 <ScaleX>27.84</ScaleX>
                                 <ScaleY>27.84</ScaleY>
                                 <ScaleZ>27.84</ScaleZ>
@@ -22211,34 +22749,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -22246,7 +22784,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -22258,36 +22796,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -22392,7 +22938,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -22541,7 +23087,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -22698,7 +23244,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -25485,22 +26031,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -25531,6 +26061,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -25550,9 +26179,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-584.6561</TranslationX>
-                                <TranslationY>-260.3405</TranslationY>
-                                <TranslationZ>1536</TranslationZ>
+                                <TranslationX>639.5335</TranslationX>
+                                <TranslationY>-24.4310017</TranslationY>
+                                <TranslationZ>4947.94141</TranslationZ>
                                 <ScaleX>55.68</ScaleX>
                                 <ScaleY>55.68</ScaleY>
                                 <ScaleZ>55.68</ScaleZ>
@@ -25608,34 +26237,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -25643,7 +26272,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -25655,36 +26284,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -25789,7 +26426,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -25938,7 +26575,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26095,7 +26732,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -28882,22 +29519,6 @@ Item5.Item2 as Size)</scr:Expression>
                                   <Value>0.3</Value>
                                 </Combinator>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:CombineLatest" />
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:CreateFadingInOut" />
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingIn" />
-                                </Builder>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="p1:CreateFadingNew" />
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Int32">
                                 <Name>SphereOriginalID</Name>
                               </Expression>
@@ -28928,6 +29549,105 @@ Item5.Item2 as Size
                               <Expression xsi:type="PublishSubject">
                                 <Name>NewSphereTime</Name>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>SphereNewParams</Name>
+                              </Expression>
+                              <Expression xsi:type="Condition">
+                                <Workflow>
+                                  <Nodes>
+                                    <Expression xsi:type="WorkflowInput">
+                                      <Name>Source1</Name>
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>SphereID</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereIndex</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>SphereNumPerMoment</Name>
+                                    </Expression>
+                                    <Expression xsi:type="SubscribeSubject">
+                                      <Name>ExtraSpheresBehind</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:Zip" />
+                                    </Expression>
+                                    <Expression xsi:type="Add" />
+                                    <Expression xsi:type="PropertyMapping">
+                                      <PropertyMappings>
+                                        <Property Name="Value" />
+                                      </PropertyMappings>
+                                    </Expression>
+                                    <Expression xsi:type="Mod">
+                                      <Operand xsi:type="IntProperty">
+                                        <Value>4</Value>
+                                      </Operand>
+                                    </Expression>
+                                    <Expression xsi:type="MulticastSubject">
+                                      <Name>SphereOriginalID</Name>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="MemberSelector">
+                                      <Selector>Radius</Selector>
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="rx:WithLatestFrom" />
+                                    </Expression>
+                                    <Expression xsi:type="Combinator">
+                                      <Combinator xsi:type="p1:SphereIdxCondition" />
+                                    </Expression>
+                                    <Expression xsi:type="WorkflowOutput" />
+                                  </Nodes>
+                                  <Edges>
+                                    <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
+                                    <Edge From="1" To="8" Label="Source1" />
+                                    <Edge From="2" To="10" Label="Source2" />
+                                    <Edge From="3" To="5" Label="Source1" />
+                                    <Edge From="4" To="5" Label="Source2" />
+                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="6" To="7" Label="Source1" />
+                                    <Edge From="7" To="8" Label="Source2" />
+                                    <Edge From="8" To="9" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="12" Label="Source1" />
+                                    <Edge From="11" To="12" Label="Source2" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source1" />
+                                  </Edges>
+                                </Workflow>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Radius</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>Z</Selector>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>MouseZ</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:CombineLatest" />
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="p1:CreateFadingInOut" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingIn" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="p1:CreateFadingNew" />
+                                </Builder>
+                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
@@ -28947,9 +29667,9 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>4.695844</TranslationX>
-                                <TranslationY>1.71727884</TranslationY>
-                                <TranslationZ>12</TranslationZ>
+                                <TranslationX>-4.095713</TranslationX>
+                                <TranslationY>-2.86794949</TranslationY>
+                                <TranslationZ>3423.94141</TranslationZ>
                                 <ScaleX>0.435</ScaleX>
                                 <ScaleY>0.435</ScaleY>
                                 <ScaleZ>0.435</ScaleZ>
@@ -29005,34 +29725,34 @@ Item5.Item2 as Size
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="2" To="58" Label="Source1" />
+                              <Edge From="2" To="64" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="4" To="6" Label="Source1" />
                               <Edge From="4" To="7" Label="Source1" />
                               <Edge From="4" To="8" Label="Source1" />
                               <Edge From="4" To="9" Label="Source1" />
-                              <Edge From="5" To="53" Label="Source1" />
-                              <Edge From="6" To="53" Label="Source2" />
-                              <Edge From="7" To="53" Label="Source3" />
-                              <Edge From="8" To="53" Label="Source4" />
-                              <Edge From="9" To="53" Label="Source5" />
+                              <Edge From="5" To="49" Label="Source1" />
+                              <Edge From="6" To="49" Label="Source2" />
+                              <Edge From="7" To="49" Label="Source3" />
+                              <Edge From="8" To="49" Label="Source4" />
+                              <Edge From="9" To="49" Label="Source5" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="48" Label="Source4" />
+                              <Edge From="11" To="59" Label="Source4" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="48" Label="Source5" />
+                              <Edge From="13" To="59" Label="Source5" />
                               <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
                               <Edge From="16" To="18" Label="Source2" />
                               <Edge From="17" To="18" Label="Source1" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="48" Label="Source1" />
+                              <Edge From="19" To="59" Label="Source1" />
                               <Edge From="20" To="24" Label="Source1" />
                               <Edge From="21" To="23" Label="Source1" />
                               <Edge From="22" To="23" Label="Source2" />
                               <Edge From="23" To="24" Label="Source2" />
                               <Edge From="24" To="25" Label="Source1" />
-                              <Edge From="25" To="48" Label="Source2" />
+                              <Edge From="25" To="59" Label="Source2" />
                               <Edge From="26" To="32" Label="Source1" />
                               <Edge From="27" To="29" Label="Source1" />
                               <Edge From="28" To="29" Label="Source2" />
@@ -29040,7 +29760,7 @@ Item5.Item2 as Size
                               <Edge From="30" To="31" Label="Source2" />
                               <Edge From="31" To="32" Label="Source2" />
                               <Edge From="32" To="33" Label="Source1" />
-                              <Edge From="33" To="48" Label="Source6" />
+                              <Edge From="33" To="59" Label="Source6" />
                               <Edge From="34" To="36" Label="Source1" />
                               <Edge From="35" To="36" Label="Source2" />
                               <Edge From="36" To="43" Label="Source1" />
@@ -29052,36 +29772,44 @@ Item5.Item2 as Size
                               <Edge From="42" To="43" Label="Source2" />
                               <Edge From="43" To="44" Label="Source1" />
                               <Edge From="44" To="45" Label="Source1" />
-                              <Edge From="45" To="48" Label="Source7" />
+                              <Edge From="45" To="59" Label="Source7" />
                               <Edge From="46" To="47" Label="Source1" />
-                              <Edge From="47" To="48" Label="Source3" />
-                              <Edge From="48" To="49" Label="Source1" />
+                              <Edge From="47" To="59" Label="Source3" />
+                              <Edge From="48" To="49" Label="Source6" />
                               <Edge From="49" To="50" Label="Source1" />
                               <Edge From="50" To="51" Label="Source1" />
-                              <Edge From="51" To="57" Label="Source2" />
-                              <Edge From="52" To="53" Label="Source6" />
+                              <Edge From="51" To="52" Label="Source1" />
+                              <Edge From="52" To="63" Label="Source1" />
                               <Edge From="53" To="54" Label="Source1" />
                               <Edge From="54" To="55" Label="Source1" />
-                              <Edge From="55" To="56" Label="Source1" />
-                              <Edge From="56" To="57" Label="Source1" />
-                              <Edge From="57" To="58" Label="Source2" />
-                              <Edge From="57" To="62" Label="Source1" />
-                              <Edge From="57" To="63" Label="Source1" />
-                              <Edge From="57" To="64" Label="Source1" />
-                              <Edge From="57" To="65" Label="Source1" />
-                              <Edge From="57" To="66" Label="Source1" />
-                              <Edge From="57" To="68" Label="Source1" />
-                              <Edge From="58" To="59" Label="Source1" />
+                              <Edge From="54" To="56" Label="Source1" />
+                              <Edge From="54" To="57" Label="Source1" />
+                              <Edge From="55" To="58" Label="Source3" />
+                              <Edge From="56" To="58" Label="Source2" />
+                              <Edge From="57" To="58" Label="Source1" />
+                              <Edge From="58" To="59" Label="Source8" />
                               <Edge From="59" To="60" Label="Source1" />
                               <Edge From="60" To="61" Label="Source1" />
-                              <Edge From="62" To="67" Label="Source1" />
-                              <Edge From="63" To="67" Label="Source2" />
-                              <Edge From="64" To="67" Label="Source3" />
-                              <Edge From="65" To="67" Label="Source4" />
-                              <Edge From="66" To="67" Label="Source5" />
-                              <Edge From="67" To="69" Label="Source1" />
-                              <Edge From="68" To="69" Label="Source2" />
-                              <Edge From="69" To="70" Label="Source1" />
+                              <Edge From="61" To="62" Label="Source1" />
+                              <Edge From="62" To="63" Label="Source2" />
+                              <Edge From="63" To="64" Label="Source2" />
+                              <Edge From="63" To="68" Label="Source1" />
+                              <Edge From="63" To="69" Label="Source1" />
+                              <Edge From="63" To="70" Label="Source1" />
+                              <Edge From="63" To="71" Label="Source1" />
+                              <Edge From="63" To="72" Label="Source1" />
+                              <Edge From="63" To="74" Label="Source1" />
+                              <Edge From="64" To="65" Label="Source1" />
+                              <Edge From="65" To="66" Label="Source1" />
+                              <Edge From="66" To="67" Label="Source1" />
+                              <Edge From="68" To="73" Label="Source1" />
+                              <Edge From="69" To="73" Label="Source2" />
+                              <Edge From="70" To="73" Label="Source3" />
+                              <Edge From="71" To="73" Label="Source4" />
+                              <Edge From="72" To="73" Label="Source5" />
+                              <Edge From="73" To="75" Label="Source1" />
+                              <Edge From="74" To="75" Label="Source2" />
+                              <Edge From="75" To="76" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -29186,7 +29914,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\NewParams_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\NewParams_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -29335,7 +30063,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\AllParams_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\AllParams_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -29492,7 +30220,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20241213\R103323_SpheresPermTubeReward\\RewardLog_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250131\R193500_SpheresPermTubeReward\\RewardLog_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
