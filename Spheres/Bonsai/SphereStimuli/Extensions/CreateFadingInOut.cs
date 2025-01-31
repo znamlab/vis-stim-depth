@@ -26,7 +26,7 @@ public class CreateFadingInOut
 
             if ((trialElapsedTime < trialStopTime) || trialStopTime < 0)
             {
-                if (elapsedTime <= fadeinTime)
+                if (trialElapsedTime <= fadeinTime)
                 {
                     ambient = start_amb + elapsedTime*k1;
                 }
