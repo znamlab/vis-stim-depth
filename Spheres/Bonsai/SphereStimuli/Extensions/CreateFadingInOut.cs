@@ -25,9 +25,12 @@ public class CreateFadingInOut
             float SphereZ = value.Item7.Item2;
             float Radius = value.Item7.Item3;
 
-            double BinocularRad;
+            double BinocularRadBlack;
+            double BinocularRadGray;
 
-            BinocularRad = 0.3;
+
+            BinocularRadBlack = 0.4;
+            BinocularRadGray = 0.27;
 
 
             float ambient = start_amb;
@@ -39,7 +42,11 @@ public class CreateFadingInOut
 
             if ((trialElapsedTime < trialStopTime) || trialStopTime < 0)
             {
-                if (alpha <= BinocularRad)
+                if (alpha <= BinocularRadGray)
+                {
+                    ambient=start_amb;
+                }
+                if (alpha <= BinocularRadBlack & alpha > BinocularRadGray)
                 {
                     //ambient = (float)(alpha * (target_amb / BinocularRad));
                     //ambient = (float) 0.5 - (float) alpha * ((float) 0.5 / (float) BinocularRad);
@@ -47,13 +54,13 @@ public class CreateFadingInOut
                     float alphaF = (float)alpha;
 
                     // Map alphaF in [0, BinocularRad] to ambient in [0.5, 0.0]
-                    float fraction = alphaF / (float)BinocularRad;   // fraction goes [0..1]
+                    float fraction = (alphaF - (float)BinocularRadGray) / ((float)BinocularRadBlack-(float)BinocularRadGray);   // fraction goes [0..1] from BinocularRadGray to BinocularRadBlack
                     // Ambient at alpha=0 => 0.5
-                    // Ambient at alpha=BinocularRad => 0.0
-                    ambient = 0.5f * (1f - fraction);
+                    // Ambient at alpha=BinocularRadGray => 0.0
+                    ambient = start_amb * (1f - fraction);
                 }
 
-                else
+                else if (alpha>BinocularRadBlack)
                 {
                     ambient = target_amb;
                 }
