@@ -475,7 +475,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1044,7 +1044,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>0</gl:Z>
+                      <gl:Z>3612.55542</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1074,7 +1074,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>0</Z>
+                            <Z>3612.55542</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1827,15 +1827,15 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-0.694272041</TranslationX>
                     <TranslationY>-0.642787635</TranslationY>
-                    <TranslationZ>-0.323744357</TranslationZ>
+                    <TranslationZ>3612.23169</TranslationZ>
                     <ScaleX>0.1</ScaleX>
                     <ScaleY>0.1</ScaleY>
                     <ScaleZ>0.1</ScaleZ>
                     <MeshName>Plane</MeshName>
                     <Ambient>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
+                      <X>0.75</X>
+                      <Y>0.75</Y>
+                      <Z>0.75</Z>
                     </Ambient>
                     <Diffuse>
                       <X>0</X>
@@ -1985,7 +1985,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2047,7 +2047,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_fixed_spc.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\SphereTube_fixed_spc.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\SphereTube_fixed_spc.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2087,7 +2087,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2126,7 +2126,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2297,7 +2297,7 @@ Item6 as FloorHeight
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-2.5</TranslationY>
-                          <TranslationZ>200</TranslationZ>
+                          <TranslationZ>3800</TranslationZ>
                           <ScaleX>5</ScaleX>
                           <ScaleY>200</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -5265,17 +5265,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>9.56129551</TranslationX>
-                                <TranslationY>-2.929443</TranslationY>
-                                <TranslationZ>24</TranslationZ>
+                                <TranslationX>10</TranslationX>
+                                <TranslationY>-0.00281172548</TranslationY>
+                                <TranslationZ>3607.47388</TranslationZ>
                                 <ScaleX>0.87</ScaleX>
                                 <ScaleY>0.87</ScaleY>
                                 <ScaleZ>0.87</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0</X>
+                                  <Y>0</Y>
+                                  <Z>0</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -5513,7 +5513,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5662,7 +5662,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5819,7 +5819,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -8768,17 +8768,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-19.7232876</TranslationX>
-                                <TranslationY>3.3154068</TranslationY>
-                                <TranslationZ>48</TranslationZ>
+                                <TranslationX>18.6758862</TranslationX>
+                                <TranslationY>-7.156207</TranslationY>
+                                <TranslationZ>3592.636</TranslationZ>
                                 <ScaleX>1.74</ScaleX>
                                 <ScaleY>1.74</ScaleY>
                                 <ScaleZ>1.74</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0</X>
+                                  <Y>0</Y>
+                                  <Z>0</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -9016,7 +9016,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -9165,7 +9165,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -9322,7 +9322,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12271,17 +12271,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-33.26382</TranslationX>
-                                <TranslationY>-22.215271</TranslationY>
-                                <TranslationZ>96</TranslationZ>
+                                <TranslationX>37.032795</TranslationX>
+                                <TranslationY>-15.1186047</TranslationY>
+                                <TranslationZ>3744.85083</TranslationZ>
                                 <ScaleX>3.48</ScaleX>
                                 <ScaleY>3.48</ScaleY>
                                 <ScaleZ>3.48</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0.409174323</X>
+                                  <Y>0.409174323</Y>
+                                  <Z>0.409174323</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -12519,7 +12519,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12668,7 +12668,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12825,7 +12825,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -15774,17 +15774,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-79.3656845</TranslationX>
-                                <TranslationY>10.054245</TranslationY>
-                                <TranslationZ>192</TranslationZ>
+                                <TranslationX>-73.05951</TranslationX>
+                                <TranslationY>32.59307</TranslationY>
+                                <TranslationZ>3888.85083</TranslationZ>
                                 <ScaleX>6.96</ScaleX>
                                 <ScaleY>6.96</ScaleY>
                                 <ScaleZ>6.96</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0.454469949</X>
+                                  <Y>0.454469949</Y>
+                                  <Z>0.454469949</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -16022,7 +16022,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -16171,7 +16171,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -16328,7 +16328,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19277,17 +19277,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>159.977539</TranslationX>
-                                <TranslationY>2.68101478</TranslationY>
-                                <TranslationZ>384</TranslationZ>
+                                <TranslationX>140.937363</TranslationX>
+                                <TranslationY>-75.74075</TranslationY>
+                                <TranslationZ>3784.85083</TranslationZ>
                                 <ScaleX>13.92</ScaleX>
                                 <ScaleY>13.92</ScaleY>
                                 <ScaleZ>13.92</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0</X>
+                                  <Y>0</Y>
+                                  <Z>0</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -19525,7 +19525,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19674,7 +19674,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19831,7 +19831,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -22780,17 +22780,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-274.06015</TranslationX>
-                                <TranslationY>-165.199982</TranslationY>
-                                <TranslationZ>768</TranslationZ>
+                                <TranslationX>-313.9197</TranslationX>
+                                <TranslationY>-62.08396</TranslationY>
+                                <TranslationZ>3784.85083</TranslationZ>
                                 <ScaleX>27.84</ScaleX>
                                 <ScaleY>27.84</ScaleY>
                                 <ScaleZ>27.84</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0</X>
+                                  <Y>0</Y>
+                                  <Z>0</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -23028,7 +23028,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -23177,7 +23177,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -23334,7 +23334,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26283,17 +26283,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-504.1083</TranslationX>
-                                <TranslationY>394.302948</TranslationY>
-                                <TranslationZ>1536</TranslationZ>
+                                <TranslationX>-637.8879</TranslationX>
+                                <TranslationY>-51.95241</TranslationY>
+                                <TranslationZ>3399.02539</TranslationZ>
                                 <ScaleX>55.68</ScaleX>
                                 <ScaleY>55.68</ScaleY>
                                 <ScaleZ>55.68</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0</X>
+                                  <Y>0</Y>
+                                  <Z>0</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -26531,7 +26531,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26680,7 +26680,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26837,7 +26837,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -29786,17 +29786,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-4.88740873</TranslationX>
-                                <TranslationY>1.05509961</TranslationY>
-                                <TranslationZ>12</TranslationZ>
+                                <TranslationX>-4.99439144</TranslationX>
+                                <TranslationY>0.236756012</TranslationY>
+                                <TranslationZ>3610.85083</TranslationZ>
                                 <ScaleX>0.435</ScaleX>
                                 <ScaleY>0.435</ScaleY>
                                 <ScaleZ>0.435</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.0200341642</X>
-                                  <Y>0.0200341642</Y>
-                                  <Z>0.0200341642</Z>
+                                  <X>0</X>
+                                  <Y>0</Y>
+                                  <Z>0</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -30034,7 +30034,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\NewParams_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -30183,7 +30183,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\AllParams_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -30340,7 +30340,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R131243_SpheresPermTubeReward\\RewardLog_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>

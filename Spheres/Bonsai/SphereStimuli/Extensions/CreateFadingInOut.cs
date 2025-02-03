@@ -34,14 +34,14 @@ public class CreateFadingInOut
             BinocularRadGray = 0.27;
 
 
-            float time_ambient = start_amb;
-            float space_ambient = start_amb;
+            float time_ambient=target_amb;
+            float space_ambient=target_amb;
 
             float DistanceToSphere = SphereZ-MouseZ;
 
             double alpha = Math.Asin(Radius / Math.Sqrt((Radius * Radius) + (DistanceToSphere * DistanceToSphere)));
 
-            //float k1 = (target_amb-start_amb)/fadeinTime;
+            float k1 = (target_amb-start_amb)/fadeinTime;
 
             if ((trialElapsedTime < trialStopTime) || trialStopTime < 0)
             {
@@ -66,7 +66,7 @@ public class CreateFadingInOut
                     space_ambient = start_amb * (1f - fraction);
                 }
 
-                else if (alpha>BinocularRadBlack)
+                else if (alpha > BinocularRadBlack)
                 {
                     space_ambient = target_amb;
                 }
@@ -76,9 +76,7 @@ public class CreateFadingInOut
             {
                 if (trialStopTime > 0)
                 {
-                    float end_time_fraction = Math.Min((trialElapsedTime-trialStopTime)/fadeinTime, 1); //fade out in fadeinTime s. 
-                    time_ambient = start_amb*end_time_fraction; // go to start_amb linearly
-                    //time_ambient = Math.Min(target_amb - (trialElapsedTime-trialStopTime)*k1, start_amb);
+                    time_ambient = Math.Min(target_amb - (trialElapsedTime-trialStopTime)*k1, start_amb);// fadeout
 
                 }
             }
@@ -86,7 +84,6 @@ public class CreateFadingInOut
 
             // Returns
             return (float) Math.Max(time_ambient, space_ambient);
-            //return Tuple.Create(ambient, alpha);
 
 
 
