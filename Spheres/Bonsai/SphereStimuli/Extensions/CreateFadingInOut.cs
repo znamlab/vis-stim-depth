@@ -54,9 +54,8 @@ public class CreateFadingInOut
                 }
                 if (alpha <= BinocularRadBlack & alpha > BinocularRadGray)
                 {
-                    //ambient = (float)(alpha * (target_amb / BinocularRad));
-                    //ambient = (float) 0.5 - (float) alpha * ((float) 0.5 / (float) BinocularRad);
-                                // Convert alpha to float for clamping
+
+                    // Convert alpha to float for clamping
                     float alphaF = (float)alpha;
 
                     // Map alphaF in [0, BinocularRad] to ambient in [0.5, 0.0]
