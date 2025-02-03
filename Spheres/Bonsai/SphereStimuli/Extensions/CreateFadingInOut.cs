@@ -10,7 +10,7 @@ using System.Reactive.Linq;
 [WorkflowElementCategory(ElementCategory.Transform)]
 public class CreateFadingInOut
 {
-    public IObservable<float> Process(IObservable<Tuple<double, float, float, float, double, double, Tuple<float, float, float>>> source)
+    public IObservable<float> Process(IObservable<Tuple<double, float, float, float, double, double, Tuple<double, float, float>>> source)
 
 
     {
@@ -21,13 +21,13 @@ public class CreateFadingInOut
             float start_amb = value.Item4;
             float trialElapsedTime = Convert.ToSingle(value.Item5);
             float trialStopTime = Convert.ToSingle(value.Item6);
-            float MouseZ = value.Item7.Item1;
+            float MouseZ = (float)value.Item7.Item1;
             float SphereZ = value.Item7.Item2;
             float Radius = value.Item7.Item3;
 
             double BinocularRad;
 
-            BinocularRad = 0.5;
+            BinocularRad = 0.3;
 
 
             float ambient = start_amb;
