@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Net.Mail;
 
 [Combinator]
 [Description("")]
@@ -33,18 +34,23 @@ public class CreateFadingInOut
             BinocularRadGray = 0.27;
 
 
-            float ambient = start_amb;
+            float time_ambient = start_amb;
+            float space_ambient = start_amb;
+
             float DistanceToSphere = SphereZ-MouseZ;
 
             double alpha = Math.Asin(Radius / Math.Sqrt((Radius * Radius) + (DistanceToSphere * DistanceToSphere)));
 
-            float k1 = (target_amb-start_amb)/fadeinTime;
+            //float k1 = (target_amb-start_amb)/fadeinTime;
 
             if ((trialElapsedTime < trialStopTime) || trialStopTime < 0)
             {
+                float time_fraction = trialElapsedTime / fadeinTime; //fade in the spheres in fadeinTime s. 
+                time_ambient = start_amb*(1-time_fraction); // go to 0 linearly
+                
                 if (alpha <= BinocularRadGray)
                 {
-                    ambient=start_amb;
+                    space_ambient=start_amb;
                 }
                 if (alpha <= BinocularRadBlack & alpha > BinocularRadGray)
                 {
@@ -57,12 +63,12 @@ public class CreateFadingInOut
                     float fraction = (alphaF - (float)BinocularRadGray) / ((float)BinocularRadBlack-(float)BinocularRadGray);   // fraction goes [0..1] from BinocularRadGray to BinocularRadBlack
                     // Ambient at alpha=0 => 0.5
                     // Ambient at alpha=BinocularRadGray => 0.0
-                    ambient = start_amb * (1f - fraction);
+                    space_ambient = start_amb * (1f - fraction);
                 }
 
                 else if (alpha>BinocularRadBlack)
                 {
-                    ambient = target_amb;
+                    space_ambient = target_amb;
                 }
             }
 
@@ -70,14 +76,16 @@ public class CreateFadingInOut
             {
                 if (trialStopTime > 0)
                 {
-                    ambient = Math.Min(target_amb - (trialElapsedTime-trialStopTime)*k1, start_amb);
+                    float end_time_fraction = Math.Min((trialElapsedTime-trialStopTime)/fadeinTime, 1); //fade out in fadeinTime s. 
+                    time_ambient = start_amb*end_time_fraction; // go to start_amb linearly
+                    //time_ambient = Math.Min(target_amb - (trialElapsedTime-trialStopTime)*k1, start_amb);
 
                 }
             }
 
 
             // Returns
-            return (float) ambient;
+            return (float) Math.Max(time_ambient, space_ambient);
             //return Tuple.Create(ambient, alpha);
 
 
