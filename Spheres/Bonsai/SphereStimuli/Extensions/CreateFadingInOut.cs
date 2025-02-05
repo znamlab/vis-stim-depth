@@ -30,8 +30,8 @@ public class CreateFadingInOut
             double BinocularRadGray;
 
 
-            BinocularRadBlack = 0.4;
-            BinocularRadGray = 0.27;
+            BinocularRadBlack = 0.45;
+            BinocularRadGray = 0.36;
 
 
             float time_ambient=target_amb;
@@ -39,7 +39,7 @@ public class CreateFadingInOut
 
             float DistanceToSphere = SphereZ-MouseZ;
 
-            double alpha = Math.Asin(Radius / Math.Sqrt((Radius * Radius) + (DistanceToSphere * DistanceToSphere)));
+            double alpha = Math.Atan((double) Radius / (double) DistanceToSphere);
 
             float k1 = (target_amb-start_amb)/fadeinTime;
 
