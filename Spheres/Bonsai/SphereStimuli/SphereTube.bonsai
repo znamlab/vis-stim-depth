@@ -4740,8 +4740,10 @@ Item5.Item2 as Size
                                         <Value>33</Value>
                                       </Operand>
                                     </Expression>
-                                    <Expression xsi:type="MulticastSubject">
-                                      <Name>SphereOriginalID</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="MulticastSubject">
+                                        <Name>SphereOriginalID</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
