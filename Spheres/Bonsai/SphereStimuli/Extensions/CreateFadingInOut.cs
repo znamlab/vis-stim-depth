@@ -39,7 +39,8 @@ public class CreateFadingInOut
 
             float DistanceToSphere = SphereZ-MouseZ;
 
-            double alpha = Math.Atan((double) Radius / (double) DistanceToSphere);
+            //double alpha = Math.Atan((double) Radius / (double) DistanceToSphere);
+            double alpha = Math.Acos((double)DistanceToSphere/Math.Sqrt((double)DistanceToSphere*(double)DistanceToSphere+(double)Radius*(double)Radius));
 
             float k1 = (target_amb-start_amb)/fadeinTime;
 
