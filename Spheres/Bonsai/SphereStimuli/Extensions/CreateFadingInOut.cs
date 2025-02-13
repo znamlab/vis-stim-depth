@@ -4,13 +4,16 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Net.Mail;
 
 [Combinator]
 [Description("")]
 [WorkflowElementCategory(ElementCategory.Transform)]
 public class CreateFadingInOut
 {
-    public IObservable<float> Process(IObservable<Tuple<double, float, float, float, double, double>> source)
+    public IObservable<float> Process(IObservable<Tuple<double, float, float, float, double, double, Tuple<double, float, float>>> source)
+
+
     {
         return source.Select(value => {
             float elapsedTime = Convert.ToSingle(value.Item1);
@@ -19,21 +22,53 @@ public class CreateFadingInOut
             float start_amb = value.Item4;
             float trialElapsedTime = Convert.ToSingle(value.Item5);
             float trialStopTime = Convert.ToSingle(value.Item6);
+            float MouseZ = (float)value.Item7.Item1;
+            float SphereZ = value.Item7.Item2;
+            float Radius = value.Item7.Item3;
 
-            float ambient = start_amb;
+            double BinocularRadBlack;
+            double BinocularRadGray;
+
+
+            BinocularRadBlack = 0.45;
+            BinocularRadGray = 0.36;
+
+
+            float time_ambient=target_amb;
+            float space_ambient=target_amb;
+
+            float DistanceToSphere = SphereZ-MouseZ;
+
+            //double alpha = Math.Atan((double) Radius / (double) DistanceToSphere);
+            double alpha = Math.Acos((double)DistanceToSphere/Math.Sqrt((double)DistanceToSphere*(double)DistanceToSphere+(double)Radius*(double)Radius));
 
             float k1 = (target_amb-start_amb)/fadeinTime;
 
             if ((trialElapsedTime < trialStopTime) || trialStopTime < 0)
             {
-                if (elapsedTime <= fadeinTime)
+                float time_fraction = trialElapsedTime / fadeinTime; //fade in the spheres in fadeinTime s. 
+                time_ambient = start_amb*(1-time_fraction); // go to 0 linearly
+                
+                if (alpha <= BinocularRadGray)
                 {
-                    ambient = start_amb + elapsedTime*k1;
+                    space_ambient=start_amb;
+                }
+                if (alpha <= BinocularRadBlack & alpha > BinocularRadGray)
+                {
+
+                    // Convert alpha to float for clamping
+                    float alphaF = (float)alpha;
+
+                    // Map alphaF in [0, BinocularRad] to ambient in [0.5, 0.0]
+                    float fraction = (alphaF - (float)BinocularRadGray) / ((float)BinocularRadBlack-(float)BinocularRadGray);   // fraction goes [0..1] from BinocularRadGray to BinocularRadBlack
+                    // Ambient at alpha=0 => 0.5
+                    // Ambient at alpha=BinocularRadGray => 0.0
+                    space_ambient = start_amb * (1f - fraction);
                 }
 
-                else
+                else if (alpha > BinocularRadBlack)
                 {
-                    ambient = target_amb;
+                    space_ambient = target_amb;
                 }
             }
 
@@ -41,14 +76,15 @@ public class CreateFadingInOut
             {
                 if (trialStopTime > 0)
                 {
-                    ambient = Math.Min(target_amb - (trialElapsedTime-trialStopTime)*k1, start_amb);
+                    time_ambient = Math.Min(target_amb - (trialElapsedTime-trialStopTime)*k1, start_amb);// fadeout
 
                 }
             }
 
 
             // Returns
-            return ambient;
+            return (float) Math.Max(time_ambient, space_ambient);
+
 
 
         });
