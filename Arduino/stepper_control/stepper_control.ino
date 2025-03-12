@@ -1,0 +1,73 @@
+/*     Serial Controlled Stepper Motor
+ *      
+ *  Modified from example by Dejan Nedelkovski, www.HowToMechatronics.com
+ */
+
+#include <AccelStepper.h>
+#include <elapsedMillis.h>
+
+// Define pin numbers
+const int stepPin = 3;
+const int dirPin = 4;
+const int maxSpeed = 1000; // Maximum stepper speed
+const int accelerationTime = 5000; // Acceleration duration in milliseconds
+
+AccelStepper stepper(1, stepPin, dirPin);
+
+elapsedMillis printTime;
+
+
+float currentSpeed = 0;
+float targetSpeed = 0;
+float start_speed = 0;
+unsigned long startTime = 0;
+unsigned long transitionStartTime = 0;
+bool transitioning = false;
+float progress = 0;
+unsigned long elapsedTime = 0;
+
+void setup() {
+    Serial.begin(9600); // Start serial communication
+    stepper.setMaxSpeed(maxSpeed);
+    stepper.setSpeed(0);
+}
+
+void loop() {
+
+  if (printTime >= 1000) {
+    //Serial.println("Checking slow operations");
+    printTime = 0;
+    if (Serial.available() > 0) {
+        String input = Serial.readStringUntil('\n');  // Read full line
+        input.trim();  // Remove spaces/newlines
+        
+        if (input.length() > 0) {  // Ensure valid input
+            int speedInput = input.toInt();
+            if (speedInput >= 0 && speedInput <= 10) {
+                targetSpeed = (speedInput / 10.0) * maxSpeed;
+                transitionStartTime = millis();
+                start_speed=stepper.speed();
+                transitioning = true;
+                //Serial.print("Target speed set to: ");
+                //Serial.println(targetSpeed);
+            }
+        }
+      }
+    }
+  
+  if (transitioning) {
+      unsigned long elapsedTime = millis() - transitionStartTime;
+      if (elapsedTime < accelerationTime) {
+          float progress = (float)elapsedTime / accelerationTime;
+          currentSpeed = start_speed + (progress * (targetSpeed - start_speed));
+      } else {
+          currentSpeed = targetSpeed;
+          transitioning = false;
+      }
+      stepper.setSpeed(currentSpeed);
+  }
+  
+  stepper.runSpeed();
+}
+
+
