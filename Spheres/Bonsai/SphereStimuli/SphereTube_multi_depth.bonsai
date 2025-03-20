@@ -69,10 +69,10 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:MetadataSource">
           <p1:ExpInfo>
-            <p1:Animal>BRAC9956.3b</p1:Animal>
+            <p1:Animal>test</p1:Animal>
             <p1:RootDirectory>D:\data</p1:RootDirectory>
           </p1:ExpInfo>
-          <p1:Animal>BRAC9956.3b</p1:Animal>
+          <p1:Animal>test</p1:Animal>
           <p1:RootDirectory>D:\data</p1:RootDirectory>
         </Combinator>
       </Expression>
@@ -255,7 +255,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="StringProperty">
-                      <Value>SpheresPermTubeReward</Value>
+                      <Value>SpheresPermTubeReward_multidepth</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -402,7 +402,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="num:CreateRandom">
-                <num:Seed>203</num:Seed>
+                <num:Seed>320</num:Seed>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -475,7 +475,7 @@ it.Timestamp.Second&lt;10? ("0"+it.Timestamp.Second.ToString()):(it.Timestamp.Se
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\harpmessage.bin</dsp:Path>
+                <dsp:Path>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\harpmessage.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1044,7 +1044,7 @@ Item3 as FrameIndex)</scr:Expression>
                     <Combinator xsi:type="gl:CreateVector3">
                       <gl:X>0</gl:X>
                       <gl:Y>0</gl:Y>
-                      <gl:Z>3612.55542</gl:Z>
+                      <gl:Z>0</gl:Z>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -1074,7 +1074,7 @@ Item3 as FrameIndex)</scr:Expression>
                           <Eye>
                             <X>0</X>
                             <Y>0</Y>
-                            <Z>3612.55542</Z>
+                            <Z>0</Z>
                           </Eye>
                           <NearClip>0.001</NearClip>
                           <FarClip>1000000</FarClip>
@@ -1827,7 +1827,7 @@ Item3 * Math.Cos(Item2) * Math.Sin(Item1) as Z0
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
                     <TranslationX>-0.694272041</TranslationX>
                     <TranslationY>-0.642787635</TranslationY>
-                    <TranslationZ>3612.23169</TranslationZ>
+                    <TranslationZ>-0.323744357</TranslationZ>
                     <ScaleX>0.1</ScaleX>
                     <ScaleY>0.1</ScaleY>
                     <ScaleZ>0.1</ScaleZ>
@@ -1985,7 +1985,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
 )</scr:Expression>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\FrameLog.csv</io:FileName>
+                    <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\FrameLog.csv</io:FileName>
                     <io:Delimiter>,</io:Delimiter>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
@@ -2047,7 +2047,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>SphereTube_fixed_spc.bonsai</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\SphereTube_fixed_spc.bonsai</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\SphereTube_fixed_spc.bonsai</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2087,7 +2087,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\random_sequence_5values_alternate.csv</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\random_sequence_5values_alternate.csv</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\random_sequence_5values_alternate.csv</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2126,7 +2126,7 @@ Item2.UpdateFrameIndex as UpdateFrameIndex
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p1:CopyFile">
                       <p1:SourcePath>Extensions\TubeMapping_NewZ.cs</p1:SourcePath>
-                      <p1:DestinationPath>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\TubeMapping_NewZ.cs</p1:DestinationPath>
+                      <p1:DestinationPath>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\TubeMapping_NewZ.cs</p1:DestinationPath>
                       <p1:Overwrite>false</p1:Overwrite>
                     </Combinator>
                   </Expression>
@@ -2297,7 +2297,7 @@ Item6 as FloorHeight
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>0</TranslationX>
                           <TranslationY>-2.5</TranslationY>
-                          <TranslationZ>3800</TranslationZ>
+                          <TranslationZ>200</TranslationZ>
                           <ScaleX>5</ScaleX>
                           <ScaleY>200</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2367,7 +2367,7 @@ Item6 as FloorHeight
               </Workflow>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\ManualReward.bonsai">
-              <RewardDuration>1600</RewardDuration>
+              <RewardDuration>500</RewardDuration>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="BooleanProperty">
@@ -2715,7 +2715,6 @@ Item6 as FloorHeight
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -2728,7 +2727,6 @@ Item6 as FloorHeight
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -2745,7 +2743,6 @@ Item6 as FloorHeight
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -3465,8 +3462,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -4406,108 +4405,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -5265,17 +5268,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>10</TranslationX>
-                                <TranslationY>-0.00281172548</TranslationY>
-                                <TranslationZ>3607.47388</TranslationZ>
+                                <TranslationX>-8.465526</TranslationX>
+                                <TranslationY>5.323051</TranslationY>
+                                <TranslationZ>24</TranslationZ>
                                 <ScaleX>0.87</ScaleX>
                                 <ScaleY>0.87</ScaleY>
                                 <ScaleZ>0.87</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0</X>
-                                  <Y>0</Y>
-                                  <Z>0</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -5317,8 +5320,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -5513,7 +5518,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5566,15 +5571,20 @@ Item4 as Depth
                                   <BufferSize xsi:nil="true" />
                                 </Builder>
                               </Expression>
-                              <Expression xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Tuple(sys:Tuple(sys:Int32,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single)),sys:Single)">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="BehaviorSubject" TypeArguments="sys:Tuple(sys:Tuple(sys:Tuple(sys:Int32,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single),sys:Tuple(sys:Single,sys:Single)),sys:Single)">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
-                                <Name>Timestamp</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+                                  <Name>Timestamp</Name>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="scr:ExpressionTransform">
-                                <scr:Name>Rename</scr:Name>
-                                <scr:Expression>new(
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="scr:ExpressionTransform">
+                                  <scr:Name>Rename</scr:Name>
+                                  <scr:Expression>new(
 Timestamp as HarpTime,
 Value.Item1.Item1.Item1 as SphereID,
 Value.Item1.Item1.Item2 as SphereStartTime,
@@ -5590,44 +5600,66 @@ Value.Item1.Item5.Item1 as OriginalSize,
 Value.Item1.Item5.Item2 as Size,
 Value.Item2 as Ambience
 )</scr:Expression>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>RootName</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="SubscribeSubject">
+                                  <Name>RootName</Name>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>FrameZ</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="SubscribeSubject">
+                                  <Name>FrameZ</Name>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>FrameObject.TimeStep</Selector>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MemberSelector">
+                                  <Selector>FrameObject.TimeStep</Selector>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="rx:Accumulate" />
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>FrameIndex</Selector>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="rx:Accumulate" />
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:Zip" />
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MemberSelector">
+                                  <Selector>FrameIndex</Selector>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>UpdateFrameIndex</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="rx:Zip" />
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:WithLatestFrom" />
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="SubscribeSubject">
+                                  <Name>UpdateFrameIndex</Name>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="scr:ExpressionTransform">
-                                <scr:Name>Rename</scr:Name>
-                                <scr:Expression>new(
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="rx:WithLatestFrom" />
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="scr:ExpressionTransform">
+                                  <scr:Name>Rename</scr:Name>
+                                  <scr:Expression>new(
 Item1.Item2 as Frameindex,
 Item1.Item1.ElapsedTime as ElapsedTimeSinceSpheres,
 Item1.Item1.ElapsedRealTime as ElapsedRealTimeSinceSpheres,
 Item2 as UpdateFrameIndex)
 </scr:Expression>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:WithLatestFrom" />
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="rx:WithLatestFrom" />
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="scr:ExpressionTransform">
-                                <scr:Name>Rename</scr:Name>
-                                <scr:Expression>new(
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="scr:ExpressionTransform">
+                                  <scr:Name>Rename</scr:Name>
+                                  <scr:Expression>new(
 Item1.HarpTime as HarpTime,
 Item2.Frameindex as Frameindex,
 Item2.ElapsedTimeSinceSpheres as ElapsedTimeSinceSpheres,
@@ -5645,28 +5677,39 @@ Item1.MouseZ as MouseZ,
 Item1.OriginalSize as OriginalSize,
 Item1.Size as Size,
 Item1.Ambience as Ambience)</scr:Expression>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>Radius</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="SubscribeSubject">
+                                  <Name>Radius</Name>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:Zip" />
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="rx:Zip" />
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="Format">
-                                <Format>{0}\AllParams_{1}cm.csv</Format>
-                                <Selector>Item1,Item2</Selector>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Format">
+                                  <Format>{0}\AllParams_{1}cm.csv</Format>
+                                  <Selector>Item1,Item2</Selector>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="PropertyMapping">
-                                <PropertyMappings>
-                                  <Property Name="FileName" />
-                                </PropertyMappings>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="PropertyMapping">
+                                  <PropertyMappings>
+                                    <Property Name="FileName" />
+                                  </PropertyMappings>
+                                </Builder>
                               </Expression>
-                              <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_10cm.csv</io:FileName>
-                                <io:Append>false</io:Append>
-                                <io:Overwrite>false</io:Overwrite>
-                                <io:Suffix>None</io:Suffix>
-                                <io:IncludeHeader>true</io:IncludeHeader>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="io:CsvWriter">
+                                  <io:FileName>D:\data\test\S20250314\R133302_SpheresPermTubeReward_multidepth\\AllParams_10cm.csv</io:FileName>
+                                  <io:Append>false</io:Append>
+                                  <io:Overwrite>false</io:Overwrite>
+                                  <io:Suffix>None</io:Suffix>
+                                  <io:IncludeHeader>true</io:IncludeHeader>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -5819,7 +5862,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_10cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_10cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -5871,7 +5914,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -6218,7 +6261,6 @@ Item1.Value as Reward)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -6231,7 +6273,6 @@ Item1.Value as Reward)</scr:Expression>
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -6248,7 +6289,6 @@ Item1.Value as Reward)</scr:Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -6968,8 +7008,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -7909,108 +7951,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -8768,17 +8814,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>18.6758862</TranslationX>
-                                <TranslationY>-7.156207</TranslationY>
-                                <TranslationZ>3592.636</TranslationZ>
+                                <TranslationX>19.8992729</TranslationX>
+                                <TranslationY>2.00473332</TranslationY>
+                                <TranslationZ>48</TranslationZ>
                                 <ScaleX>1.74</ScaleX>
                                 <ScaleY>1.74</ScaleY>
                                 <ScaleZ>1.74</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0</X>
-                                  <Y>0</Y>
-                                  <Z>0</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -8820,8 +8866,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -9016,7 +9064,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -9165,7 +9213,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -9322,7 +9370,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_20cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_20cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -9374,7 +9422,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -9721,7 +9769,6 @@ Item1.Value as Reward)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -9734,7 +9781,6 @@ Item1.Value as Reward)</scr:Expression>
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -9751,7 +9797,6 @@ Item1.Value as Reward)</scr:Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -10471,8 +10516,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -11412,108 +11459,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -12271,17 +12322,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>37.032795</TranslationX>
-                                <TranslationY>-15.1186047</TranslationY>
-                                <TranslationZ>3744.85083</TranslationZ>
+                                <TranslationX>34.5065079</TranslationX>
+                                <TranslationY>-20.2311859</TranslationY>
+                                <TranslationZ>96</TranslationZ>
                                 <ScaleX>3.48</ScaleX>
                                 <ScaleY>3.48</ScaleY>
                                 <ScaleZ>3.48</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.409174323</X>
-                                  <Y>0.409174323</Y>
-                                  <Z>0.409174323</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -12323,8 +12374,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -12519,7 +12572,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12668,7 +12721,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12825,7 +12878,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_40cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_40cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -12877,7 +12930,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -13224,7 +13277,6 @@ Item1.Value as Reward)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -13237,7 +13289,6 @@ Item1.Value as Reward)</scr:Expression>
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -13254,7 +13305,6 @@ Item1.Value as Reward)</scr:Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -13974,8 +14024,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -14915,108 +14967,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -15774,17 +15830,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-73.05951</TranslationX>
-                                <TranslationY>32.59307</TranslationY>
-                                <TranslationZ>3888.85083</TranslationZ>
+                                <TranslationX>-70.00958</TranslationX>
+                                <TranslationY>-38.7125053</TranslationY>
+                                <TranslationZ>192</TranslationZ>
                                 <ScaleX>6.96</ScaleX>
                                 <ScaleY>6.96</ScaleY>
                                 <ScaleZ>6.96</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0.454469949</X>
-                                  <Y>0.454469949</Y>
-                                  <Z>0.454469949</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -15826,8 +15882,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -16022,7 +16080,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -16171,7 +16229,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -16328,7 +16386,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_80cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_80cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -16380,7 +16438,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -16727,7 +16785,6 @@ Item1.Value as Reward)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -16740,7 +16797,6 @@ Item1.Value as Reward)</scr:Expression>
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -16757,7 +16813,6 @@ Item1.Value as Reward)</scr:Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -17477,8 +17532,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -18418,108 +18475,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -19277,17 +19338,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>140.937363</TranslationX>
-                                <TranslationY>-75.74075</TranslationY>
-                                <TranslationZ>3784.85083</TranslationZ>
+                                <TranslationX>138.280182</TranslationX>
+                                <TranslationY>-80.4897</TranslationY>
+                                <TranslationZ>384</TranslationZ>
                                 <ScaleX>13.92</ScaleX>
                                 <ScaleY>13.92</ScaleY>
                                 <ScaleZ>13.92</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0</X>
-                                  <Y>0</Y>
-                                  <Z>0</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -19329,8 +19390,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -19525,7 +19588,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19674,7 +19737,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19831,7 +19894,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_160cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_160cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -19883,7 +19946,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -20230,7 +20293,6 @@ Item1.Value as Reward)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -20243,7 +20305,6 @@ Item1.Value as Reward)</scr:Expression>
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -20260,7 +20321,6 @@ Item1.Value as Reward)</scr:Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -20980,8 +21040,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -21921,108 +21983,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -22780,17 +22846,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-313.9197</TranslationX>
-                                <TranslationY>-62.08396</TranslationY>
-                                <TranslationZ>3784.85083</TranslationZ>
+                                <TranslationX>-318.6436</TranslationX>
+                                <TranslationY>-29.43225</TranslationY>
+                                <TranslationZ>768</TranslationZ>
                                 <ScaleX>27.84</ScaleX>
                                 <ScaleY>27.84</ScaleY>
                                 <ScaleZ>27.84</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0</X>
-                                  <Y>0</Y>
-                                  <Z>0</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -22832,8 +22898,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -23028,7 +23096,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -23177,7 +23245,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -23334,7 +23402,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_320cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_320cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -23386,7 +23454,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -23733,7 +23801,6 @@ Item1.Value as Reward)</scr:Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Size" />
                     <Property Name="NewSphereTriggerThreshold" />
-                    <Property Name="RewardDelay" Category="Reward" />
                     <Property Name="BackgroundColor" />
                     <Property Name="TargetAmb" />
                   </Expression>
@@ -23746,7 +23813,6 @@ Item1.Value as Reward)</scr:Expression>
                           <Property Name="Size" />
                           <Property Name="DistanceBehind" Category="TrialCondition" />
                           <Property Name="NewSphereTriggerThreshold" />
-                          <Property Name="RewardDelay" />
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>ManageSphereParams6m</Name>
@@ -23763,7 +23829,6 @@ Item1.Value as Reward)</scr:Expression>
                               <Expression xsi:type="ExternalizedMapping">
                                 <Property Name="DistanceBehind" />
                                 <Property Name="NewSphereTriggerThreshold" />
-                                <Property Name="RewardDelay" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Radius</Name>
@@ -24483,8 +24548,10 @@ Item3 as Count
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:WithLatestFrom" />
                                     </Expression>
-                                    <Expression xsi:type="PublishSubject">
-                                      <Name>RewardTrigger</Name>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="PublishSubject">
+                                        <Name>RewardTrigger</Name>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
                                       <Name>EndTriggerOut</Name>
@@ -25424,108 +25491,112 @@ it[1] as Item2)</scr:Expression>
                                         </Workflow>
                                       </Builder>
                                     </Expression>
-                                    <Expression xsi:type="ExternalizedMapping">
-                                      <Property Name="RewardDelay" />
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="ExternalizedMapping">
+                                        <Property Name="RewardDelay" />
+                                      </Builder>
                                     </Expression>
-                                    <Expression xsi:type="GroupWorkflow">
-                                      <Name>BlankPeriod Reward</Name>
-                                      <Workflow>
-                                        <Nodes>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="ExternalizedMapping">
-                                            <Property Name="DueTime" DisplayName="RewardDelay" />
-                                          </Expression>
-                                          <Expression xsi:type="SubscribeSubject">
-                                            <Name>RewardTrigger</Name>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:WithLatestFrom" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item2</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Delay">
-                                              <rx:DueTime>PT2S</rx:DueTime>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
-                                            <RangeMin>0</RangeMin>
-                                            <RangeMax>1</RangeMax>
-                                            <Count>1000</Count>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="num:Permutation" />
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="rx:Zip" />
-                                          </Expression>
-                                          <Expression xsi:type="MemberSelector">
-                                            <Selector>Item1</Selector>
-                                          </Expression>
-                                          <Expression xsi:type="Condition">
-                                            <Workflow>
-                                              <Nodes>
-                                                <Expression xsi:type="WorkflowInput">
-                                                  <Name>Source1</Name>
-                                                </Expression>
-                                                <Expression xsi:type="SubscribeSubject">
-                                                  <Name>RewardProb</Name>
-                                                </Expression>
-                                                <Expression xsi:type="PropertyMapping">
-                                                  <PropertyMappings>
-                                                    <Property Name="Value" />
-                                                  </PropertyMappings>
-                                                </Expression>
-                                                <Expression xsi:type="LessThanOrEqual">
-                                                  <Operand xsi:type="DoubleProperty">
-                                                    <Value>0.800000011920929</Value>
-                                                  </Operand>
-                                                </Expression>
-                                                <Expression xsi:type="WorkflowOutput" />
-                                              </Nodes>
-                                              <Edges>
-                                                <Edge From="0" To="3" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source2" />
-                                                <Edge From="3" To="4" Label="Source1" />
-                                              </Edges>
-                                            </Workflow>
-                                          </Expression>
-                                          <Expression xsi:type="Combinator">
-                                            <Combinator xsi:type="BooleanProperty">
-                                              <Value>true</Value>
-                                            </Combinator>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>Reward</Name>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>RewardLog</Name>
-                                          </Expression>
-                                          <Expression xsi:type="WorkflowOutput" />
-                                        </Nodes>
-                                        <Edges>
-                                          <Edge From="0" To="3" Label="Source2" />
-                                          <Edge From="1" To="5" Label="Source2" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="4" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="8" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source1" />
-                                          <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
-                                          <Edge From="10" To="11" Label="Source1" />
-                                          <Edge From="11" To="12" Label="Source1" />
-                                          <Edge From="12" To="13" Label="Source1" />
-                                          <Edge From="13" To="14" Label="Source1" />
-                                        </Edges>
-                                      </Workflow>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="GroupWorkflow">
+                                        <Name>BlankPeriod Reward</Name>
+                                        <Workflow>
+                                          <Nodes>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="ExternalizedMapping">
+                                              <Property Name="DueTime" DisplayName="RewardDelay" />
+                                            </Expression>
+                                            <Expression xsi:type="SubscribeSubject">
+                                              <Name>RewardTrigger</Name>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:WithLatestFrom" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item2</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Delay">
+                                                <rx:DueTime>PT2S</rx:DueTime>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.ParameterRange.bonsai">
+                                              <RangeMin>0</RangeMin>
+                                              <RangeMax>1</RangeMax>
+                                              <Count>1000</Count>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="num:Permutation" />
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="rx:Zip" />
+                                            </Expression>
+                                            <Expression xsi:type="MemberSelector">
+                                              <Selector>Item1</Selector>
+                                            </Expression>
+                                            <Expression xsi:type="Condition">
+                                              <Workflow>
+                                                <Nodes>
+                                                  <Expression xsi:type="WorkflowInput">
+                                                    <Name>Source1</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="SubscribeSubject">
+                                                    <Name>RewardProb</Name>
+                                                  </Expression>
+                                                  <Expression xsi:type="PropertyMapping">
+                                                    <PropertyMappings>
+                                                      <Property Name="Value" />
+                                                    </PropertyMappings>
+                                                  </Expression>
+                                                  <Expression xsi:type="LessThanOrEqual">
+                                                    <Operand xsi:type="DoubleProperty">
+                                                      <Value>0.800000011920929</Value>
+                                                    </Operand>
+                                                  </Expression>
+                                                  <Expression xsi:type="WorkflowOutput" />
+                                                </Nodes>
+                                                <Edges>
+                                                  <Edge From="0" To="3" Label="Source1" />
+                                                  <Edge From="1" To="2" Label="Source1" />
+                                                  <Edge From="2" To="3" Label="Source2" />
+                                                  <Edge From="3" To="4" Label="Source1" />
+                                                </Edges>
+                                              </Workflow>
+                                            </Expression>
+                                            <Expression xsi:type="Combinator">
+                                              <Combinator xsi:type="BooleanProperty">
+                                                <Value>true</Value>
+                                              </Combinator>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>Reward</Name>
+                                            </Expression>
+                                            <Expression xsi:type="MulticastSubject">
+                                              <Name>RewardLog</Name>
+                                            </Expression>
+                                            <Expression xsi:type="WorkflowOutput" />
+                                          </Nodes>
+                                          <Edges>
+                                            <Edge From="0" To="3" Label="Source2" />
+                                            <Edge From="1" To="5" Label="Source2" />
+                                            <Edge From="2" To="3" Label="Source1" />
+                                            <Edge From="3" To="4" Label="Source1" />
+                                            <Edge From="4" To="5" Label="Source1" />
+                                            <Edge From="5" To="8" Label="Source2" />
+                                            <Edge From="6" To="7" Label="Source1" />
+                                            <Edge From="7" To="8" Label="Source1" />
+                                            <Edge From="8" To="9" Label="Source1" />
+                                            <Edge From="9" To="10" Label="Source1" />
+                                            <Edge From="10" To="11" Label="Source1" />
+                                            <Edge From="11" To="12" Label="Source1" />
+                                            <Edge From="12" To="13" Label="Source1" />
+                                            <Edge From="13" To="14" Label="Source1" />
+                                          </Edges>
+                                        </Workflow>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Disable">
                                       <Builder xsi:type="SubscribeSubject">
@@ -26283,17 +26354,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-637.8879</TranslationX>
-                                <TranslationY>-51.95241</TranslationY>
-                                <TranslationZ>3399.02539</TranslationZ>
+                                <TranslationX>530.5582</TranslationX>
+                                <TranslationY>357.921783</TranslationY>
+                                <TranslationZ>1536</TranslationZ>
                                 <ScaleX>55.68</ScaleX>
                                 <ScaleY>55.68</ScaleY>
                                 <ScaleZ>55.68</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0</X>
-                                  <Y>0</Y>
-                                  <Z>0</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -26335,8 +26406,10 @@ Item5.Item2 as Size
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:CombineLatest" />
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LogSphereAllParams</Name>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>LogSphereAllParams</Name>
+                                </Builder>
                               </Expression>
                             </Nodes>
                             <Edges>
@@ -26531,7 +26604,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26680,7 +26753,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26837,7 +26910,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_640cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_640cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -26889,7 +26962,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -29786,17 +29859,17 @@ Item5.Item2 as Size
                                 <Selector>Item1</Selector>
                               </Expression>
                               <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
-                                <TranslationX>-4.99439144</TranslationX>
-                                <TranslationY>0.236756012</TranslationY>
-                                <TranslationZ>3610.85083</TranslationZ>
+                                <TranslationX>4.050975</TranslationX>
+                                <TranslationY>-2.93080235</TranslationY>
+                                <TranslationZ>12</TranslationZ>
                                 <ScaleX>0.435</ScaleX>
                                 <ScaleY>0.435</ScaleY>
                                 <ScaleZ>0.435</ScaleZ>
                                 <MeshName>sphere</MeshName>
                                 <Ambient>
-                                  <X>0</X>
-                                  <Y>0</Y>
-                                  <Z>0</Z>
+                                  <X>0.306716</X>
+                                  <Y>0.306716</Y>
+                                  <Z>0.306716</Z>
                                 </Ambient>
                                 <Diffuse>
                                   <X>0</X>
@@ -30034,7 +30107,7 @@ Item1.Size as Size)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\NewParams_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\NewParams_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -30183,7 +30256,7 @@ Item1.Ambience as Ambience)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\AllParams_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\AllParams_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -30340,7 +30413,7 @@ Item1.Value as Reward)</scr:Expression>
                                 </PropertyMappings>
                               </Expression>
                               <Expression xsi:type="io:CsvWriter">
-                                <io:FileName>D:\data\BRAC9956.3b\S20250203\R133627_SpheresPermTubeReward\\RewardLog_5cm.csv</io:FileName>
+                                <io:FileName>D:\data\test\S20250320\R105412_SpheresPermTubeReward_multidepth\\RewardLog_5cm.csv</io:FileName>
                                 <io:Append>false</io:Append>
                                 <io:Overwrite>false</io:Overwrite>
                                 <io:Suffix>None</io:Suffix>
@@ -30392,7 +30465,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT20S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
