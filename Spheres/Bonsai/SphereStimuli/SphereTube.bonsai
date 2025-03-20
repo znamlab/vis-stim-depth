@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.6.2"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:osc="clr-namespace:Bonsai.Osc;assembly=Bonsai.Osc"
@@ -2506,6 +2506,9 @@ Item6 as FloorHeight
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="InitialDelay" />
             </Expression>
             <Expression xsi:type="SelectMany">
               <Name>Spheres Close &amp; Open</Name>
@@ -5421,7 +5424,7 @@ Item1.Value as Reward)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:DelaySubscription">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT30S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -5466,7 +5469,7 @@ Item1.Value as Reward)</scr:Expression>
           </Nodes>
           <Edges>
             <Edge From="8" To="17" Label="Source1" />
-            <Edge From="9" To="19" Label="Source2" />
+            <Edge From="9" To="20" Label="Source2" />
             <Edge From="10" To="14" Label="Source3" />
             <Edge From="11" To="14" Label="Source2" />
             <Edge From="12" To="14" Label="Source1" />
@@ -5474,8 +5477,9 @@ Item1.Value as Reward)</scr:Expression>
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="15" To="17" Label="Source2" />
-            <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="17" To="19" Label="Source1" />
+            <Edge From="18" To="19" Label="Source2" />
+            <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
