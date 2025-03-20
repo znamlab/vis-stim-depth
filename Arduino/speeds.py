@@ -65,13 +65,8 @@ def random_k_values_from_list(values, k, output_file="speeds_stepss.csv"):
     return output_file
 
 
-
-
-
-
 single_trial = trial_values(OPTIC_FLOWS, RUNNING_SPEEDS, steps_per_rev=true_steps_per_rev)
-pseudo_random_sequence(OPTIC_FLOWS, RUNNING_SPEEDS, 2, output_file="rpm_depth_combinations.csv", steps_per_rev=true_steps_per_rev)
-speeds_stepss = cms_to_stepss(speeds_cms, WHEEL_RADIUS, true_steps_per_rev)
-
-output_file = random_k_values_from_list(speeds_stepss, N_CORRIDORS)
-
+stim_df = pseudo_random_sequence(OPTIC_FLOWS, RUNNING_SPEEDS, 2, output_file="steppersec_depth_combinations.csv", steps_per_rev=true_steps_per_rev)
+print(stim_df.depth.describe())
+print(stim_df.sps.describe())
+print(f'Min depth: ')
