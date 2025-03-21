@@ -35,9 +35,9 @@ def trial_values(optic_flows, running_speeds, steps_per_rev):
     for of in optic_flows:
         for rs in running_speeds:
             steps = cms_to_stepss(rs, WHEEL_RADIUS, steps_per_rev)
-            depth = (rs/100)/np.radians(of)
-            output.append([steps, depth])
-    return pd.DataFrame(output, columns=['sps', 'depth'])
+            depth = (rs)/np.radians(of)
+            output.append([steps, depth, rs, of])
+    return pd.DataFrame(output, columns=['sps', 'depth', 'rs', 'of'])
 
 def pseudo_random_sequence(optic_flows, running_speeds, ntrials, output_file="rpm_depth_combinations.csv", steps_per_rev=true_steps_per_rev):
     output = []
