@@ -14,7 +14,7 @@ MIN_SPEED = 4
 MAX_SPEED = 64
 N_SPEEDS = 5
 RUNNING_SPEEDS = [4, 8, 16, 32, 64]
-OPTIC_FLOWS = [0.1, 1, 10, 100, 1000]
+OPTIC_FLOWS = [1, 4, 16, 64, 256, 1024]
 N_CORRIDORS = 400
 STEPS_PER_REV = 200
 MICROSTEPPING = 1/4
@@ -39,14 +39,15 @@ def trial_values(optic_flows, running_speeds, steps_per_rev):
             output.append([steps, depth, rs, of])
     return pd.DataFrame(output, columns=['sps', 'depth', 'rs', 'of'])
 
-def pseudo_random_sequence(optic_flows, running_speeds, ntrials, output_file="rpm_depth_combinations.csv", steps_per_rev=true_steps_per_rev):
+def pseudo_random_sequence(optic_flows, running_speeds, ntrials, randomise=True, output_file="rpm_depth_combinations.csv", steps_per_rev=true_steps_per_rev):
     output = []
     single_trial = trial_values(optic_flows, running_speeds, steps_per_rev=steps_per_rev)
     nstimuli = len(single_trial)
     print(f'Single trial with {nstimuli} stimuli')
     randorder = np.arange(nstimuli)
     for trial in range(ntrials):
-        np.random.shuffle(randorder)
+        if randomise:
+            np.random.shuffle(randorder)
         output.append(single_trial.loc[randorder].reset_index().copy())
     output = pd.concat(output, ignore_index=True)
     if output_file is not None:
@@ -66,7 +67,7 @@ def random_k_values_from_list(values, k, output_file="speeds_stepss.csv"):
 
 
 single_trial = trial_values(OPTIC_FLOWS, RUNNING_SPEEDS, steps_per_rev=true_steps_per_rev)
-stim_df = pseudo_random_sequence(OPTIC_FLOWS, RUNNING_SPEEDS, 2, output_file="steppersec_depth_combinations.csv", steps_per_rev=true_steps_per_rev)
+stim_df = pseudo_random_sequence(OPTIC_FLOWS, RUNNING_SPEEDS, 1, randomise=False, output_file="steppersec_depth_combinations.csv", steps_per_rev=true_steps_per_rev)
 print(stim_df.depth.describe())
 print(stim_df.sps.describe())
 print(f'Min depth: ')
